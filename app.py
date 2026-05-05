@@ -487,7 +487,7 @@ def render_content_card(title, meta, summary, image_url=None):
 def render_project_card(project):
     render_content_card(
         project["title"],
-        f'{project["capability"]} · {project["location"]}',
+        f'{project["capability"]} - {project["location"]}',
         project["summary"],
         project.get("image"),
     )
@@ -546,7 +546,7 @@ def render_experience_card(item):
 def render_simple_visual_card(item):
     render_content_card(
         item["title"],
-        f'{item.get("category", "Extra-Curricular")} · {item.get("location", "")}',
+        f'{item.get("category", "Extra-Curricular")} - {item.get("location", "")}',
         item["summary"],
         item.get("image"),
     )
@@ -906,7 +906,7 @@ def render_education():
 
     for item in education:
         with st.expander(
-            f'{item["timeline"]} · {item["title"]}',
+            f'{item["timeline"]} - {item["title"]}',
             expanded=item["title"].startswith("Global MBA"),
         ):
             c1, c2 = st.columns([0.9, 1.4])
@@ -1165,7 +1165,7 @@ def render_contact():
             """
             <div class="contact-card">
                 <h3>Shalini Arun Prakash</h3>
-                <p><b>Portfolio Focus:</b> Digital Transformation · Data Analytics · Business Projects · AI-Enabled Business Models · Commercial Execution</p>
+                <p><b>Portfolio Focus:</b> Digital Transformation - Data Analytics - Business Projects - AI-Enabled Business Models - Commercial Execution</p>
                 <p><b>Location:</b> India</p>
                 <p><b>Email:</b> shaliniarun23@gmail.com</p>
                 <p><b>LinkedIn:</b> linkedin.com/in/shaliniarun</p>
@@ -1197,7 +1197,7 @@ st.markdown(
     <div class="top-header">
         <div class="top-name">Shalini Arun Prakash</div>
         <div class="top-subtitle">
-            Digital Transformation · Data Analytics · AI-Enabled Business Models · Commercial Execution · Strategy
+            Digital Transformation - Data Analytics - AI-Enabled Business Models - Commercial Execution - Strategy
         </div>
     </div>
     """,
