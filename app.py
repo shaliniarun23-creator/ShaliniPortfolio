@@ -29,13 +29,6 @@ st.markdown(
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-:root {
-    --accent-red: #E53935;
-    --accent-light-red: #FF6B6B;
-    --bg-card: #111113;
-    --text-muted: #a1a1aa;
-}
-
 html, body, [class*="css"] {
     font-family: 'Inter', sans-serif;
 }
@@ -51,10 +44,7 @@ html, body, [class*="css"] {
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
-
-[data-testid="stSidebar"] {
-    display: none;
-}
+[data-testid="stSidebar"] {display: none;}
 
 .block-container {
     padding-top: 1.2rem;
@@ -568,20 +558,17 @@ hr {
 
 
 def render_badges(items, style="badge"):
-    st.markdown(
-        "".join([f'<span class="{style}">{item}</span>' for item in items]),
-        unsafe_allow_html=True,
-    )
+    st.markdown("".join([f'<span class="{style}">{item}</span>' for item in items]), unsafe_allow_html=True)
 
 
 def render_metric_card(value, label):
     st.markdown(
         f"""
-    <div class="metric-card">
-        <div class="metric-value">{value}</div>
-        <div class="metric-label">{label}</div>
-    </div>
-    """,
+        <div class="metric-card">
+            <div class="metric-value">{value}</div>
+            <div class="metric-label">{label}</div>
+        </div>
+        """,
         unsafe_allow_html=True,
     )
 
@@ -589,11 +576,11 @@ def render_metric_card(value, label):
 def render_fit_card(area, evidence):
     st.markdown(
         f"""
-    <div class="fit-card">
-        <h3>{area}</h3>
-        <p>{evidence}</p>
-    </div>
-    """,
+        <div class="fit-card">
+            <h3>{area}</h3>
+            <p>{evidence}</p>
+        </div>
+        """,
         unsafe_allow_html=True,
     )
 
@@ -601,27 +588,29 @@ def render_fit_card(area, evidence):
 def render_image_banner(title, text, image_url):
     st.markdown(
         f"""
-    <div class="image-banner-card" style="background-image:url('{image_url}');">
-        <div class="image-banner-overlay">
-            <div class="image-banner-title">{title}</div>
-            <div class="image-banner-text">{text}</div>
+        <div class="image-banner-card" style="background-image:url('{image_url}');">
+            <div class="image-banner-overlay">
+                <div class="image-banner-title">{title}</div>
+                <div class="image-banner-text">{text}</div>
+            </div>
         </div>
-    </div>
-    """,
+        """,
         unsafe_allow_html=True,
     )
-    def render_project_card(project):
+
+
+def render_project_card(project):
     st.markdown(
         f"""
-    <div class="project-card">
-        <img src="{project["image"]}" class="project-img">
-        <div class="project-body">
-            <div class="project-title">{project["title"]}</div>
-            <div class="project-meta">{project["capability"]} · {project["location"]}</div>
-            <div class="project-summary">{project["summary"]}</div>
+        <div class="project-card">
+            <img src="{project["image"]}" class="project-img">
+            <div class="project-body">
+                <div class="project-title">{project["title"]}</div>
+                <div class="project-meta">{project["capability"]} · {project["location"]}</div>
+                <div class="project-summary">{project["summary"]}</div>
+            </div>
         </div>
-    </div>
-    """,
+        """,
         unsafe_allow_html=True,
     )
 
@@ -655,10 +644,10 @@ def render_image_banner(title, text, image_url):
             st.markdown("#### Relevance")
             st.markdown(
                 f"""
-            <div class="relevance-box">
-                {project["strategic_relevance"]}
-            </div>
-            """,
+                <div class="relevance-box">
+                    {project["strategic_relevance"]}
+                </div>
+                """,
                 unsafe_allow_html=True,
             )
 
@@ -667,21 +656,19 @@ def render_experience_card(item):
     achievement_html = "".join([f"<li>{achievement}</li>" for achievement in item["achievements"]])
     st.markdown(
         f"""
-    <div class="project-card">
-        <img src="{item["image"]}" class="experience-img">
-        <div class="experience-body">
-            <div class="timeline-title">{item["title"]}</div>
-            <div class="timeline-meta">{item["period"]}</div>
-            <div class="timeline-detail">{item["description"]}</div>
-            <div class="achievement-list">
-                <b>Achievements:</b>
-                <ul>
-                    {achievement_html}
-                </ul>
+        <div class="project-card">
+            <img src="{item["image"]}" class="experience-img">
+            <div class="experience-body">
+                <div class="timeline-title">{item["title"]}</div>
+                <div class="timeline-meta">{item["period"]}</div>
+                <div class="timeline-detail">{item["description"]}</div>
+                <div class="achievement-list">
+                    <b>Achievements:</b>
+                    <ul>{achievement_html}</ul>
+                </div>
             </div>
         </div>
-    </div>
-    """,
+        """,
         unsafe_allow_html=True,
     )
 
@@ -690,16 +677,16 @@ def render_simple_visual_card(item):
     chips = "".join([f'<span class="skill-item">{skill}</span>' for skill in item["skills"]])
     st.markdown(
         f"""
-    <div class="project-card">
-        <img src="{item["image"]}" class="project-img">
-        <div class="project-body">
-            <div class="project-title">{item["title"]}</div>
-            <div class="project-meta">{item.get("category", "Extra-Curricular")} · {item.get("location", "")}</div>
-            <div class="project-summary">{item["summary"]}</div>
-            <div>{chips}</div>
+        <div class="project-card">
+            <img src="{item["image"]}" class="project-img">
+            <div class="project-body">
+                <div class="project-title">{item["title"]}</div>
+                <div class="project-meta">{item.get("category", "Extra-Curricular")} · {item.get("location", "")}</div>
+                <div class="project-summary">{item["summary"]}</div>
+                <div>{chips}</div>
+            </div>
         </div>
-    </div>
-    """,
+        """,
         unsafe_allow_html=True,
     )
 
@@ -906,12 +893,7 @@ def make_project_capability_heatmap():
             z=z,
             x=capability_groups,
             y=y_labels,
-            colorscale=[
-                [0, "#111113"],
-                [0.3, "#4A0F0F"],
-                [0.6, "#B71C1C"],
-                [1, "#FF6B6B"],
-            ],
+            colorscale=[[0, "#111113"], [0.3, "#4A0F0F"], [0.6, "#B71C1C"], [1, "#FF6B6B"]],
             colorbar=dict(title="Coverage"),
             zmin=0,
             zmax=9,
@@ -1045,29 +1027,31 @@ def render_leadership_impact_matrix():
     ]
 
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
-    def render_home():
+
+
+def render_home():
     st.markdown(
         """
-    <div class="hero-shell">
-        <div class="hero-content">
-            <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
-            <div class="hero-title">
-                I turn <span class="highlight-red">complex problems</span><br>
-                into structured business outcomes.
+        <div class="hero-shell">
+            <div class="hero-content">
+                <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
+                <div class="hero-title">
+                    I turn <span class="highlight-red">complex problems</span><br>
+                    into structured business outcomes.
+                </div>
+                <div class="hero-subline">
+                    A portfolio across digital transformation, startup operations,
+                    data analytics, AI-enabled business models, commercial execution and
+                    evidence-backed problem solving.
+                </div>
+                <span class="badge badge-red">Digital Transformation</span>
+                <span class="badge badge-red">Data Analytics</span>
+                <span class="badge badge-light-red">Commercial Execution</span>
+                <span class="badge">AI-Enabled Business Models</span>
+                <span class="badge">Strategy</span>
             </div>
-            <div class="hero-subline">
-                A portfolio across digital transformation, startup operations,
-                data analytics, AI-enabled business models, commercial execution and
-                evidence-backed problem solving.
-            </div>
-            <span class="badge badge-red">Digital Transformation</span>
-            <span class="badge badge-red">Data Analytics</span>
-            <span class="badge badge-light-red">Commercial Execution</span>
-            <span class="badge">AI-Enabled Business Models</span>
-            <span class="badge">Strategy</span>
         </div>
-    </div>
-    """,
+        """,
         unsafe_allow_html=True,
     )
 
@@ -1076,33 +1060,33 @@ def render_leadership_impact_matrix():
     with c1:
         st.markdown(
             """
-        <div class="hero-mini-card">
-            <b>Execution Operator</b>
-            <p>Startup operations, EdTech delivery and clinical coordination show ground-level ownership.</p>
-        </div>
-        """,
+            <div class="hero-mini-card">
+                <b>Execution Operator</b>
+                <p>Startup operations, EdTech delivery and clinical coordination show ground-level ownership.</p>
+            </div>
+            """,
             unsafe_allow_html=True,
         )
 
     with c2:
         st.markdown(
             """
-        <div class="hero-mini-card">
-            <b>Business Problem Solver</b>
-            <p>Consulting-style projects across healthcare, fintech, transformation and market strategy.</p>
-        </div>
-        """,
+            <div class="hero-mini-card">
+                <b>Business Problem Solver</b>
+                <p>Consulting-style projects across healthcare, fintech, transformation and market strategy.</p>
+            </div>
+            """,
             unsafe_allow_html=True,
         )
 
     with c3:
         st.markdown(
             """
-        <div class="hero-mini-card">
-            <b>Analytics + AI Builder</b>
-            <p>Dashboards, modelling, research analytics and AI-enabled product/system thinking.</p>
-        </div>
-        """,
+            <div class="hero-mini-card">
+                <b>Analytics + AI Builder</b>
+                <p>Dashboards, modelling, research analytics and AI-enabled product/system thinking.</p>
+            </div>
+            """,
             unsafe_allow_html=True,
         )
 
@@ -1132,7 +1116,7 @@ def render_leadership_impact_matrix():
 
     st.markdown('<div class="section-title">Commercial Proof Map</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">A proof-led visual showing measurable outcomes and evidence scale across execution, commercial growth, analytics and transformation.</div>',
+        '<div class="section-caption">A proof-led visual showing measurable outcomes across execution, commercial growth, analytics and transformation.</div>',
         unsafe_allow_html=True,
     )
 
@@ -1337,7 +1321,9 @@ def render_analytics():
             if i + j < len(analytics_projects):
                 with col:
                     render_project_card(analytics_projects[i + j])
-    def render_skills():
+
+
+def render_skills():
     st.markdown('<div class="section-title">Skills</div>', unsafe_allow_html=True)
     st.markdown(
         '<div class="section-caption">A visual capability map showing what I can do, where it was demonstrated, and the tools or methods behind it.</div>',
@@ -1346,14 +1332,14 @@ def render_analytics():
 
     st.markdown(
         """
-    <div class="skill-strip">
-        <div class="skill-strip-item">Business Ownership</div>
-        <div class="skill-strip-item">Strategy</div>
-        <div class="skill-strip-item">Data Analytics</div>
-        <div class="skill-strip-item">AI-Enabled Workflows</div>
-        <div class="skill-strip-item">Commercial Execution</div>
-    </div>
-    """,
+        <div class="skill-strip">
+            <div class="skill-strip-item">Business Ownership</div>
+            <div class="skill-strip-item">Strategy</div>
+            <div class="skill-strip-item">Data Analytics</div>
+            <div class="skill-strip-item">AI-Enabled Workflows</div>
+            <div class="skill-strip-item">Commercial Execution</div>
+        </div>
+        """,
         unsafe_allow_html=True,
     )
 
@@ -1376,17 +1362,17 @@ def render_analytics():
                 with col:
                     st.markdown(
                         f"""
-                    <div class="skill-visual-card">
-                        <img src="{image}" class="skill-visual-img">
-                        <div class="skill-visual-body">
-                            <div class="skill-visual-title">{category}</div>
-                            <div class="project-summary">{headline}</div>
-                            <div>{chips}</div>
-                            <div class="skill-visual-evidence"><b>Evidence:</b> {evidence}</div>
-                            <div class="skill-visual-methods"><b>Methods / Tools:</b> {methods}</div>
+                        <div class="skill-visual-card">
+                            <img src="{image}" class="skill-visual-img">
+                            <div class="skill-visual-body">
+                                <div class="skill-visual-title">{category}</div>
+                                <div class="project-summary">{headline}</div>
+                                <div>{chips}</div>
+                                <div class="skill-visual-evidence"><b>Evidence:</b> {evidence}</div>
+                                <div class="skill-visual-methods"><b>Methods / Tools:</b> {methods}</div>
+                            </div>
                         </div>
-                    </div>
-                    """,
+                        """,
                         unsafe_allow_html=True,
                     )
 
@@ -1488,49 +1474,45 @@ def render_contact():
     with c1:
         st.markdown(
             """
-        <div class="contact-card">
-            <h3>Shalini Arun Prakash</h3>
-            <p><b>Portfolio Focus:</b> Digital Transformation · Data Analytics · Business Projects · AI-Enabled Business Models · Commercial Execution</p>
-            <p><b>Location:</b> India</p>
-            <p><b>Email:</b> shaliniarun23@gmail.com</p>
-            <p><b>LinkedIn:</b> linkedin.com/in/shaliniarun</p>
-            <br>
-            <p><b>Professional narrative:</b> Business professional with EdTech, startup operations, analytics, AI-enabled project work, healthcare exposure and global MBA experience.</p>
-        </div>
-        """,
+            <div class="contact-card">
+                <h3>Shalini Arun Prakash</h3>
+                <p><b>Portfolio Focus:</b> Digital Transformation · Data Analytics · Business Projects · AI-Enabled Business Models · Commercial Execution</p>
+                <p><b>Location:</b> India</p>
+                <p><b>Email:</b> shaliniarun23@gmail.com</p>
+                <p><b>LinkedIn:</b> linkedin.com/in/shaliniarun</p>
+                <br>
+                <p><b>Professional narrative:</b> Business professional with EdTech, startup operations, analytics, AI-enabled project work, healthcare exposure and global MBA experience.</p>
+            </div>
+            """,
             unsafe_allow_html=True,
         )
 
     with c2:
         st.markdown(
             """
-        <div class="contact-card">
-            <h3>Portfolio Use</h3>
-            <p>This portfolio maps experience, education, projects, analytics work, leadership and community engagement into a single professional profile.</p>
-            <p>It is public-safe and does not expose confidential project documents, raw datasets or private submissions.</p>
-            <br>
-            <p><b>Full reports and confidential project documents are available only on request.</b></p>
-        </div>
-        """,
+            <div class="contact-card">
+                <h3>Portfolio Use</h3>
+                <p>This portfolio maps experience, education, projects, analytics work, leadership and community engagement into a single professional profile.</p>
+                <p>It is public-safe and does not expose confidential project documents, raw datasets or private submissions.</p>
+                <br>
+                <p><b>Full reports and confidential project documents are available only on request.</b></p>
+            </div>
+            """,
             unsafe_allow_html=True,
         )
 
 
-# ------------------------------------------------------------
-# NAVIGATION
-# ------------------------------------------------------------
-
 st.markdown(
     """
-<div style="padding: 0.9rem 0 1.4rem 0; border-bottom:1px solid rgba(255,255,255,0.10); margin-bottom:1rem;">
-    <div style="font-size: 1.75rem; font-weight: 950; color: #ffffff; text-transform: uppercase; letter-spacing:-0.03em;">
-        Shalini Arun Prakash
+    <div style="padding: 0.9rem 0 1.4rem 0; border-bottom:1px solid rgba(255,255,255,0.10); margin-bottom:1rem;">
+        <div style="font-size: 1.75rem; font-weight: 950; color: #ffffff; text-transform: uppercase; letter-spacing:-0.03em;">
+            Shalini Arun Prakash
+        </div>
+        <div style="color:#a1a1aa; margin-top:0.35rem; font-size:0.95rem;">
+            Digital Transformation · Data Analytics · AI-Enabled Business Models · Commercial Execution · Strategy
+        </div>
     </div>
-    <div style="color:#a1a1aa; margin-top:0.35rem; font-size:0.95rem;">
-        Digital Transformation · Data Analytics · AI-Enabled Business Models · Commercial Execution · Strategy
-    </div>
-</div>
-""",
+    """,
     unsafe_allow_html=True,
 )
 
