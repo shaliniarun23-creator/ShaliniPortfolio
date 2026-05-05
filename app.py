@@ -17,20 +17,12 @@ from content import (
     skills_visuals,
 )
 
-# ------------------------------------------------------------
-# PAGE CONFIG
-# ------------------------------------------------------------
-
 st.set_page_config(
     page_title="Shalini Arun Prakash | Portfolio",
     page_icon="✦",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
-
-# ------------------------------------------------------------
-# CSS
-# ------------------------------------------------------------
 
 st.markdown(
     """
@@ -82,7 +74,6 @@ p, li, span, div {
 .hero-shell {
     position: relative;
     overflow: hidden;
-    border-radius: 0px;
     min-height: 660px;
     background:
         linear-gradient(90deg, rgba(0,0,0,0.98), rgba(0,0,0,0.88), rgba(0,0,0,0.46)),
@@ -141,7 +132,6 @@ p, li, span, div {
 
 .hero-mini-card {
     padding: 1rem;
-    border-radius: 0px;
     background: rgba(17,17,19,0.88);
     border: 1px solid rgba(255,255,255,0.10);
     border-left: 4px solid #E53935;
@@ -163,8 +153,6 @@ p, li, span, div {
     margin: 0.35rem 0 0 0;
     line-height: 1.45;
 }
-
-/* ---------- CLEAN BADGES ---------- */
 
 .badge {
     display: inline-flex;
@@ -226,7 +214,6 @@ p, li, span, div {
     overflow: hidden;
     background: #111113;
     border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 0px;
     padding: 1.35rem;
     min-height: 150px;
     box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
@@ -296,7 +283,6 @@ p, li, span, div {
     overflow: hidden;
     background: #111113;
     border: 1px solid rgba(255,255,255,0.11);
-    border-radius: 0px;
     padding: 0;
     margin-bottom: 1.25rem;
     box-shadow: 0 20px 62px rgba(0, 0, 0, 0.35);
@@ -396,8 +382,6 @@ p, li, span, div {
     margin-top: 0.6rem;
 }
 
-/* ---------- IMAGE BANNER ---------- */
-
 .image-banner-card {
     min-height: 270px;
     background-size: cover;
@@ -428,8 +412,6 @@ p, li, span, div {
     color: #d4d4d8;
     line-height: 1.65;
 }
-
-/* ---------- SKILLS IMAGE CARDS ---------- */
 
 .skill-visual-card {
     position: relative;
@@ -518,7 +500,6 @@ p, li, span, div {
 .contact-card {
     background: #111113;
     border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 0px;
     padding: 1.6rem;
     box-shadow: 0 22px 60px rgba(0,0,0,0.36);
     min-height: 300px;
@@ -528,7 +509,6 @@ p, li, span, div {
 div[data-testid="stExpander"] {
     background: #111113;
     border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 0px;
     overflow: hidden;
     margin-bottom: 1rem;
 }
@@ -585,10 +565,6 @@ hr {
 """,
     unsafe_allow_html=True,
 )
-
-# ------------------------------------------------------------
-# HELPERS
-# ------------------------------------------------------------
 
 def render_badges(items, style="badge"):
     st.markdown(
@@ -729,10 +705,6 @@ def render_simple_visual_card(item):
     )
 
 
-# ------------------------------------------------------------
-# CHARTS
-# ------------------------------------------------------------
-
 def make_project_theme_chart():
     counts = pd.DataFrame(
         {
@@ -779,16 +751,16 @@ def make_project_business_value_chart():
                 "AI / Product Thinking",
                 "Commercial Modelling",
             ],
-            "Evidence Strength": [8, 9, 9, 8, 8, 8],
+            "Evidence Level": [8, 9, 9, 8, 8, 8],
         }
     )
 
     fig = px.bar(
         value_data,
-        x="Evidence Strength",
+        x="Evidence Level",
         y="Business Value",
         orientation="h",
-        text="Evidence Strength",
+        text="Evidence Level",
         title="Business Value Demonstrated Across Projects",
     )
 
@@ -818,11 +790,17 @@ def make_analytics_methods_chart():
                 "KPI Tracking",
                 "Financial Modelling",
             ],
-            "Strength": [9, 8, 7, 7, 7, 6, 9, 8],
+            "Coverage Level": [9, 8, 7, 7, 7, 6, 9, 8],
         }
     )
 
-    fig = px.bar(methods, x="Method", y="Strength", text="Strength", title="Analytics Method Coverage")
+    fig = px.bar(
+        methods,
+        x="Method",
+        y="Coverage Level",
+        text="Coverage Level",
+        title="Analytics Methods Applied Across Projects",
+    )
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
@@ -848,16 +826,16 @@ def make_analytics_decision_cycle_chart():
                 "Decision Support",
                 "Business Recommendation",
             ],
-            "Ownership Strength": [9, 8, 8, 7, 9, 9, 9],
+            "Ownership Level": [9, 8, 8, 7, 9, 9, 9],
         }
     )
 
     fig = px.bar(
         cycle,
         x="Stage",
-        y="Ownership Strength",
-        text="Ownership Strength",
-        title="Analytics Ownership Across the Decision Cycle",
+        y="Ownership Level",
+        text="Ownership Level",
+        title="Analytics Workflow: From Problem Framing to Business Recommendation",
     )
 
     fig.update_layout(
@@ -885,16 +863,16 @@ def make_analytics_business_impact_chart():
                 "Research Interpretation",
                 "Predictive Modelling",
             ],
-            "Strength": [9, 9, 8, 9, 8, 7],
+            "Evidence Level": [9, 9, 8, 9, 8, 7],
         }
     )
 
     fig = px.bar(
         impact,
-        x="Strength",
+        x="Evidence Level",
         y="Business Impact Area",
         orientation="h",
-        text="Strength",
+        text="Evidence Level",
         title="Analytics Business Impact Areas",
     )
 
@@ -983,7 +961,7 @@ def make_project_capability_heatmap():
             x=capability_groups,
             y=y_labels,
             colorscale=[[0, "#111113"], [0.3, "#4A0F0F"], [0.6, "#B71C1C"], [1, "#FF6B6B"]],
-            colorbar=dict(title="Strength"),
+            colorbar=dict(title="Level"),
             zmin=0,
             zmax=9,
         )
@@ -1000,44 +978,68 @@ def make_project_capability_heatmap():
     return fig
 
 
-def make_leadership_strength_chart():
-    leadership = pd.DataFrame(
+def render_leadership_impact_matrix():
+    st.markdown('<div class="section-title">Leadership Impact Map</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-caption">Leadership evidence mapped by type of ownership, stakeholder exposure and outcome.</div>',
+        unsafe_allow_html=True,
+    )
+
+    rows = [
         {
-            "Leadership Strength": [
-                "Event Execution",
-                "Stakeholder Coordination",
-                "Public Health Outreach",
-                "Student Leadership",
-                "Professional Communication",
-                "Community Engagement",
-            ],
-            "Evidence Strength": [9, 8, 8, 8, 9, 8],
-        }
-    )
+            "Area": "Student Leadership",
+            "Evidence": "Global Learning & Student Life Committee",
+            "Ownership": "Cross-campus coordination, student engagement and student-faculty-admin communication",
+            "Impact": "Strengthened collaboration and event participation across the cohort",
+        },
+        {
+            "Area": "Industry Engagement",
+            "Evidence": "Industry Connect Event, Dubai",
+            "Ownership": "Supported coordination between students and senior business leaders",
+            "Impact": "Improved exposure to real-world leadership and business decision-making",
+        },
+        {
+            "Area": "Event Execution",
+            "Evidence": "Business Conclave",
+            "Ownership": "Supported presentation coordination, logistics and team communication",
+            "Impact": "Enabled smoother delivery of student-led business presentations",
+        },
+        {
+            "Area": "Healthcare Outreach",
+            "Evidence": "OMFS Awareness Marathon",
+            "Ownership": "Supported public healthcare awareness and registration/event coordination",
+            "Impact": "Contributed to community-level awareness and outreach execution",
+        },
+        {
+            "Area": "Public Health",
+            "Evidence": "Anti-Tobacco Awareness Human Chain",
+            "Ownership": "Participated in preventive health communication initiative",
+            "Impact": "Supported public awareness around tobacco-related health risks",
+        },
+    ]
 
-    fig = px.bar(
-        leadership,
-        x="Evidence Strength",
-        y="Leadership Strength",
-        orientation="h",
-        text="Evidence Strength",
-        title="Leadership Strengths Demonstrated",
-    )
-    fig.update_layout(
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
-        font_color="#d4d4d8",
-        title_font_color="#ffffff",
-        height=430,
-        showlegend=False,
-        margin=dict(l=20, r=20, t=60, b=40),
-    )
-    fig.update_traces(textposition="outside", marker_color="#FF6B6B")
-    return fig
+    st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
-# ------------------------------------------------------------
-# RENDER SECTIONS
-# ------------------------------------------------------------
+
+def render_analytics_evidence_table():
+    rows = [
+        {"Method": "Dashboards", "Where demonstrated": "TasteMate, Turfo trackers, Streamlit portfolio"},
+        {"Method": "EDA", "Where demonstrated": "TasteMate and customer/transaction analysis"},
+        {"Method": "Regression", "Where demonstrated": "TasteMate average spend modelling"},
+        {"Method": "Classification", "Where demonstrated": "TasteMate predictive analysis"},
+        {"Method": "Clustering", "Where demonstrated": "TasteMate customer segmentation"},
+        {"Method": "Association Rules", "Where demonstrated": "Meal combination insights"},
+        {"Method": "KPI Tracking", "Where demonstrated": "Turfo utilisation/revenue, BYJU’S engagement"},
+        {"Method": "Financial Modelling", "Where demonstrated": "GSK, LM Instruments, Bunk Station"},
+    ]
+
+    st.markdown('<div class="section-title">Analytics Evidence Map</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-caption">This table grounds the analytics visuals in actual project evidence.</div>',
+        unsafe_allow_html=True,
+    )
+    st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+
 
 def render_home():
     st.markdown(
@@ -1126,7 +1128,7 @@ def render_home():
 
     st.markdown('<div class="section-title">Portfolio Visuals</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">Visuals designed to show portfolio breadth, business value and capability strength.</div>',
+        '<div class="section-caption">Visuals designed to show portfolio breadth, business value and capability coverage.</div>',
         unsafe_allow_html=True,
     )
 
@@ -1267,6 +1269,8 @@ def render_analytics():
     st.plotly_chart(make_analytics_business_impact_chart(), use_container_width=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
+    render_analytics_evidence_table()
+
     st.markdown('<div class="section-title">Analytics Project Evidence</div>', unsafe_allow_html=True)
     st.markdown(
         '<div class="section-caption">Analytics evidence is separated from the main Projects tab to make dashboarding, modelling and BI ownership visible on its own.</div>',
@@ -1336,7 +1340,7 @@ def render_skills():
 
     st.markdown('<div class="section-title">Project-to-Capability Map</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">A visual map connecting project evidence to capability strengths across healthcare, digital transformation, commercial strategy, AI, market intelligence and operations.</div>',
+        '<div class="section-caption">A visual map connecting project evidence to capability areas across healthcare, digital transformation, commercial strategy, AI, market intelligence and operations.</div>',
         unsafe_allow_html=True,
     )
 
@@ -1375,10 +1379,7 @@ def render_leadership():
                 with col:
                     render_simple_visual_card(leadership_items[i + j])
 
-    st.markdown('<div class="section-title">Leadership Visual</div>', unsafe_allow_html=True)
-    st.markdown('<div class="visual-card">', unsafe_allow_html=True)
-    st.plotly_chart(make_leadership_strength_chart(), use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    render_leadership_impact_matrix()
 
     st.markdown('<div class="section-title">Extra-Curricular Strengths</div>', unsafe_allow_html=True)
 
@@ -1462,10 +1463,6 @@ def render_contact():
             unsafe_allow_html=True,
         )
 
-
-# ------------------------------------------------------------
-# NAVIGATION
-# ------------------------------------------------------------
 
 st.markdown(
     """
