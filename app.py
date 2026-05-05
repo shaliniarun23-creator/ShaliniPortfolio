@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import base64
+from pathlib import Path
 
 from content import (
     metrics,
@@ -547,15 +549,83 @@ hr {
     margin: 2rem 0;
 }
 
+
+.hero-profile-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 340px;
+}
+
+.hero-profile-card {
+    width: 360px;
+    height: 460px;
+    border-radius: 28px;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(229,57,53,0.35), transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,0.05), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.65);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-profile-card:before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+    pointer-events: none;
+}
+
+.hero-profile-img {
+    width: 95%;
+    height: auto;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 25px 40px rgba(0,0,0,0.7))
+        brightness(1.02)
+        contrast(1.05);
+}
+
+.hero-content-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.4rem;
+}
+
+.hero-text-block {
+    flex: 1;
+    min-width: 0;
+}
+
 @media (max-width: 900px) {
     .hero-content { padding: 2.2rem; }
     .hero-title { font-size: 3.2rem; }
+    .hero-content-split { flex-direction: column; align-items: flex-start; }
+    .hero-profile-wrap { width: 100%; min-width: 0; justify-content: flex-start; }
+    .hero-profile-card { width: 300px; height: 390px; }
 }
 </style>
 """,
     unsafe_allow_html=True,
 )
 
+
+
+def image_to_base64(image_paths):
+    """Return base64 string for the first available local image path."""
+    for image_path in image_paths:
+        path = Path(image_path)
+        if path.exists():
+            return base64.b64encode(path.read_bytes()).decode()
+    return ""
 
 def render_badges(items, style="badge"):
     st.markdown("".join([f'<span class="{style}">{item}</span>' for item in items]), unsafe_allow_html=True)
@@ -1030,30 +1100,50 @@ def render_leadership_impact_matrix():
 
 
 def render_home():
-    st.markdown(
+    profile_b64 = image_to_base64([
+        "assets/shalini-profile.png",
+        "assets/Shalini.png",
+        "Shalini.png",
+        "Shalini.jpeg",
+    ])
+
+    profile_html = ""
+    if profile_b64:
+        profile_html = f"""
+        <div class="hero-profile-wrap">
+            <div class="hero-profile-card">
+                <img src="data:image/png;base64,{profile_b64}" class="hero-profile-img">
+            </div>
+        </div>
         """
+
+    st.markdown(
+        f"""
         <div class="hero-shell">
-            <div class="hero-content">
-                <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
-                <div class="hero-title">
-                    I turn <span class="highlight-red">complex problems</span><br>
-                    into structured business outcomes.
+            <div class="hero-content hero-content-split">
+                <div class="hero-text-block">
+                    <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
+                    <div class="hero-title">
+                        I drive <span class="highlight-red">business growth</span><br>
+                        through execution and data.
+                    </div>
+                    <div class="hero-subline">
+                        Experience across startup operations, EdTech, analytics, customer engagement,
+                        commercial execution and structured business problem solving.
+                    </div>
+                    <span class="badge badge-red">Revenue Growth</span>
+                    <span class="badge badge-red">Commercial Execution</span>
+                    <span class="badge badge-light-red">Data Analytics</span>
+                    <span class="badge">Partnerships</span>
+                    <span class="badge">Strategy</span>
                 </div>
-                <div class="hero-subline">
-                    A portfolio across digital transformation, startup operations,
-                    data analytics, AI-enabled business models, commercial execution and
-                    evidence-backed problem solving.
-                </div>
-                <span class="badge badge-red">Digital Transformation</span>
-                <span class="badge badge-red">Data Analytics</span>
-                <span class="badge badge-light-red">Commercial Execution</span>
-                <span class="badge">AI-Enabled Business Models</span>
-                <span class="badge">Strategy</span>
+                {profile_html}
             </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
+
 
     c1, c2, c3 = st.columns(3)
 
