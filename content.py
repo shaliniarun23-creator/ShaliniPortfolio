@@ -54,7 +54,7 @@ projects = [
             "Analysed DIAC student market demand and customer personas.",
             "Reviewed brand positioning, menu architecture, operations and competitive context.",
             "Identified bottlenecks around visibility, service speed and revenue conversion.",
-            "Developed a turnaround roadmap covering menu engineering, combo pricing, QR ordering, loyalty programs and KPI tracking."
+            "Developed a turnaround roadmap covering menu engineering, combo pricing, QR ordering, loyalty programs and KPI tracking.",
         ],
         "frameworks": ["Turnaround Strategy", "Customer Persona", "Menu Engineering", "KPI Tracking", "Investment Decision"],
         "tools": ["PowerPoint", "Market analysis", "Primary research", "Financial logic"],
@@ -63,9 +63,9 @@ projects = [
             "Investment-led repositioning plan.",
             "Menu and combo pricing strategy.",
             "QR-based ordering and KPI roadmap.",
-            "Revenue growth and operating efficiency logic."
+            "Revenue growth and operating efficiency logic.",
         ],
-        "strategic_relevance": "Strong evidence of commercial diagnosis, growth planning, KPI thinking, customer acquisition and operating improvement."
+        "strategic_relevance": "Strong evidence of commercial diagnosis, growth planning, KPI thinking, customer acquisition and operating improvement.",
     },
     {
         "title": "TrueLayer – Open Banking Strategy & Ecosystem Assessment",
@@ -80,7 +80,7 @@ projects = [
             "Analysed PSD2, API infrastructure and open banking regulation.",
             "Evaluated market expansion opportunities using readiness and demand criteria.",
             "Assessed operating model capabilities such as compliance agility, scalability and ecosystem integration.",
-            "Linked platform strategy to financial services business model innovation."
+            "Linked platform strategy to financial services business model innovation.",
         ],
         "frameworks": ["Platform Strategy", "Open Banking", "API Ecosystem", "Regulatory Strategy", "Market Expansion"],
         "tools": ["Case analysis", "PowerPoint", "Strategic frameworks", "Secondary research"],
@@ -88,9 +88,9 @@ projects = [
             "Open banking strategy assessment.",
             "Market expansion prioritisation logic.",
             "Operating model capability review.",
-            "Ecosystem partnership analysis."
+            "Ecosystem partnership analysis.",
         ],
-        "strategic_relevance": "Relevant to ecosystem development, platform partnerships, regulated fintech analysis, market readiness and expansion logic."
+        "strategic_relevance": "Relevant to ecosystem development, platform partnerships, regulated fintech analysis, market readiness and expansion logic.",
     },
     {
         "title": "FinWise – AI-Powered Financial Literacy Platform",
@@ -105,7 +105,7 @@ projects = [
             "Defined target stakeholders: students, parents, schools and sponsors.",
             "Mapped learning journeys and behavioural reinforcement logic.",
             "Structured B2B2C operating model and partner-led rollout.",
-            "Developed TOWS, service blueprint and governance logic."
+            "Developed TOWS, service blueprint and governance logic.",
         ],
         "frameworks": ["TOWS", "Service Blueprint", "Customer Journey", "B2B2C Model", "MVP Design"],
         "tools": ["PowerPoint", "AI tools", "Business model design", "Journey mapping"],
@@ -113,9 +113,9 @@ projects = [
             "AI-enabled MVP structure.",
             "Student-parent-school journey map.",
             "Service blueprint.",
-            "3-year scale roadmap."
+            "3-year scale roadmap.",
         ],
-        "strategic_relevance": "Shows AI-enabled workflow thinking, stakeholder ecosystems, onboarding journeys and scalable operating model design."
+        "strategic_relevance": "Shows AI-enabled workflow thinking, stakeholder ecosystems, onboarding journeys and scalable operating model design.",
     },
     {
         "title": "LM Instruments – SAP S/4HANA Transformation Strategy",
@@ -130,7 +130,7 @@ projects = [
             "Structured AS-IS and TO-BE workflows across enterprise functions.",
             "Translated business inputs into SAP-aligned process blueprints.",
             "Defined data migration and validation logic across critical entities.",
-            "Built commercial model with cost, margin and governance assumptions."
+            "Built commercial model with cost, margin and governance assumptions.",
         ],
         "frameworks": ["AS-IS / TO-BE", "RFP Response", "Operating Blueprint", "Governance Model"],
         "tools": ["Excel", "PowerPoint", "Process mapping", "Cost modelling"],
@@ -138,9 +138,9 @@ projects = [
             "5+ enterprise workflow maps.",
             "SAP-aligned operating blueprint.",
             "Data validation logic across 6+ entities.",
-            "$3.5M commercial proposal with margin logic."
+            "$3.5M commercial proposal with margin logic.",
         ],
-        "strategic_relevance": "Shows structured process thinking, data workflow design, governance and commercial model discipline."
+        "strategic_relevance": "Shows structured process thinking, data workflow design, governance and commercial model discipline.",
     },
     {
         "title": "DP World – Digital Trade & Supply Chain Transformation",
@@ -155,7 +155,7 @@ projects = [
             "Assessed emerging technology use cases across trade operations.",
             "Mapped impact across customs, cargo visibility, workforce enablement and asset monitoring.",
             "Linked automation and digital workflows to operational throughput and documentation improvements.",
-            "Structured recommendations around efficiency, trust and resilience."
+            "Structured recommendations around efficiency, trust and resilience.",
         ],
         "frameworks": ["Emerging Tech Strategy", "Use-Case Prioritisation", "Operating Model", "Digital Trade Ecosystem"],
         "tools": ["PowerPoint", "Research synthesis", "Benchmarking", "Process analysis"],
@@ -163,9 +163,9 @@ projects = [
             "Emerging technology use-case map.",
             "Digital trade ecosystem assessment.",
             "Operational improvement logic.",
-            "Strategic recommendation deck."
+            "Strategic recommendation deck.",
         ],
-        "strategic_relevance": "Relevant for global ecosystem thinking, emerging technology, operational visibility and cross-border commercial environments."
+        "strategic_relevance": "Relevant for global ecosystem thinking, emerging technology, operational visibility and cross-border commercial environments.",
     },
     {
         "title": "Royal Dutch Clinic – Growth Strategy & Operating Model Analysis",
@@ -180,7 +180,7 @@ projects = [
             "Analysed patient journey and inquiry-to-appointment funnel.",
             "Reviewed referral pathways and competitive healthcare landscape.",
             "Used 100+ primary research responses for demand and pricing insights.",
-            "Recommended service, pricing and operating model improvements."
+            "Recommended service, pricing and operating model improvements.",
         ],
         "frameworks": ["Patient Journey Mapping", "Operating Model", "Growth Strategy", "Customer Insight"],
         "tools": ["Excel", "Survey analysis", "PowerPoint", "Benchmarking"],
@@ -188,9 +188,9 @@ projects = [
             "Growth strategy recommendations.",
             "Patient funnel and service workflow insights.",
             "Pricing and demand observations.",
-            "Operating model improvement priorities."
+            "Operating model improvement priorities.",
         ],
-        "strategic_relevance": "Shows customer acquisition logic, stakeholder mapping, service conversion thinking and operating model improvement."
+        "strategic_relevance": "Shows customer acquisition logic, stakeholder mapping, service conversion thinking and operating model improvement.",
     },
     {
         "title": "GSK – U.S. Oncology Market Entry & Commercial Strategy",
@@ -205,7 +205,7 @@ projects = [
             "Assessed oncology market size and growth context.",
             "Benchmarked competitor positioning and portfolio overlaps.",
             "Structured stakeholder ecosystem across HCPs, payers and institutions.",
-            "Built scenario-led financial and launch logic."
+            "Built scenario-led financial and launch logic.",
         ],
         "frameworks": ["Market Entry Strategy", "Competitor Benchmarking", "Scenario Analysis", "Commercial Strategy"],
         "tools": ["Excel", "PowerPoint", "Secondary research", "Financial modelling"],
@@ -213,9 +213,9 @@ projects = [
             "U.S. oncology market assessment.",
             "Competitive benchmarking and whitespace logic.",
             "5-year financial model.",
-            "Pricing and investment recommendation logic."
+            "Pricing and investment recommendation logic.",
         ],
-        "strategic_relevance": "Relevant to market intelligence, competitor benchmarking, commercial modelling and executive-level commercial recommendation."
+        "strategic_relevance": "Relevant to market intelligence, competitor benchmarking, commercial modelling and executive-level commercial recommendation.",
     },
     {
         "title": "Smart Hospitals – Digital Transformation Strategy",
@@ -230,7 +230,7 @@ projects = [
             "Mapped patient journey and hospital workflow pain points.",
             "Reviewed digital maturity benchmarks and transformation barriers.",
             "Synthesised expert interviews, patient inputs and healthcare evidence.",
-            "Developed a SMART-DX framework and 3-year transformation roadmap."
+            "Developed a SMART-DX framework and 3-year transformation roadmap.",
         ],
         "frameworks": ["SMART-DX", "TOWS", "Scenario Analysis", "KPI Governance", "Stakeholder Mapping"],
         "tools": ["Excel", "PowerPoint", "Research synthesis", "Interview analysis"],
@@ -238,9 +238,9 @@ projects = [
             "SMART-DX digital transformation framework.",
             "3-year roadmap for standardisation, integration and automation.",
             "KPI-led governance recommendations.",
-            "Patient journey and workflow improvement priorities."
+            "Patient journey and workflow improvement priorities.",
         ],
-        "strategic_relevance": "Relevant to AI-enabled operational redesign, KPI governance, stakeholder adoption and transformation roadmap thinking."
+        "strategic_relevance": "Relevant to AI-enabled operational redesign, KPI governance, stakeholder adoption and transformation roadmap thinking.",
     },
     {
         "title": "Clinical Operations – Consultation Flow & Care Coordination",
@@ -255,7 +255,7 @@ projects = [
             "Managed consultation flow and patient documentation.",
             "Coordinated with staff and external labs for treatment readiness.",
             "Supported follow-up communication and continuity of care.",
-            "Strengthened documentation discipline and service coordination."
+            "Strengthened documentation discipline and service coordination.",
         ],
         "frameworks": ["Patient Flow", "Clinical Documentation", "Care Coordination", "Service Operations"],
         "tools": ["Clinical records", "Scheduling", "Follow-up tracking", "Stakeholder coordination"],
@@ -263,9 +263,9 @@ projects = [
             "Structured patient documentation.",
             "Improved follow-up discipline.",
             "Coordinated staff and lab workflows.",
-            "Supported smoother patient experience."
+            "Supported smoother patient experience.",
         ],
-        "strategic_relevance": "Relevant to lifecycle discipline: structured follow-ups, service coordination, operational clarity and stakeholder communication."
+        "strategic_relevance": "Relevant to lifecycle discipline: structured follow-ups, service coordination, operational clarity and stakeholder communication.",
     },
 ]
 
@@ -286,7 +286,7 @@ analytics_projects = [
             "Used regression to model average spend and support pricing and packaging decisions.",
             "Applied classification models for prediction-oriented customer and business decisions.",
             "Used association rule mining to identify revenue-driving meal combinations.",
-            "Designed Streamlit dashboard tabs for visualisation, model comparison and business insights."
+            "Designed Streamlit dashboard tabs for visualisation, model comparison and business insights.",
         ],
         "frameworks": ["EDA", "Customer Segmentation", "Regression", "Classification", "Clustering", "Association Rule Mining"],
         "tools": ["Python", "Streamlit", "Pandas", "Scikit-learn", "Plotly", "Excel"],
@@ -296,9 +296,9 @@ analytics_projects = [
             "Average spend modelling approach.",
             "Classification model comparison.",
             "Association rules for meal combination insights.",
-            "Business recommendations for pricing, campaigns and retention."
+            "Business recommendations for pricing, campaigns and retention.",
         ],
-        "strategic_relevance": "Shows ownership of analytics as a decision system: from raw data to insight, model logic, dashboarding and commercial recommendations."
+        "strategic_relevance": "Shows ownership of analytics as a decision system: from raw data to insight, model logic, dashboarding and commercial recommendations.",
     },
     {
         "title": "Turfo Revenue & Utilization Analytics",
@@ -314,7 +314,7 @@ analytics_projects = [
             "Analysed customer demand patterns and peak-hour usage.",
             "Tracked weekly performance metrics across utilisation, revenue and engagement.",
             "Used insights to support pricing and scheduling improvements.",
-            "Connected operational visibility with revenue growth decisions."
+            "Connected operational visibility with revenue growth decisions.",
         ],
         "frameworks": ["KPI Tracking", "Utilisation Analysis", "Revenue Analytics", "Pricing Analytics"],
         "tools": ["Excel", "Google Sheets", "Dashboard tracking", "Operational reporting"],
@@ -322,9 +322,9 @@ analytics_projects = [
             "3× revenue growth in 8 months.",
             "Utilisation improved to approximately 60%.",
             "Structured booking and revenue trackers.",
-            "Weekly operational performance visibility."
+            "Weekly operational performance visibility.",
         ],
-        "strategic_relevance": "Direct evidence of dashboard-led business ownership, pricing analytics, utilisation analysis and operating performance tracking."
+        "strategic_relevance": "Direct evidence of dashboard-led business ownership, pricing analytics, utilisation analysis and operating performance tracking.",
     },
     {
         "title": "BYJU’S Engagement & Conversion Analytics",
@@ -340,7 +340,7 @@ analytics_projects = [
             "Identified learning gaps and adjusted session delivery strategies.",
             "Collected feedback and performance insights across live sessions.",
             "Supported engagement-led conversion outcomes.",
-            "Worked in a target-driven performance environment."
+            "Worked in a target-driven performance environment.",
         ],
         "frameworks": ["Performance Analysis", "Engagement Analytics", "Learning Gap Analysis", "Conversion Support"],
         "tools": ["Internal dashboards", "Excel", "Performance reports", "Session analytics"],
@@ -348,9 +348,9 @@ analytics_projects = [
             "2,000+ live sessions delivered.",
             "150+ monthly conversions contributed.",
             "Improved learner engagement and delivery quality.",
-            "Top 20% month-on-month performance."
+            "Top 20% month-on-month performance.",
         ],
-        "strategic_relevance": "Shows ability to use performance data, feedback and dashboard insights to improve outcomes in a target-driven environment."
+        "strategic_relevance": "Shows ability to use performance data, feedback and dashboard insights to improve outcomes in a target-driven environment.",
     },
     {
         "title": "AI Adoption Research – TPB with Trust Mediation",
@@ -366,7 +366,7 @@ analytics_projects = [
             "Integrated trust as a mediating variable.",
             "Reviewed ABDC-rated literature.",
             "Analysed measurement and structural model outputs.",
-            "Interpreted model quality, path relationships and adoption implications."
+            "Interpreted model quality, path relationships and adoption implications.",
         ],
         "frameworks": ["Theory of Planned Behavior", "PLS-SEM", "Trust Mediation", "Research Design"],
         "tools": ["SmartPLS", "Excel", "Literature review", "Statistical interpretation"],
@@ -374,9 +374,9 @@ analytics_projects = [
             "Research framework.",
             "Measurement model interpretation.",
             "Structural model interpretation.",
-            "Academic reflective report."
+            "Academic reflective report.",
         ],
-        "strategic_relevance": "Shows research analytics, statistical reasoning, AI adoption insight and evidence-based decision-making."
+        "strategic_relevance": "Shows research analytics, statistical reasoning, AI adoption insight and evidence-based decision-making.",
     },
 ]
 
@@ -384,28 +384,28 @@ experience = [
     {
         "title": "Co-Founder & Operations Lead – Turfo",
         "period": "Jan 2024 – Jan 2025 | India",
-        "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85",
+        "image": "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1400&q=85",
         "description": "Built and operated a multi-sport play area business, managing daily operations, pricing, vendor coordination, partnerships, customer engagement, booking visibility and revenue tracking.",
         "achievements": [
             "Achieved 3× revenue growth in 8 months through pricing, utilisation and engagement improvements.",
             "Managed 35+ weekly engagements across bookings, customers, partners and operations.",
             "Built Excel trackers for bookings, revenue trends, utilisation and pricing performance.",
             "Improved utilisation to approximately 60% through demand pattern analysis and slot optimisation.",
-            "Coordinated 5+ partnerships and vendor relationships while handling ground-level execution."
-        ]
+            "Coordinated 5+ partnerships and vendor relationships while handling ground-level execution.",
+        ],
     },
     {
         "title": "Academic Specialist – Biology – BYJU’S",
         "period": "Nov 2021 – Apr 2024 | India",
-        "image": "https://images.unsplash.com/photo-1552664688-cf412ec27db2?auto=format&fit=crop&w=1400&q=85",
+        "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=85",
         "description": "Delivered live Biology sessions in a high-volume EdTech environment, combining teaching, learner engagement, performance feedback and conversion-supporting academic communication.",
         "achievements": [
             "Delivered 2,000+ live sessions across Biology learning modules.",
             "Contributed to 150+ monthly conversions through engagement and performance insights.",
             "Consistently performed in the top 20% month-on-month.",
             "Received awards for TAT and heavy lifting.",
-            "Used learner performance patterns and feedback to improve delivery quality and student engagement."
-        ]
+            "Used learner performance patterns and feedback to improve delivery quality and student engagement.",
+        ],
     },
     {
         "title": "Associate Dentist – Happy Smile Dental Clinic",
@@ -416,8 +416,8 @@ experience = [
             "Handled patient-facing consultation workflows and treatment plan communication.",
             "Maintained structured documentation and follow-up discipline.",
             "Coordinated with staff and external labs to support treatment readiness.",
-            "Built strong grounding in healthcare operations, patient trust and service coordination."
-        ]
+            "Built strong grounding in healthcare operations, patient trust and service coordination.",
+        ],
     },
 ]
 
@@ -432,8 +432,8 @@ education = [
             "Completed 4 academic years plus 1-year compulsory rotatory internship.",
             "Built clinical grounding in patient care, diagnosis, treatment explanation and documentation.",
             "Developed healthcare workflow understanding through clinical exposure.",
-            "Created the foundation for healthcare strategy, digital health and life sciences projects."
-        ]
+            "Created the foundation for healthcare strategy, digital health and life sciences projects.",
+        ],
     },
     {
         "title": "Fellowship in Medical Cosmetology – ILAMED",
@@ -445,8 +445,8 @@ education = [
             "Focused on clinical dermatology and aesthetic medicine, including lasers, injectables, PRP/GFC therapy and chemical peels.",
             "Covered fundamentals of medical cosmetology, scope, ethics and evolution of aesthetic medicine.",
             "Built understanding of skin, hair and nail anatomy, Fitzpatrick scale and lesion identification.",
-            "Strengthened evidence-based care, patient outcomes orientation and regulatory compliance awareness."
-        ]
+            "Strengthened evidence-based care, patient outcomes orientation and regulatory compliance awareness.",
+        ],
     },
     {
         "title": "Global MBA – SP Jain School of Global Management",
@@ -458,8 +458,8 @@ education = [
             "Completed business projects across healthcare, fintech, enterprise transformation, life sciences, AI-enabled product strategy, data analytics and commercial modelling.",
             "Worked on consulting-style projects across Dubai, Singapore, UAE and India.",
             "Built commercial models, operating frameworks, market intelligence outputs and transformation recommendations.",
-            "Conducted 100+ primary research responses and 10+ expert/stakeholder interviews across projects."
-        ]
+            "Conducted 100+ primary research responses and 10+ expert/stakeholder interviews across projects.",
+        ],
     },
 ]
 
@@ -470,23 +470,23 @@ leadership_items = [
         "location": "SP Jain School of Global Management",
         "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=85",
         "summary": "Supported cross-campus student engagement, coordination and student-faculty-admin communication during the Global MBA journey.",
-        "skills": ["Leadership", "Coordination", "Student engagement", "Cross-functional communication"]
+        "skills": ["Leadership", "Coordination", "Student engagement", "Cross-functional communication"],
     },
     {
         "title": "Industry Connect Event",
         "category": "Industry Engagement",
         "location": "Dubai",
-        "image": "https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=1400&q=85",
+        "image": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=85",
         "summary": "Supported an industry engagement event connecting students with senior business leaders and real-world decision-making discussions.",
-        "skills": ["Event coordination", "Industry interface", "Stakeholder communication", "Execution"]
+        "skills": ["Event coordination", "Industry interface", "Stakeholder communication", "Execution"],
     },
     {
         "title": "Business Conclave",
         "category": "Leadership Event",
         "location": "Dubai",
-        "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=85",
+        "image": "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=1400&q=85",
         "summary": "Contributed to event coordination and student presentation support for a business leadership conclave.",
-        "skills": ["Presentation support", "Logistics", "Team coordination", "Professional presence"]
+        "skills": ["Presentation support", "Logistics", "Team coordination", "Professional presence"],
     },
     {
         "title": "OMFS Awareness Marathon",
@@ -494,15 +494,15 @@ leadership_items = [
         "location": "Chennai",
         "image": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1400&q=85",
         "summary": "Supported a public healthcare awareness event focused on oral and maxillofacial surgery awareness.",
-        "skills": ["Healthcare outreach", "Public engagement", "Event execution", "Community awareness"]
+        "skills": ["Healthcare outreach", "Public engagement", "Event execution", "Community awareness"],
     },
     {
         "title": "Anti-Tobacco Awareness Human Chain",
         "category": "Public Health",
         "location": "Chennai",
-        "image": "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1400&q=85",
+        "image": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1400&q=85",
         "summary": "Participated in a public health awareness initiative promoting anti-tobacco education and preventive health communication.",
-        "skills": ["Public health", "Community service", "Preventive health", "Awareness building"]
+        "skills": ["Public health", "Community service", "Preventive health", "Awareness building"],
     },
 ]
 
@@ -511,25 +511,25 @@ extra_curricular_items = [
         "title": "Live Communication & Public Speaking",
         "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1400&q=85",
         "summary": "Built through 2,000+ live sessions, MBA presentations, stakeholder discussions and project delivery conversations.",
-        "skills": ["Public speaking", "Live delivery", "Audience engagement", "Clarity"]
+        "skills": ["Public speaking", "Live delivery", "Audience engagement", "Clarity"],
     },
     {
         "title": "Business Simulations & Strategy Games",
         "image": "https://images.unsplash.com/photo-1552664688-cf412ec27db2?auto=format&fit=crop&w=1400&q=85",
         "summary": "Worked on business simulation environments such as BOSS / Markstrat-style decision-making, market strategy and performance tracking.",
-        "skills": ["Decision-making", "Market strategy", "Competitive thinking", "Scenario planning"]
+        "skills": ["Decision-making", "Market strategy", "Competitive thinking", "Scenario planning"],
     },
     {
         "title": "Dashboard & Portfolio Building",
         "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
         "summary": "Built Streamlit dashboards and analytics-driven portfolio assets to present work, data and business evidence visually.",
-        "skills": ["Streamlit", "Dashboarding", "Data storytelling", "Portfolio design"]
+        "skills": ["Streamlit", "Dashboarding", "Data storytelling", "Portfolio design"],
     },
     {
         "title": "Research Interviews & Insight Collection",
         "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=85",
         "summary": "Conducted expert and stakeholder interviews across healthcare transformation, patient experience and business research projects.",
-        "skills": ["Interviewing", "Research synthesis", "Stakeholder listening", "Insight generation"]
+        "skills": ["Interviewing", "Research synthesis", "Stakeholder listening", "Insight generation"],
     },
 ]
 
@@ -540,7 +540,7 @@ skills = {
         "Stakeholder activation",
         "Commercial follow-up",
         "Pricing thinking",
-        "Execution discipline"
+        "Execution discipline",
     ],
     "Strategy & Transformation": [
         "Market entry strategy",
@@ -548,7 +548,7 @@ skills = {
         "Digital transformation",
         "Ecosystem analysis",
         "Scenario analysis",
-        "TOWS / SWOT"
+        "TOWS / SWOT",
     ],
     "Data Analytics & BI": [
         "Dashboards",
@@ -557,7 +557,7 @@ skills = {
         "Regression",
         "Classification",
         "Clustering",
-        "Association rule mining"
+        "Association rule mining",
     ],
     "Healthcare & Life Sciences": [
         "Patient journey mapping",
@@ -565,7 +565,7 @@ skills = {
         "Clinical workflow understanding",
         "Market research",
         "Scientific communication",
-        "Digital health strategy"
+        "Digital health strategy",
     ],
     "Tools": [
         "Excel",
@@ -575,52 +575,52 @@ skills = {
         "Python",
         "Streamlit",
         "SmartPLS",
-        "AI tools"
+        "AI tools",
     ],
 }
 
 skill_notes = {
     "Business & Commercial Execution": {
         "evidence": "Turfo operating ownership, revenue tracking, pricing decisions, stakeholder handling and high-volume EdTech performance delivery.",
-        "methods": "Revenue tracking · Pricing thinking · Stakeholder coordination · Execution discipline"
+        "methods": "Revenue tracking · Pricing thinking · Stakeholder coordination · Execution discipline",
     },
     "Strategy & Transformation": {
         "evidence": "Consulting-style MBA projects across fintech, healthcare, enterprise systems, life sciences and digital trade.",
-        "methods": "Market entry · Operating model design · TOWS/SWOT · Scenario analysis"
+        "methods": "Market entry · Operating model design · TOWS/SWOT · Scenario analysis",
     },
     "Data Analytics & BI": {
         "evidence": "TasteMate dashboard, Turfo revenue/utilisation trackers, BYJU’S engagement analytics and AI adoption modelling.",
-        "methods": "EDA · Regression · Classification · Clustering · KPI dashboards"
+        "methods": "EDA · Regression · Classification · Clustering · KPI dashboards",
     },
     "Healthcare & Life Sciences": {
         "evidence": "BDS clinical experience, healthcare operations, digital health strategy, patient journey work and life sciences market intelligence.",
-        "methods": "Patient journey mapping · Clinical workflow · Research synthesis · Healthcare strategy"
+        "methods": "Patient journey mapping · Clinical workflow · Research synthesis · Healthcare strategy",
     },
     "Tools": {
         "evidence": "Used across dashboards, analysis, modelling, reporting, presentations and portfolio development.",
-        "methods": "Excel · PowerPoint · Power BI · Tableau · Python · Streamlit · SmartPLS · AI tools"
-    }
+        "methods": "Excel · PowerPoint · Power BI · Tableau · Python · Streamlit · SmartPLS · AI tools",
+    },
 }
 
 skills_visuals = {
     "Business & Commercial Execution": {
         "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=85",
-        "headline": "Execution, ownership and commercial discipline"
+        "headline": "Execution, ownership and commercial discipline",
     },
     "Strategy & Transformation": {
         "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85",
-        "headline": "Structured business problem solving across markets and systems"
+        "headline": "Structured business problem solving across markets and systems",
     },
     "Data Analytics & BI": {
         "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
-        "headline": "Dashboards, modelling and decision intelligence"
+        "headline": "Dashboards, modelling and decision intelligence",
     },
     "Healthcare & Life Sciences": {
         "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=85",
-        "headline": "Clinical grounding plus healthcare strategy exposure"
+        "headline": "Clinical grounding plus healthcare strategy exposure",
     },
     "Tools": {
         "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
-        "headline": "Practical stack for analysis, reporting and portfolio building"
-    }
+        "headline": "Practical stack for analysis, reporting and portfolio building",
+    },
 }
