@@ -784,7 +784,7 @@ def render_home():
         st.markdown(
             """
             <div class="hero-box">
-                <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
+                <div class="name-chip">Shalini Arun Prakash - Professional Portfolio</div>
                 <div class="hero-title">
                     I drive <span class="highlight-red">business growth</span><br>
                     through execution and data.
