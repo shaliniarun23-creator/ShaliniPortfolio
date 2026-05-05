@@ -1092,8 +1092,7 @@ def render_leadership_impact_matrix():
 
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
-    def render_home():
-
+  def render_home():
     st.markdown(
         """
         <div class="hero-shell">
