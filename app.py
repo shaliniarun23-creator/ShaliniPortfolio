@@ -1094,7 +1094,6 @@ def render_leadership_impact_matrix():
 
 
 def render_home():
-   def render_home():
 
     col1, col2 = st.columns([1.6, 1])
 
@@ -1103,7 +1102,10 @@ def render_home():
             """
             <div class="hero-shell">
                 <div class="hero-content">
-                    <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
+
+                    <div class="name-chip">
+                        Shalini Arun Prakash · Professional Portfolio
+                    </div>
 
                     <div class="hero-title">
                         I drive <span class="highlight-red">business growth</span><br>
@@ -1111,8 +1113,9 @@ def render_home():
                     </div>
 
                     <div class="hero-subline">
-                        Experience across startup operations, EdTech, analytics, customer engagement,
-                        commercial execution and structured business problem solving.
+                        Experience across startup operations, EdTech, analytics,
+                        customer engagement, commercial execution and structured
+                        business problem solving.
                     </div>
 
                     <span class="badge badge-red">Revenue Growth</span>
@@ -1120,6 +1123,7 @@ def render_home():
                     <span class="badge badge-light-red">Data Analytics</span>
                     <span class="badge">Partnerships</span>
                     <span class="badge">Strategy</span>
+
                 </div>
             </div>
             """,
