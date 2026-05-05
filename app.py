@@ -210,24 +210,6 @@ p, li, span, div {
     background: #E53935;
 }
 
-.metric-card:hover,
-.fit-card:hover,
-.project-card:hover,
-.visual-card:hover,
-.skill-card:hover {
-    transform: translateY(-3px);
-    transition: all 0.22s ease-in-out;
-    border-color: rgba(229,57,53,0.42);
-    box-shadow: 0 24px 70px rgba(0,0,0,0.48);
-}
-
-.project-card,
-.fit-card,
-.visual-card,
-.skill-card {
-    transition: all 0.22s ease-in-out;
-}
-
 .metric-value {
     font-size: 2.25rem;
     font-weight: 950;
@@ -282,6 +264,18 @@ p, li, span, div {
     padding: 0;
     margin-bottom: 1.25rem;
     box-shadow: 0 20px 62px rgba(0, 0, 0, 0.35);
+    transition: all 0.22s ease-in-out;
+}
+
+.project-card:hover,
+.metric-card:hover,
+.fit-card:hover,
+.visual-card:hover,
+.skill-visual-card:hover {
+    transform: translateY(-3px);
+    transition: all 0.22s ease-in-out;
+    border-color: rgba(229,57,53,0.42);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.48);
 }
 
 .project-img {
@@ -366,22 +360,55 @@ p, li, span, div {
     margin-top: 0.6rem;
 }
 
-.skill-card {
-    background: #111113;
+/* ---------- PREMIUM SKILLS IMAGE CARDS ---------- */
+
+.skill-visual-card {
+    position: relative;
+    min-height: 390px;
+    overflow: hidden;
     border: 1px solid rgba(255,255,255,0.12);
-    border-top: 4px solid #E53935;
-    padding: 1.25rem;
-    min-height: 270px;
-    box-shadow: 0 18px 50px rgba(0,0,0,0.35);
-    margin-bottom: 1rem;
+    background: #111113;
+    box-shadow: 0 20px 62px rgba(0,0,0,0.38);
+    margin-bottom: 1.25rem;
+    transition: all 0.22s ease-in-out;
 }
 
-.skill-card h3 {
+.skill-visual-img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+    opacity: 0.82;
+    filter: grayscale(20%) contrast(1.08);
+    border-bottom: 4px solid #E53935;
+}
+
+.skill-visual-body {
+    padding: 1.25rem 1.35rem 1.35rem 1.35rem;
+}
+
+.skill-visual-title {
+    font-size: 1.1rem;
+    font-weight: 950;
     color: #ffffff;
-    font-size: 1.05rem;
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.75rem;
+}
+
+.skill-visual-evidence {
+    color: #d4d4d8;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-top: 0.8rem;
+}
+
+.skill-visual-methods {
+    color: #a1a1aa;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 0.7rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(255,255,255,0.10);
 }
 
 .skill-item {
@@ -397,11 +424,26 @@ p, li, span, div {
     letter-spacing: 0.03em;
 }
 
-.skill-note {
-    color: #a1a1aa;
-    font-size: 0.86rem;
-    line-height: 1.55;
-    margin-top: 0.85rem;
+.skill-strip {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-strip-item {
+    flex: 1;
+    min-width: 170px;
+    background: rgba(229,57,53,0.10);
+    border: 1px solid rgba(229,57,53,0.35);
+    padding: 0.9rem;
+    text-align: center;
+    font-size: 0.82rem;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #ffffff;
 }
 
 .contact-card {
@@ -742,7 +784,6 @@ projects = [
         "strategic_relevance": "Relevant to lifecycle discipline: structured follow-ups, service coordination, operational clarity and stakeholder communication."
     },
 ]
-
 analytics_projects = [
     {
         "title": "TasteMate Cloud Kitchen – End-to-End Analytics Dashboard",
@@ -906,6 +947,76 @@ experience = [
         ]
     },
 ]
+
+leadership_items = [
+    {
+        "title": "Global Learning & Student Life Committee",
+        "category": "Student Leadership",
+        "location": "SP Jain School of Global Management",
+        "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=85",
+        "summary": "Supported cross-campus student engagement, coordination and student-faculty-admin communication during the Global MBA journey.",
+        "skills": ["Leadership", "Coordination", "Student engagement", "Cross-functional communication"]
+    },
+    {
+        "title": "Industry Connect Event",
+        "category": "Industry Engagement",
+        "location": "Dubai",
+        "image": "https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=1400&q=85",
+        "summary": "Supported an industry engagement event connecting students with senior business leaders and real-world decision-making discussions.",
+        "skills": ["Event coordination", "Industry interface", "Stakeholder communication", "Execution"]
+    },
+    {
+        "title": "Business Conclave",
+        "category": "Leadership Event",
+        "location": "Dubai",
+        "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=85",
+        "summary": "Contributed to event coordination and student presentation support for a business leadership conclave.",
+        "skills": ["Presentation support", "Logistics", "Team coordination", "Professional presence"]
+    },
+    {
+        "title": "OMFS Awareness Marathon",
+        "category": "Healthcare Outreach",
+        "location": "Chennai",
+        "image": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1400&q=85",
+        "summary": "Supported a public healthcare awareness event focused on oral and maxillofacial surgery awareness.",
+        "skills": ["Healthcare outreach", "Public engagement", "Event execution", "Community awareness"]
+    },
+    {
+        "title": "Anti-Tobacco Awareness Human Chain",
+        "category": "Public Health",
+        "location": "Chennai",
+        "image": "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1400&q=85",
+        "summary": "Participated in a public health awareness initiative promoting anti-tobacco education and preventive health communication.",
+        "skills": ["Public health", "Community service", "Preventive health", "Awareness building"]
+    },
+]
+
+extra_curricular_items = [
+    {
+        "title": "Live Communication & Public Speaking",
+        "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1400&q=85",
+        "summary": "Built through 2,000+ live sessions, MBA presentations, stakeholder discussions and project delivery conversations.",
+        "skills": ["Public speaking", "Live delivery", "Audience engagement", "Clarity"]
+    },
+    {
+        "title": "Business Simulations & Strategy Games",
+        "image": "https://images.unsplash.com/photo-1552664688-cf412ec27db2?auto=format&fit=crop&w=1400&q=85",
+        "summary": "Worked on business simulation environments such as BOSS / Markstrat-style decision-making, market strategy and performance tracking.",
+        "skills": ["Decision-making", "Market strategy", "Competitive thinking", "Scenario planning"]
+    },
+    {
+        "title": "Dashboard & Portfolio Building",
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
+        "summary": "Built Streamlit dashboards and analytics-driven portfolio assets to present work, data and business evidence visually.",
+        "skills": ["Streamlit", "Dashboarding", "Data storytelling", "Portfolio design"]
+    },
+    {
+        "title": "Research Interviews & Insight Collection",
+        "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=85",
+        "summary": "Conducted expert and stakeholder interviews across healthcare transformation, patient experience and business research projects.",
+        "skills": ["Interviewing", "Research synthesis", "Stakeholder listening", "Insight generation"]
+    },
+]
 skills = {
     "Business & Commercial Execution": [
         "Business ownership",
@@ -972,6 +1083,29 @@ skill_notes = {
     "Tools": {
         "evidence": "Used across dashboards, analysis, modelling, reporting, presentations and portfolio development.",
         "methods": "Excel · PowerPoint · Power BI · Tableau · Python · Streamlit · SmartPLS · AI tools"
+    }
+}
+
+skills_visuals = {
+    "Business & Commercial Execution": {
+        "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=85",
+        "headline": "Execution, ownership and commercial discipline"
+    },
+    "Strategy & Transformation": {
+        "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85",
+        "headline": "Structured business problem solving across markets and systems"
+    },
+    "Data Analytics & BI": {
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
+        "headline": "Dashboards, modelling and decision intelligence"
+    },
+    "Healthcare & Life Sciences": {
+        "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=85",
+        "headline": "Clinical grounding plus healthcare strategy exposure"
+    },
+    "Tools": {
+        "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+        "headline": "Practical stack for analysis, reporting and portfolio building"
     }
 }
 
@@ -1063,28 +1197,26 @@ def render_experience_card(item):
     </div>
     """, unsafe_allow_html=True)
 
+def render_simple_visual_card(item):
+    chips = "".join([f'<span class="skill-item">{skill}</span>' for skill in item["skills"]])
+    st.markdown(f"""
+    <div class="project-card">
+        <img src="{item["image"]}" class="project-img">
+        <div class="project-body">
+            <div class="project-title">{item["title"]}</div>
+            <div class="project-meta">{item.get("category", "Extra-Curricular")} · {item.get("location", "")}</div>
+            <div class="project-summary">{item["summary"]}</div>
+            <div>{chips}</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
 def make_project_capability_chart():
     df = pd.DataFrame(projects)
     counts = df["capability"].value_counts().reset_index()
     counts.columns = ["Capability", "Count"]
-    fig = px.bar(
-        counts,
-        x="Capability",
-        y="Count",
-        text="Count",
-        color="Capability",
-        title="Project Coverage by Capability"
-    )
-    fig.update_layout(
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
-        font_color="#d4d4d8",
-        title_font_color="#ffffff",
-        xaxis_tickangle=-25,
-        height=450,
-        showlegend=False,
-        margin=dict(l=20, r=20, t=60, b=110)
-    )
+    fig = px.bar(counts, x="Capability", y="Count", text="Count", color="Capability", title="Project Coverage by Capability")
+    fig.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", font_color="#d4d4d8", title_font_color="#ffffff", xaxis_tickangle=-25, height=450, showlegend=False, margin=dict(l=20, r=20, t=60, b=110))
     fig.update_traces(textposition="outside")
     return fig
 
@@ -1092,47 +1224,17 @@ def make_project_mix_donut():
     df = pd.DataFrame(projects)
     counts = df["capability"].value_counts().reset_index()
     counts.columns = ["Capability", "Count"]
-    fig = px.pie(
-        counts,
-        names="Capability",
-        values="Count",
-        hole=0.52,
-        title="Project Portfolio Mix"
-    )
-    fig.update_layout(
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
-        font_color="#d4d4d8",
-        title_font_color="#ffffff",
-        height=430,
-        legend=dict(font=dict(color="#d4d4d8"))
-    )
+    fig = px.pie(counts, names="Capability", values="Count", hole=0.52, title="Project Portfolio Mix")
+    fig.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", font_color="#d4d4d8", title_font_color="#ffffff", height=430, legend=dict(font=dict(color="#d4d4d8")))
     return fig
 
 def make_analytics_methods_chart():
     methods = pd.DataFrame({
-        "Method": [
-            "Dashboards", "EDA", "Regression", "Classification",
-            "Clustering", "Association Rules", "KPI Tracking", "Financial Modelling"
-        ],
+        "Method": ["Dashboards", "EDA", "Regression", "Classification", "Clustering", "Association Rules", "KPI Tracking", "Financial Modelling"],
         "Strength": [9, 8, 7, 7, 7, 6, 9, 8]
     })
-    fig = px.bar(
-        methods,
-        x="Method",
-        y="Strength",
-        text="Strength",
-        title="Analytics Method Coverage"
-    )
-    fig.update_layout(
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
-        font_color="#d4d4d8",
-        title_font_color="#ffffff",
-        xaxis_tickangle=-25,
-        height=420,
-        showlegend=False
-    )
+    fig = px.bar(methods, x="Method", y="Strength", text="Strength", title="Analytics Method Coverage")
+    fig.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", font_color="#d4d4d8", title_font_color="#ffffff", xaxis_tickangle=-25, height=420, showlegend=False)
     fig.update_traces(textposition="outside")
     return fig
 
@@ -1143,66 +1245,32 @@ def make_analytics_workflow_chart():
         textinfo="value+percent initial",
         marker={"color": ["#E53935", "#C62828", "#B71C1C", "#8E1B1B", "#6D1717", "#4A0F0F"]}
     ))
-    fig.update_layout(
-        title="Analytics Workflow: From Raw Data to Business Decisions",
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
-        font_color="#d4d4d8",
-        title_font_color="#ffffff",
-        height=430
-    )
+    fig.update_layout(title="Analytics Workflow: From Raw Data to Business Decisions", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", font_color="#d4d4d8", title_font_color="#ffffff", height=430)
     return fig
 
 def make_analytics_project_chart():
     df = pd.DataFrame(analytics_projects)
     counts = df["capability"].value_counts().reset_index()
     counts.columns = ["Analytics Capability", "Count"]
-    fig = px.pie(
-        counts,
-        names="Analytics Capability",
-        values="Count",
-        hole=0.52,
-        title="Analytics Project Mix"
-    )
-    fig.update_layout(
-        paper_bgcolor="rgba(0,0,0,0)",
-        font_color="#d4d4d8",
-        title_font_color="#ffffff",
-        height=430
-    )
+    fig = px.pie(counts, names="Analytics Capability", values="Count", hole=0.52, title="Analytics Project Mix")
+    fig.update_layout(paper_bgcolor="rgba(0,0,0,0)", font_color="#d4d4d8", title_font_color="#ffffff", height=430)
     return fig
 
 def make_capability_radar():
-    categories = [
-        "Execution",
-        "Commercial Thinking",
-        "Analytics",
-        "AI / Digital",
-        "Healthcare",
-        "Stakeholder Management",
-    ]
+    categories = ["Execution", "Commercial Thinking", "Analytics", "AI / Digital", "Healthcare", "Stakeholder Management"]
     scores = [9, 8, 9, 8, 8, 9]
-
     fig = go.Figure()
-    fig.add_trace(go.Scatterpolar(
-        r=scores,
-        theta=categories,
-        fill="toself",
-        line=dict(color="#E53935", width=3),
-        fillcolor="rgba(229,57,53,0.25)"
-    ))
-    fig.update_layout(
-        polar=dict(
-            bgcolor="rgba(0,0,0,0)",
-            radialaxis=dict(visible=True, range=[0, 10], color="#a1a1aa"),
-            angularaxis=dict(color="#d4d4d8")
-        ),
-        paper_bgcolor="rgba(0,0,0,0)",
-        font_color="#d4d4d8",
-        title=dict(text="Portfolio Capability Radar", font=dict(color="#ffffff")),
-        showlegend=False,
-        height=430
-    )
+    fig.add_trace(go.Scatterpolar(r=scores, theta=categories, fill="toself", line=dict(color="#E53935", width=3), fillcolor="rgba(229,57,53,0.25)"))
+    fig.update_layout(polar=dict(bgcolor="rgba(0,0,0,0)", radialaxis=dict(visible=True, range=[0, 10], color="#a1a1aa"), angularaxis=dict(color="#d4d4d8")), paper_bgcolor="rgba(0,0,0,0)", font_color="#d4d4d8", title=dict(text="Portfolio Capability Radar", font=dict(color="#ffffff")), showlegend=False, height=430)
+    return fig
+
+def make_leadership_mix_chart():
+    df = pd.DataFrame(leadership_items)
+    counts = df["category"].value_counts().reset_index()
+    counts.columns = ["Leadership Area", "Count"]
+    fig = px.bar(counts, x="Leadership Area", y="Count", text="Count", color="Leadership Area", title="Leadership & Community Coverage")
+    fig.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", font_color="#d4d4d8", title_font_color="#ffffff", xaxis_tickangle=-20, height=420, showlegend=False)
+    fig.update_traces(textposition="outside")
     return fig
 
 # ------------------------------------------------------------
@@ -1234,26 +1302,11 @@ def render_home():
 
     c1, c2, c3 = st.columns(3)
     with c1:
-        st.markdown("""
-        <div class="hero-mini-card">
-            <b>Execution Operator</b>
-            <p>Startup operations, EdTech delivery and clinical coordination show ground-level ownership.</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown("""<div class="hero-mini-card"><b>Execution Operator</b><p>Startup operations, EdTech delivery and clinical coordination show ground-level ownership.</p></div>""", unsafe_allow_html=True)
     with c2:
-        st.markdown("""
-        <div class="hero-mini-card">
-            <b>Business Problem Solver</b>
-            <p>Consulting-style projects across healthcare, fintech, transformation and market strategy.</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown("""<div class="hero-mini-card"><b>Business Problem Solver</b><p>Consulting-style projects across healthcare, fintech, transformation and market strategy.</p></div>""", unsafe_allow_html=True)
     with c3:
-        st.markdown("""
-        <div class="hero-mini-card">
-            <b>Analytics + AI Builder</b>
-            <p>Dashboards, modelling, research analytics and AI-enabled product/system thinking.</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown("""<div class="hero-mini-card"><b>Analytics + AI Builder</b><p>Dashboards, modelling, research analytics and AI-enabled product/system thinking.</p></div>""", unsafe_allow_html=True)
 
     cols = st.columns(4)
     for i, (value, label) in enumerate(metrics[:4]):
@@ -1266,10 +1319,7 @@ def render_home():
             render_metric_card(value, label)
 
     st.markdown('<div class="section-title">Portfolio Fit</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">A structured view of how my experience and project work connect across execution, commercial thinking, analytics, healthcare, AI and stakeholder management.</div>',
-        unsafe_allow_html=True
-    )
+    st.markdown('<div class="section-caption">A structured view of how my experience and project work connect across execution, commercial thinking, analytics, healthcare, AI and stakeholder management.</div>', unsafe_allow_html=True)
 
     for i in range(0, len(portfolio_fit_areas), 3):
         cols = st.columns(3)
@@ -1280,29 +1330,22 @@ def render_home():
                     render_fit_card(item["area"], item["evidence"])
 
     st.markdown('<div class="section-title">Portfolio Visuals</div>', unsafe_allow_html=True)
-
     c1, c2 = st.columns(2)
     with c1:
         st.markdown('<div class="visual-card">', unsafe_allow_html=True)
         st.plotly_chart(make_project_capability_chart(), use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
-
     with c2:
         st.markdown('<div class="visual-card">', unsafe_allow_html=True)
         st.plotly_chart(make_project_mix_donut(), use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
-
     st.markdown('<div class="visual-card">', unsafe_allow_html=True)
     st.plotly_chart(make_capability_radar(), use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
 def render_experience():
     st.markdown('<div class="section-title">Experience</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">Professional experience with role descriptions, visual context and achievement evidence under each experience.</div>',
-        unsafe_allow_html=True
-    )
-
+    st.markdown('<div class="section-caption">Professional experience with role descriptions, visual context and achievement evidence under each experience.</div>', unsafe_allow_html=True)
     for i in range(0, len(experience), 2):
         cols = st.columns(2)
         for j, col in enumerate(cols):
@@ -1312,20 +1355,10 @@ def render_experience():
 
 def render_projects():
     st.markdown('<div class="section-title">Projects</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">Consulting-style and business project work across healthcare, fintech, digital transformation, commercial strategy, AI-enabled models and market intelligence. Work experience such as Turfo is intentionally kept in Experience.</div>',
-        unsafe_allow_html=True
-    )
-
-    capability_filter = st.selectbox(
-        "Filter by capability",
-        ["All"] + sorted(set([p["capability"] for p in projects]))
-    )
-
+    st.markdown('<div class="section-caption">Consulting-style and business project work across healthcare, fintech, digital transformation, commercial strategy, AI-enabled models and market intelligence. Work experience such as Turfo is intentionally kept in Experience.</div>', unsafe_allow_html=True)
+    capability_filter = st.selectbox("Filter by capability", ["All"] + sorted(set([p["capability"] for p in projects])))
     filtered = projects if capability_filter == "All" else [p for p in projects if p["capability"] == capability_filter]
-
     st.write(f"Showing {len(filtered)} project(s).")
-
     for i in range(0, len(filtered), 2):
         cols = st.columns(2)
         for j, col in enumerate(cols):
@@ -1335,30 +1368,13 @@ def render_projects():
 
 def render_analytics():
     st.markdown('<div class="section-title">Data Analytics & Business Intelligence</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">A dedicated section for dashboarding, KPI ownership, customer analytics, predictive modelling, research analytics and data-driven decision support.</div>',
-        unsafe_allow_html=True
-    )
-
+    st.markdown('<div class="section-caption">A dedicated section for dashboarding, KPI ownership, customer analytics, predictive modelling, research analytics and data-driven decision support.</div>', unsafe_allow_html=True)
     analytics_cards = [
-        {
-            "area": "Decision intelligence",
-            "evidence": "Framed analytics projects around business choices: pricing, utilisation, spend behaviour, segmentation, retention and operational performance."
-        },
-        {
-            "area": "Dashboard ownership",
-            "evidence": "Built trackers and dashboard structures that made performance visible across bookings, utilisation, revenue, engagement and model outputs."
-        },
-        {
-            "area": "Customer analytics",
-            "evidence": "Used segmentation, behaviour patterns, spend modelling and association rules to move beyond reporting into actionable commercial insight."
-        },
-        {
-            "area": "Research analytics",
-            "evidence": "Designed and interpreted AI adoption analysis using TPB, trust mediation, SmartPLS outputs and evidence-backed reasoning."
-        },
+        {"area": "Decision intelligence", "evidence": "Framed analytics projects around business choices: pricing, utilisation, spend behaviour, segmentation, retention and operational performance."},
+        {"area": "Dashboard ownership", "evidence": "Built trackers and dashboard structures that made performance visible across bookings, utilisation, revenue, engagement and model outputs."},
+        {"area": "Customer analytics", "evidence": "Used segmentation, behaviour patterns, spend modelling and association rules to move beyond reporting into actionable commercial insight."},
+        {"area": "Research analytics", "evidence": "Designed and interpreted AI adoption analysis using TPB, trust mediation, SmartPLS outputs and evidence-backed reasoning."},
     ]
-
     for i in range(0, len(analytics_cards), 2):
         cols = st.columns(2)
         for j, col in enumerate(cols):
@@ -1368,7 +1384,6 @@ def render_analytics():
                     render_fit_card(item["area"], item["evidence"])
 
     st.markdown('<div class="section-title">Analytics Visuals</div>', unsafe_allow_html=True)
-
     c1, c2 = st.columns(2)
     with c1:
         st.markdown('<div class="visual-card">', unsafe_allow_html=True)
@@ -1378,17 +1393,12 @@ def render_analytics():
         st.markdown('<div class="visual-card">', unsafe_allow_html=True)
         st.plotly_chart(make_analytics_workflow_chart(), use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
-
     st.markdown('<div class="visual-card">', unsafe_allow_html=True)
     st.plotly_chart(make_analytics_project_chart(), use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
     st.markdown('<div class="section-title">Analytics Project Evidence</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">Analytics evidence is separated from the main Projects tab to make dashboarding, modelling and BI ownership visible on its own.</div>',
-        unsafe_allow_html=True
-    )
-
+    st.markdown('<div class="section-caption">Analytics evidence is separated from the main Projects tab to make dashboarding, modelling and BI ownership visible on its own.</div>', unsafe_allow_html=True)
     for i in range(0, len(analytics_projects), 2):
         cols = st.columns(2)
         for j, col in enumerate(cols):
@@ -1398,13 +1408,19 @@ def render_analytics():
 
 def render_skills():
     st.markdown('<div class="section-title">Skills</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">A capability map showing what I can do, where it was demonstrated, and the tools or methods behind it.</div>',
-        unsafe_allow_html=True
-    )
+    st.markdown('<div class="section-caption">A visual capability map showing what I can do, where it was demonstrated, and the tools or methods behind it.</div>', unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="skill-strip">
+        <div class="skill-strip-item">Business Ownership</div>
+        <div class="skill-strip-item">Healthcare Strategy</div>
+        <div class="skill-strip-item">Data Analytics</div>
+        <div class="skill-strip-item">AI-Enabled Workflows</div>
+        <div class="skill-strip-item">Commercial Execution</div>
+    </div>
+    """, unsafe_allow_html=True)
 
     skill_items = list(skills.items())
-
     for i in range(0, len(skill_items), 2):
         cols = st.columns(2)
         for j, col in enumerate(cols):
@@ -1413,38 +1429,57 @@ def render_skills():
                 chips = "".join([f'<span class="skill-item">{item}</span>' for item in items])
                 evidence = skill_notes.get(category, {}).get("evidence", "")
                 methods = skill_notes.get(category, {}).get("methods", "")
-
+                image = skills_visuals.get(category, {}).get("image", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85")
+                headline = skills_visuals.get(category, {}).get("headline", "")
                 with col:
                     st.markdown(f"""
-                    <div class="skill-card">
-                        <h3>{category}</h3>
-                        <div>{chips}</div>
-                        <div class="skill-note"><b>Evidence:</b> {evidence}</div>
-                        <div class="skill-note"><b>Methods / Tools:</b> {methods}</div>
+                    <div class="skill-visual-card">
+                        <img src="{image}" class="skill-visual-img">
+                        <div class="skill-visual-body">
+                            <div class="skill-visual-title">{category}</div>
+                            <div class="project-summary">{headline}</div>
+                            <div>{chips}</div>
+                            <div class="skill-visual-evidence"><b>Evidence:</b> {evidence}</div>
+                            <div class="skill-visual-methods"><b>Methods / Tools:</b> {methods}</div>
+                        </div>
                     </div>
                     """, unsafe_allow_html=True)
 
     st.markdown('<div class="section-title">Project-to-Capability Map</div>', unsafe_allow_html=True)
-
+    st.markdown('<div class="section-caption">A recruiter-friendly map connecting project evidence to capabilities, frameworks and tools.</div>', unsafe_allow_html=True)
     mapping_data = []
     for p in projects:
-        mapping_data.append({
-            "Project": p["title"],
-            "Capability": p["capability"],
-            "Frameworks": ", ".join(p["frameworks"]),
-            "Tools": ", ".join(p["tools"]),
-            "Relevance": p["strategic_relevance"]
-        })
-
+        mapping_data.append({"Project": p["title"], "Capability": p["capability"], "Frameworks": ", ".join(p["frameworks"]), "Tools": ", ".join(p["tools"]), "Relevance": p["strategic_relevance"]})
     st.dataframe(pd.DataFrame(mapping_data), use_container_width=True, hide_index=True)
+
+def render_leadership():
+    st.markdown('<div class="section-title">Leadership & Community</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-caption">Leadership, public health outreach, student engagement, professional events and extra-curricular strengths presented as evidence of initiative and presence.</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="section-title">Leadership & Volunteer Work</div>', unsafe_allow_html=True)
+    for i in range(0, len(leadership_items), 2):
+        cols = st.columns(2)
+        for j, col in enumerate(cols):
+            if i + j < len(leadership_items):
+                with col:
+                    render_simple_visual_card(leadership_items[i + j])
+
+    st.markdown('<div class="section-title">Leadership Visual</div>', unsafe_allow_html=True)
+    st.markdown('<div class="visual-card">', unsafe_allow_html=True)
+    st.plotly_chart(make_leadership_mix_chart(), use_container_width=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="section-title">Extra-Curricular Strengths</div>', unsafe_allow_html=True)
+    for i in range(0, len(extra_curricular_items), 2):
+        cols = st.columns(2)
+        for j, col in enumerate(cols):
+            if i + j < len(extra_curricular_items):
+                with col:
+                    render_simple_visual_card(extra_curricular_items[i + j])
 
 def render_proof_points():
     st.markdown('<div class="section-title">Proof Points</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">Numbers and evidence that support execution discipline, analytics capability, business ownership and project impact.</div>',
-        unsafe_allow_html=True
-    )
-
+    st.markdown('<div class="section-caption">Numbers and evidence that support execution discipline, analytics capability, business ownership and project impact.</div>', unsafe_allow_html=True)
     proof_points = [
         ("3×", "Revenue growth at Turfo in 8 months"),
         ("35+", "Weekly engagements managed through operating execution"),
@@ -1459,7 +1494,6 @@ def render_proof_points():
         ("Global", "Dubai, Singapore, UAE, India and cross-market business project exposure"),
         ("Multi-domain", "Fintech, healthcare, EdTech, F&B, logistics and enterprise transformation")
     ]
-
     for i in range(0, len(proof_points), 3):
         cols = st.columns(3)
         for j, col in enumerate(cols):
@@ -1470,9 +1504,7 @@ def render_proof_points():
 def render_contact():
     st.markdown('<div class="section-title">Contact</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-caption">Professional contact and portfolio access details.</div>', unsafe_allow_html=True)
-
     c1, c2 = st.columns([1.2, 1])
-
     with c1:
         st.markdown("""
         <div class="contact-card">
@@ -1485,12 +1517,11 @@ def render_contact():
             <p><b>Professional narrative:</b> Healthcare-rooted business professional with EdTech, startup operations, analytics, AI-enabled project work and global MBA exposure.</p>
         </div>
         """, unsafe_allow_html=True)
-
     with c2:
         st.markdown("""
         <div class="contact-card">
             <h3>Portfolio Use</h3>
-            <p>This portfolio maps experience, projects and analytics work into a single professional profile.</p>
+            <p>This portfolio maps experience, projects, analytics work, leadership and community engagement into a single professional profile.</p>
             <p>It is public-safe and does not expose confidential project documents, raw datasets or private submissions.</p>
             <br>
             <p><b>Full reports and confidential project documents are available only on request.</b></p>
@@ -1512,8 +1543,8 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-tab_home, tab_experience, tab_projects, tab_analytics, tab_skills, tab_proof, tab_contact = st.tabs(
-    ["Home", "Experience", "Projects", "Analytics", "Skills", "Proof Points", "Contact"]
+tab_home, tab_experience, tab_projects, tab_analytics, tab_skills, tab_leadership, tab_proof, tab_contact = st.tabs(
+    ["Home", "Experience", "Projects", "Analytics", "Skills", "Leadership", "Proof Points", "Contact"]
 )
 
 with tab_home:
@@ -1530,6 +1561,9 @@ with tab_analytics:
 
 with tab_skills:
     render_skills()
+
+with tab_leadership:
+    render_leadership()
 
 with tab_proof:
     render_proof_points()
