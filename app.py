@@ -27,6 +27,21 @@ st.set_page_config(
 st.markdown(
     """
 <style>
+.hero-image-wrap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+}
+
+.hero-image-wrap img {
+    max-height: 480px;
+    width: auto;
+    object-fit: contain;
+}
+.hero-title {
+    font-size: clamp(3rem, 5vw, 4.8rem);
+}
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 html, body, [class*="css"] {
@@ -654,71 +669,43 @@ def make_project_capability_heatmap():
 
 
 def render_home():
-    left, right = st.columns([1.35, 0.85])
+    col1, col2 = st.columns([1.3, 1])
 
-    with left:
+    with col1:
         st.markdown(
             """
             <div class="hero-box">
-                <div class="name-chip">Shalini Arun Prakash - Professional Portfolio</div>
+                <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
                 <div class="hero-title">
-                    I drive <span class="highlight-red">business growth</span><br>
-                    through execution and data.
+                    I DRIVE <span class="highlight-red">BUSINESS GROWTH</span><br>
+                    THROUGH EXECUTION AND DATA.
                 </div>
                 <div class="hero-subline">
-                    Experience across startup operations, EdTech, analytics, customer engagement,
-                    commercial execution and structured business problem solving.
+                    Experience across startup operations, EdTech, analytics,
+                    customer engagement, commercial execution and structured
+                    business problem solving.
                 </div>
-                <span class="badge badge-red">Revenue Growth</span>
-                <span class="badge badge-red">Commercial Execution</span>
-                <span class="badge badge-light-red">Data Analytics</span>
-                <span class="badge">Partnerships</span>
-                <span class="badge">Strategy</span>
+                <div style="margin-top:1rem;">
+                    <span class="badge badge-red">Revenue Growth</span>
+                    <span class="badge badge-red">Commercial Execution</span>
+                    <span class="badge badge-light-red">Data Analytics</span>
+                    <span class="badge">Partnerships</span>
+                    <span class="badge">Strategy</span>
+                </div>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-    with right:
-        st.markdown('<div class="profile-panel">', unsafe_allow_html=True)
-        st.image("assets/shalini-profile.png", use_container_width=True)
-        st.markdown("</div>", unsafe_allow_html=True)
-
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        st.markdown('<div class="hero-mini-card"><b>Execution Operator</b><p>Startup operations, EdTech delivery and clinical coordination show ground-level ownership.</p></div>', unsafe_allow_html=True)
-    with c2:
-        st.markdown('<div class="hero-mini-card"><b>Business Problem Solver</b><p>Consulting-style projects across healthcare, fintech, transformation and market strategy.</p></div>', unsafe_allow_html=True)
-    with c3:
-        st.markdown('<div class="hero-mini-card"><b>Analytics + AI Builder</b><p>Dashboards, modelling, research analytics and AI-enabled product/system thinking.</p></div>', unsafe_allow_html=True)
-
-    cols = st.columns(4)
-    for i, (value, label) in enumerate(metrics[:4]):
-        with cols[i]:
-            render_metric_card(value, label)
-
-    cols = st.columns(4)
-    for i, (value, label) in enumerate(metrics[4:]):
-        with cols[i]:
-            render_metric_card(value, label)
-
-    st.markdown('<div class="section-title">Portfolio Fit</div>', unsafe_allow_html=True)
-    st.markdown('<div class="section-caption">A structured view of how my experience and project work connect across execution, commercial thinking, analytics, AI and stakeholder management.</div>', unsafe_allow_html=True)
-
-    for i in range(0, len(portfolio_fit_areas), 3):
-        cols = st.columns(3)
-        for j, col in enumerate(cols):
-            if i + j < len(portfolio_fit_areas):
-                with col:
-                    item = portfolio_fit_areas[i + j]
-                    render_fit_card(item["area"], item["evidence"])
-
-    st.markdown('<div class="section-title">Commercial Proof Map</div>', unsafe_allow_html=True)
-    st.plotly_chart(make_commercial_proof_bubble_map(), use_container_width=True)
-
-    st.markdown('<div class="section-title">Career Momentum</div>', unsafe_allow_html=True)
-    st.plotly_chart(make_career_momentum_timeline(), use_container_width=True)
-
+    with col2:
+        st.markdown(
+            """
+            <div class="hero-image-wrap">
+                <img src="assets/shalini-profile.png">
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
 def render_experience():
     st.markdown('<div class="section-title">Experience</div>', unsafe_allow_html=True)
