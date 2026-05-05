@@ -61,30 +61,10 @@ p, li, span, div {
     color: #e5e5e5;
 }
 
-.top-header {
-    padding: 0.9rem 0 1.4rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.10);
-    margin-bottom: 1rem;
-}
-
-.top-name {
-    font-size: 1.75rem;
-    font-weight: 950;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: -0.03em;
-}
-
-.top-subtitle {
-    color: #a1a1aa;
-    margin-top: 0.35rem;
-    font-size: 0.95rem;
-}
-
 .hero-shell {
     position: relative;
     overflow: hidden;
-    min-height: 610px;
+    min-height: 660px;
     background:
         linear-gradient(90deg, rgba(0,0,0,0.98), rgba(0,0,0,0.88), rgba(0,0,0,0.46)),
         url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1800&q=90');
@@ -97,7 +77,7 @@ p, li, span, div {
 
 .hero-content {
     max-width: 1120px;
-    padding: 3.6rem 3.4rem 2.8rem 3.4rem;
+    padding: 4.4rem 4rem 3.2rem 4rem;
 }
 
 .name-chip {
@@ -106,21 +86,21 @@ p, li, span, div {
     border-radius: 999px;
     background: #E53935;
     color: #ffffff;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 950;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    margin-bottom: 1.35rem;
+    margin-bottom: 1.4rem;
     box-shadow: 0 18px 45px rgba(229,57,53,0.28);
 }
 
 .hero-title {
-    font-size: clamp(2.6rem, 4.5vw, 4.9rem);
-    line-height: 0.98;
+    font-size: clamp(3rem, 5.7vw, 6rem);
+    line-height: 0.94;
     font-weight: 950;
     color: #ffffff;
-    margin-bottom: 1.25rem;
-    max-width: 900px;
+    margin-bottom: 1.35rem;
+    max-width: 1180px;
     text-shadow: 0 14px 45px rgba(0,0,0,0.55);
     text-transform: uppercase;
 }
@@ -133,27 +113,11 @@ p, li, span, div {
 }
 
 .hero-subline {
-    font-size: 1rem;
-    line-height: 1.7;
-    max-width: 760px;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    max-width: 930px;
     color: #d4d4d8;
-    margin-bottom: 1.45rem;
-}
-
-.home-photo-wrap {
-    min-height: 610px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 0.6rem;
-}
-
-.home-photo-wrap img {
-    width: 315px;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 35px 55px rgba(0,0,0,0.75));
+    margin-bottom: 1.6rem;
 }
 
 .hero-mini-card {
@@ -586,15 +550,6 @@ hr {
 @media (max-width: 900px) {
     .hero-content { padding: 2.2rem; }
     .hero-title { font-size: 3.2rem; }
-
-    .home-photo-wrap {
-        min-height: auto;
-        padding-top: 0;
-    }
-
-    .home-photo-wrap img {
-        width: 280px;
-    }
 }
 </style>
 """,
@@ -642,7 +597,9 @@ def render_image_banner(title, text, image_url):
         """,
         unsafe_allow_html=True,
     )
- def render_project_card(project):
+
+
+def render_project_card(project):
     st.markdown(
         f"""
         <div class="project-card">
@@ -1073,38 +1030,30 @@ def render_leadership_impact_matrix():
 
 
 def render_home():
-    left, right = st.columns([1.22, 0.78])
-
-    with left:
-        st.markdown(
-            """
-            <div class="hero-shell">
-                <div class="hero-content">
-                    <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
-                    <div class="hero-title">
-                        I turn <span class="highlight-red">complex problems</span><br>
-                        into structured business outcomes.
-                    </div>
-                    <div class="hero-subline">
-                        A portfolio across digital transformation, startup operations,
-                        data analytics, AI-enabled business models, commercial execution and
-                        evidence-backed problem solving.
-                    </div>
-                    <span class="badge badge-red">Digital Transformation</span>
-                    <span class="badge badge-red">Data Analytics</span>
-                    <span class="badge badge-light-red">Commercial Execution</span>
-                    <span class="badge">AI-Enabled Business Models</span>
-                    <span class="badge">Strategy</span>
+    st.markdown(
+        """
+        <div class="hero-shell">
+            <div class="hero-content">
+                <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
+                <div class="hero-title">
+                    I turn <span class="highlight-red">complex problems</span><br>
+                    into structured business outcomes.
                 </div>
+                <div class="hero-subline">
+                    A portfolio across digital transformation, startup operations,
+                    data analytics, AI-enabled business models, commercial execution and
+                    evidence-backed problem solving.
+                </div>
+                <span class="badge badge-red">Digital Transformation</span>
+                <span class="badge badge-red">Data Analytics</span>
+                <span class="badge badge-light-red">Commercial Execution</span>
+                <span class="badge">AI-Enabled Business Models</span>
+                <span class="badge">Strategy</span>
             </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    with right:
-        st.markdown('<div class="home-photo-wrap">', unsafe_allow_html=True)
-        st.image("assets/shalini-profile.png", width=315)
-        st.markdown("</div>", unsafe_allow_html=True)
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     c1, c2, c3 = st.columns(3)
 
@@ -1184,7 +1133,9 @@ def render_home():
     st.markdown('<div class="visual-card">', unsafe_allow_html=True)
     st.plotly_chart(make_career_momentum_timeline(), use_container_width=True)
     st.markdown("</div>", unsafe_allow_html=True)
-    def render_experience():
+
+
+def render_experience():
     st.markdown('<div class="section-title">Experience</div>', unsafe_allow_html=True)
     st.markdown(
         '<div class="section-caption">Professional experience with role descriptions, visual context and achievement evidence under each experience.</div>',
@@ -1553,9 +1504,11 @@ def render_contact():
 
 st.markdown(
     """
-    <div class="top-header">
-        <div class="top-name">Shalini Arun Prakash</div>
-        <div class="top-subtitle">
+    <div style="padding: 0.9rem 0 1.4rem 0; border-bottom:1px solid rgba(255,255,255,0.10); margin-bottom:1rem;">
+        <div style="font-size: 1.75rem; font-weight: 950; color: #ffffff; text-transform: uppercase; letter-spacing:-0.03em;">
+            Shalini Arun Prakash
+        </div>
+        <div style="color:#a1a1aa; margin-top:0.35rem; font-size:0.95rem;">
             Digital Transformation · Data Analytics · AI-Enabled Business Models · Commercial Execution · Strategy
         </div>
     </div>
