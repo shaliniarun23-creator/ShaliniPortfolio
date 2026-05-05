@@ -4,6 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import base64
 from pathlib import Path
+from textwrap import dedent
 
 from content import (
     metrics,
@@ -1165,44 +1166,44 @@ def render_home():
         )
 
     st.markdown(
-        f"""
-        <div class="hero-shell">
-            <div class="hero-content hero-content-split">
-                <div class="hero-text-block">
-                    <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
-                    <div class="hero-title">
-                        I drive <span class="highlight-red">business growth</span><br>
-                        through execution and data.
-                    </div>
-                    <div class="hero-subline">
-                        Experience across startup operations, EdTech, analytics, customer engagement,
-                        commercial execution and structured business problem solving.
-                    </div>
-                    <span class="badge badge-red">Revenue Growth</span>
-                    <span class="badge badge-red">Commercial Execution</span>
-                    <span class="badge badge-light-red">Data Analytics</span>
-                    <span class="badge">Partnerships</span>
-                    <span class="badge">Strategy</span>
+        dedent(f"""
+<div class="hero-shell">
+    <div class="hero-content hero-content-split">
+        <div class="hero-text-block">
+            <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
+            <div class="hero-title">
+                I drive <span class="highlight-red">business growth</span><br>
+                through execution and data.
+            </div>
+            <div class="hero-subline">
+                Experience across startup operations, EdTech, analytics, customer engagement,
+                commercial execution and structured business problem solving.
+            </div>
+            <span class="badge badge-red">Revenue Growth</span>
+            <span class="badge badge-red">Commercial Execution</span>
+            <span class="badge badge-light-red">Data Analytics</span>
+            <span class="badge">Partnerships</span>
+            <span class="badge">Strategy</span>
 
-                    <div class="hero-proof-strip">
-                        <div class="hero-proof-pill">
-                            <div class="hero-proof-value">3×</div>
-                            <div class="hero-proof-label">Revenue growth</div>
-                        </div>
-                        <div class="hero-proof-pill">
-                            <div class="hero-proof-value">150+</div>
-                            <div class="hero-proof-label">Monthly conversions</div>
-                        </div>
-                        <div class="hero-proof-pill">
-                            <div class="hero-proof-value">2,000+</div>
-                            <div class="hero-proof-label">Live sessions</div>
-                        </div>
-                    </div>
+            <div class="hero-proof-strip">
+                <div class="hero-proof-pill">
+                    <div class="hero-proof-value">3×</div>
+                    <div class="hero-proof-label">Revenue growth</div>
                 </div>
-                {profile_html}
+                <div class="hero-proof-pill">
+                    <div class="hero-proof-value">150+</div>
+                    <div class="hero-proof-label">Monthly conversions</div>
+                </div>
+                <div class="hero-proof-pill">
+                    <div class="hero-proof-value">2,000+</div>
+                    <div class="hero-proof-label">Live sessions</div>
+                </div>
             </div>
         </div>
-        """,
+        {profile_html}
+    </div>
+</div>
+        """),
         unsafe_allow_html=True,
     )
 
