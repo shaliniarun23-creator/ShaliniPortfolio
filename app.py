@@ -24,6 +24,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
+# ---------------- CSS ----------------
 st.markdown(
     """
 <style>
@@ -36,8 +37,8 @@ html, body, [class*="css"] {
 .stApp {
     background:
         radial-gradient(circle at 0% 0%, rgba(229, 57, 53, 0.18), transparent 30%),
-        radial-gradient(circle at 100% 10%, rgba(255, 107, 107, 0.09), transparent 25%),
-        linear-gradient(135deg, #050505 0%, #0b0b0d 48%, #111111 100%);
+        radial-gradient(circle at 100% 10%, rgba(255, 107, 107, 0.08), transparent 25%),
+        linear-gradient(135deg, #050505 0%, #0b0b0d 50%, #111111 100%);
     color: #ffffff;
 }
 
@@ -52,7 +53,7 @@ header {visibility: hidden;}
     max-width: 1360px;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
     color: #ffffff !important;
     letter-spacing: -0.035em;
 }
@@ -61,22 +62,36 @@ p, li, span, div {
     color: #e5e5e5;
 }
 
-.hero-shell {
-    position: relative;
-    overflow: hidden;
-    min-height: 660px;
-    background:
-        radial-gradient(circle at 78% 30%, rgba(229,57,53,0.18), transparent 28%),
-        radial-gradient(circle at 0% 0%, rgba(229, 57, 53, 0.16), transparent 30%),
-        linear-gradient(135deg, #050505 0%, #0b0b0d 50%, #111111 100%);
-    border: 1px solid rgba(255,255,255,0.12);
-    box-shadow: 0 35px 100px rgba(0,0,0,0.65);
-    margin-bottom: 1.2rem;
+.top-header {
+    padding: 0.9rem 0 1.4rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    margin-bottom: 1rem;
 }
 
-.hero-content {
-    max-width: 1120px;
-    padding: 4.4rem 4rem 3.2rem 4rem;
+.top-name {
+    font-size: 1.75rem;
+    font-weight: 950;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+}
+
+.top-subtitle {
+    color: #a1a1aa;
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
+}
+
+.hero-box {
+    min-height: 620px;
+    background:
+        radial-gradient(circle at 85% 20%, rgba(229,57,53,0.20), transparent 30%),
+        radial-gradient(circle at 0% 0%, rgba(229,57,53,0.14), transparent 35%),
+        linear-gradient(135deg, #050505 0%, #0b0b0d 58%, #121212 100%);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 35px 100px rgba(0,0,0,0.65);
+    padding: 4.2rem 4rem;
+    margin-bottom: 1.2rem;
 }
 
 .name-chip {
@@ -94,53 +109,39 @@ p, li, span, div {
 }
 
 .hero-title {
-    font-size: clamp(3rem, 5.7vw, 6rem);
+    font-size: clamp(3rem, 5.7vw, 5.8rem);
     line-height: 0.94;
     font-weight: 950;
     color: #ffffff;
     margin-bottom: 1.35rem;
-    max-width: 1180px;
     text-shadow: 0 14px 45px rgba(0,0,0,0.55);
     text-transform: uppercase;
 }
 
 .highlight-red {
     color: #E53935;
-    background: none;
     -webkit-text-fill-color: #E53935;
-    display: inline-block;
 }
 
 .hero-subline {
-    font-size: 1.08rem;
+    font-size: 1.06rem;
     line-height: 1.75;
-    max-width: 930px;
+    max-width: 760px;
     color: #d4d4d8;
     margin-bottom: 1.6rem;
 }
 
-.hero-mini-card {
-    padding: 1rem;
-    background: rgba(17,17,19,0.88);
-    border: 1px solid rgba(255,255,255,0.10);
-    border-left: 4px solid #E53935;
-    min-height: 135px;
-    margin-bottom: 1rem;
-    transition: all 0.22s ease-in-out;
-}
-
-.hero-mini-card b {
-    color: #ffffff;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-}
-
-.hero-mini-card p {
-    color: #a1a1aa;
-    font-size: 0.86rem;
-    margin: 0.35rem 0 0 0;
-    line-height: 1.45;
+.profile-panel {
+    background:
+        radial-gradient(circle at 50% 35%, rgba(229,57,53,0.26), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 35px 90px rgba(0,0,0,0.55);
+    padding: 1.2rem;
+    min-height: 620px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .badge {
@@ -161,22 +162,22 @@ p, li, span, div {
 }
 
 .badge-red {
-    background: rgba(229,57,53,0.10);
+    background: rgba(229,57,53,0.14);
     color: #ffffff;
-    border: 1px solid rgba(229,57,53,0.32);
+    border: 1px solid rgba(229,57,53,0.42);
 }
 
 .badge-light-red {
-    background: rgba(255,107,107,0.08);
+    background: rgba(255,107,107,0.09);
     color: #ffffff;
-    border: 1px solid rgba(255,107,107,0.30);
+    border: 1px solid rgba(255,107,107,0.32);
 }
 
 .section-title {
-    font-size: 2.35rem;
+    font-size: 2.25rem;
     font-weight: 950;
     color: #ffffff;
-    margin-top: 3.2rem;
+    margin-top: 3rem;
     margin-bottom: 0.55rem;
     text-transform: uppercase;
 }
@@ -198,16 +199,22 @@ p, li, span, div {
     max-width: 990px;
 }
 
+.metric-card,
+.fit-card,
+.visual-card,
+.content-card,
+.contact-card {
+    background: #111113;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+    margin-bottom: 1rem;
+}
+
 .metric-card {
     position: relative;
     overflow: hidden;
-    background: #111113;
-    border: 1px solid rgba(255,255,255,0.10);
     padding: 1.35rem;
     min-height: 150px;
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
-    margin-bottom: 1rem;
-    transition: all 0.22s ease-in-out;
 }
 
 .metric-card:before {
@@ -231,24 +238,17 @@ p, li, span, div {
     font-size: 0.9rem;
     color: #a1a1aa;
     line-height: 1.42;
-    position: relative;
-    z-index: 1;
 }
 
 .fit-card {
-    background: #111113;
-    border: 1px solid rgba(255,255,255,0.12);
     border-top: 4px solid #E53935;
     padding: 1.25rem;
     min-height: 210px;
-    box-shadow: 0 18px 50px rgba(0,0,0,0.35);
-    margin-bottom: 1rem;
-    transition: all 0.22s ease-in-out;
 }
 
 .fit-card h3 {
     text-transform: uppercase;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     margin-bottom: 0.65rem;
 }
 
@@ -259,61 +259,21 @@ p, li, span, div {
 }
 
 .visual-card {
-    background: #111113;
-    border: 1px solid rgba(255,255,255,0.12);
     border-top: 4px solid #E53935;
     padding: 1.2rem;
-    box-shadow: 0 18px 50px rgba(0,0,0,0.35);
-    margin-bottom: 1rem;
-    transition: all 0.22s ease-in-out;
 }
 
-.project-card {
+.content-card {
     overflow: hidden;
-    background: #111113;
-    border: 1px solid rgba(255,255,255,0.11);
     padding: 0;
-    margin-bottom: 1.25rem;
-    box-shadow: 0 20px 62px rgba(0, 0, 0, 0.35);
-    transition: all 0.22s ease-in-out;
 }
 
-.project-card:hover,
-.metric-card:hover,
-.fit-card:hover,
-.visual-card:hover,
-.skill-visual-card:hover,
-.hero-mini-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(255,107,107,0.42);
-    box-shadow: 0 24px 70px rgba(0,0,0,0.48);
-}
-
-.project-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-bottom: 4px solid #E53935;
-    opacity: 0.90;
-    filter: grayscale(12%) contrast(1.08);
-}
-
-.experience-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-bottom: 4px solid #E53935;
-    opacity: 0.90;
-    filter: grayscale(10%) contrast(1.08);
-}
-
-.project-body,
-.experience-body {
+.card-body {
     padding: 1.35rem 1.45rem 1.5rem 1.45rem;
 }
 
-.project-title {
-    font-size: 1.35rem;
+.card-title {
+    font-size: 1.28rem;
     line-height: 1.18;
     font-weight: 950;
     color: #ffffff;
@@ -321,7 +281,7 @@ p, li, span, div {
     text-transform: uppercase;
 }
 
-.project-meta {
+.card-meta {
     font-size: 0.82rem;
     color: #FF6B6B;
     font-weight: 850;
@@ -330,11 +290,34 @@ p, li, span, div {
     letter-spacing: 0.03em;
 }
 
-.project-summary {
+.card-summary {
     font-size: 0.96rem;
     color: #d4d4d8;
     line-height: 1.6;
     margin-bottom: 0.85rem;
+}
+
+.hero-mini-card {
+    padding: 1rem;
+    background: rgba(17,17,19,0.88);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-left: 4px solid #E53935;
+    min-height: 135px;
+    margin-bottom: 1rem;
+}
+
+.hero-mini-card b {
+    color: #ffffff;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.hero-mini-card p {
+    color: #a1a1aa;
+    font-size: 0.86rem;
+    margin: 0.35rem 0 0 0;
+    line-height: 1.45;
 }
 
 .relevance-box {
@@ -343,112 +326,6 @@ p, li, span, div {
     padding: 1rem;
     margin-top: 1rem;
     color: #ffffff;
-}
-
-.timeline-title {
-    font-size: 1.13rem;
-    font-weight: 950;
-    color: #ffffff;
-    text-transform: uppercase;
-}
-
-.timeline-meta {
-    color: #FF6B6B;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    font-weight: 850;
-}
-
-.timeline-detail {
-    color: #d4d4d8;
-    line-height: 1.6;
-    margin-bottom: 0.85rem;
-}
-
-.achievement-list {
-    color: #d4d4d8;
-    line-height: 1.7;
-    margin-top: 0.6rem;
-}
-
-.image-banner-card {
-    min-height: 270px;
-    background-size: cover;
-    background-position: center;
-    border: 1px solid rgba(255,255,255,0.12);
-    box-shadow: 0 20px 62px rgba(0,0,0,0.38);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 1.25rem;
-}
-
-.image-banner-overlay {
-    background: linear-gradient(90deg, rgba(0,0,0,0.93), rgba(0,0,0,0.68), rgba(0,0,0,0.28));
-    min-height: 270px;
-    padding: 2rem;
-}
-
-.image-banner-title {
-    font-size: 2rem;
-    font-weight: 950;
-    text-transform: uppercase;
-    color: #ffffff;
-    margin-bottom: 0.7rem;
-}
-
-.image-banner-text {
-    max-width: 760px;
-    color: #d4d4d8;
-    line-height: 1.65;
-}
-
-.skill-visual-card {
-    position: relative;
-    min-height: 390px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.12);
-    background: #111113;
-    box-shadow: 0 20px 62px rgba(0,0,0,0.38);
-    margin-bottom: 1.25rem;
-    transition: all 0.22s ease-in-out;
-}
-
-.skill-visual-img {
-    width: 100%;
-    height: 175px;
-    object-fit: cover;
-    opacity: 0.82;
-    filter: grayscale(10%) contrast(1.08);
-    border-bottom: 4px solid #E53935;
-}
-
-.skill-visual-body {
-    padding: 1.25rem 1.35rem 1.35rem 1.35rem;
-}
-
-.skill-visual-title {
-    font-size: 1.1rem;
-    font-weight: 950;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    margin-bottom: 0.75rem;
-}
-
-.skill-visual-evidence {
-    color: #d4d4d8;
-    font-size: 0.9rem;
-    line-height: 1.55;
-    margin-top: 0.8rem;
-}
-
-.skill-visual-methods {
-    color: #a1a1aa;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    margin-top: 0.7rem;
-    padding-top: 0.7rem;
-    border-top: 1px solid rgba(255,255,255,0.10);
 }
 
 .skill-item {
@@ -487,10 +364,7 @@ p, li, span, div {
 }
 
 .contact-card {
-    background: #111113;
-    border: 1px solid rgba(255,255,255,0.12);
     padding: 1.6rem;
-    box-shadow: 0 22px 60px rgba(0,0,0,0.36);
     min-height: 300px;
     border-top: 5px solid #E53935;
 }
@@ -534,11 +408,6 @@ div[data-testid="stExpander"] summary {
     color: #ffffff !important;
 }
 
-.stDataFrame {
-    border-radius: 0px;
-    overflow: hidden;
-}
-
 hr {
     border: none;
     height: 1px;
@@ -546,74 +415,10 @@ hr {
     margin: 2rem 0;
 }
 
-
-.hero-split {
-    display: grid;
-    grid-template-columns: 1.45fr 0.8fr;
-    gap: 2.5rem;
-    align-items: end;
-}
-
-.hero-profile-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.hero-profile-stage {
-    position: relative;
-    width: 330px;
-    min-height: 470px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.hero-profile-stage:before {
-    content: "";
-    position: absolute;
-    width: 310px;
-    height: 310px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(229,57,53,0.32), transparent 65%);
-    filter: blur(24px);
-    bottom: 80px;
-    z-index: 0;
-}
-
-.hero-profile-stage:after {
-    content: "";
-    position: absolute;
-    width: 330px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
-    bottom: 18px;
-    z-index: 0;
-}
-
-.hero-profile-img {
-    position: relative;
-    width: 100%;
-    height: auto;
-    z-index: 1;
-    filter: drop-shadow(0 30px 50px rgba(0,0,0,0.85));
-}
-
 @media (max-width: 900px) {
-    .hero-split {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-profile-stage {
-        width: 260px;
-        min-height: 360px;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 900px) {
-    .hero-content { padding: 2.2rem; }
-    .hero-title { font-size: 3.2rem; }
+    .hero-box { padding: 2rem; min-height: auto; }
+    .hero-title { font-size: 3rem; }
+    .profile-panel { min-height: auto; }
 }
 </style>
 """,
@@ -621,8 +426,10 @@ hr {
 )
 
 
+# ---------------- HELPERS ----------------
 def render_badges(items, style="badge"):
-    st.markdown("".join([f'<span class="{style}">{item}</span>' for item in items]), unsafe_allow_html=True)
+    html = "".join([f'<span class="{style}">{item}</span>' for item in items])
+    st.markdown(html, unsafe_allow_html=True)
 
 
 def render_metric_card(value, label):
@@ -649,33 +456,32 @@ def render_fit_card(area, evidence):
     )
 
 
-def render_image_banner(title, text, image_url):
+def render_content_card(title, meta, summary, image_url=None):
+    st.markdown('<div class="content-card">', unsafe_allow_html=True)
+
+    if image_url:
+        st.image(image_url, use_container_width=True)
+
     st.markdown(
         f"""
-        <div class="image-banner-card" style="background-image:url('{image_url}');">
-            <div class="image-banner-overlay">
-                <div class="image-banner-title">{title}</div>
-                <div class="image-banner-text">{text}</div>
-            </div>
+        <div class="card-body">
+            <div class="card-title">{title}</div>
+            <div class="card-meta">{meta}</div>
+            <div class="card-summary">{summary}</div>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
+    st.markdown("</div>", unsafe_allow_html=True)
+
 
 def render_project_card(project):
-    st.markdown(
-        f"""
-        <div class="project-card">
-            <img src="{project["image"]}" class="project-img">
-            <div class="project-body">
-                <div class="project-title">{project["title"]}</div>
-                <div class="project-meta">{project["capability"]} · {project["location"]}</div>
-                <div class="project-summary">{project["summary"]}</div>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    render_content_card(
+        project["title"],
+        f'{project["capability"]} · {project["location"]}',
+        project["summary"],
+        project.get("image"),
     )
 
     render_badges(project["frameworks"][:4], "badge-light-red")
@@ -717,44 +523,29 @@ def render_project_card(project):
 
 
 def render_experience_card(item):
-    achievement_html = "".join([f"<li>{achievement}</li>" for achievement in item["achievements"]])
-    st.markdown(
-        f"""
-        <div class="project-card">
-            <img src="{item["image"]}" class="experience-img">
-            <div class="experience-body">
-                <div class="timeline-title">{item["title"]}</div>
-                <div class="timeline-meta">{item["period"]}</div>
-                <div class="timeline-detail">{item["description"]}</div>
-                <div class="achievement-list">
-                    <b>Achievements:</b>
-                    <ul>{achievement_html}</ul>
-                </div>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    render_content_card(
+        item["title"],
+        item["period"],
+        item["description"],
+        item.get("image"),
     )
+
+    st.markdown("**Achievements:**")
+    for achievement in item["achievements"]:
+        st.write(f"• {achievement}")
 
 
 def render_simple_visual_card(item):
-    chips = "".join([f'<span class="skill-item">{skill}</span>' for skill in item["skills"]])
-    st.markdown(
-        f"""
-        <div class="project-card">
-            <img src="{item["image"]}" class="project-img">
-            <div class="project-body">
-                <div class="project-title">{item["title"]}</div>
-                <div class="project-meta">{item.get("category", "Extra-Curricular")} · {item.get("location", "")}</div>
-                <div class="project-summary">{item["summary"]}</div>
-                <div>{chips}</div>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    render_content_card(
+        item["title"],
+        f'{item.get("category", "Extra-Curricular")} · {item.get("location", "")}',
+        item["summary"],
+        item.get("image"),
     )
+    render_badges(item["skills"], "skill-item")
 
 
+# ---------------- CHARTS ----------------
 def make_commercial_proof_bubble_map():
     data = pd.DataFrame({
         "Proof Point": [
@@ -977,163 +768,126 @@ def make_project_capability_heatmap():
     return fig
 
 
-def render_analytics_decision_engine():
-    st.markdown('<div class="section-title">Analytics Decision Engine</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">A process view of how I use analytics as a decision system from business question to action.</div>',
-        unsafe_allow_html=True,
-    )
+# ---------------- SECTIONS ----------------
+def render_home():
+    left, right = st.columns([1.35, 0.85])
 
-    engine_steps = [
-        {
-            "step": "01",
-            "title": "Frame the Business Question",
-            "body": "Defined decision problems around pricing, utilisation, retention, adoption behaviour, performance improvement and market entry.",
-            "proof": "TasteMate · Turfo · BYJU’S · GSK · AI Adoption Research",
-        },
-        {
-            "step": "02",
-            "title": "Build the Data Layer",
-            "body": "Worked with transaction data, survey responses, dashboard inputs, operational trackers, performance signals and research model data.",
-            "proof": "Excel trackers · Streamlit dashboards · SmartPLS outputs · Survey datasets",
-        },
-        {
-            "step": "03",
-            "title": "Model the Insight",
-            "body": "Applied EDA, segmentation, regression, classification, clustering, association rules and statistical interpretation.",
-            "proof": "Customer analytics · Spend modelling · Behavioural segmentation · Trust mediation model",
-        },
-        {
-            "step": "04",
-            "title": "Drive the Business Decision",
-            "body": "Translated insights into pricing recommendations, utilisation planning, targeting logic, engagement improvement and operating model decisions.",
-            "proof": "Revenue growth · Conversion support · Retention recommendations · Strategic roadmap",
-        },
-    ]
+    with left:
+        st.markdown(
+            """
+            <div class="hero-box">
+                <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
+                <div class="hero-title">
+                    I drive <span class="highlight-red">business growth</span><br>
+                    through execution and data.
+                </div>
+                <div class="hero-subline">
+                    Experience across startup operations, EdTech, analytics, customer engagement,
+                    commercial execution and structured business problem solving.
+                </div>
+                <span class="badge badge-red">Revenue Growth</span>
+                <span class="badge badge-red">Commercial Execution</span>
+                <span class="badge badge-light-red">Data Analytics</span>
+                <span class="badge">Partnerships</span>
+                <span class="badge">Strategy</span>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    with right:
+        st.markdown('<div class="profile-panel">', unsafe_allow_html=True)
+        st.image("assets/shalini-profile.png", use_container_width=True)
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
+        st.markdown(
+            """
+            <div class="hero-mini-card">
+                <b>Execution Operator</b>
+                <p>Startup operations, EdTech delivery and clinical coordination show ground-level ownership.</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    with c2:
+        st.markdown(
+            """
+            <div class="hero-mini-card">
+                <b>Business Problem Solver</b>
+                <p>Consulting-style projects across healthcare, fintech, transformation and market strategy.</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    with c3:
+        st.markdown(
+            """
+            <div class="hero-mini-card">
+                <b>Analytics + AI Builder</b>
+                <p>Dashboards, modelling, research analytics and AI-enabled product/system thinking.</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
     cols = st.columns(4)
-    for i, item in enumerate(engine_steps):
+    for i, (value, label) in enumerate(metrics[:4]):
         with cols[i]:
-            st.markdown(
-                f"""
-                <div class="fit-card" style="min-height: 330px;">
-                    <div style="font-size:0.8rem; color:#FF6B6B; font-weight:950; letter-spacing:0.08em;">STEP {item["step"]}</div>
-                    <h3>{item["title"]}</h3>
-                    <p>{item["body"]}</p>
-                    <div style="margin-top:1rem; padding-top:0.8rem; border-top:1px solid rgba(255,255,255,0.10); color:#a1a1aa; font-size:0.82rem;">
-                        <b style="color:#ffffff;">Proof:</b><br>{item["proof"]}
-                    </div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
+            render_metric_card(value, label)
 
+    cols = st.columns(4)
+    for i, (value, label) in enumerate(metrics[4:]):
+        with cols[i]:
+            render_metric_card(value, label)
 
-def render_analytics_evidence_table():
-    rows = [
-        {"Method": "Dashboards", "Where demonstrated": "TasteMate, Turfo trackers, Streamlit portfolio"},
-        {"Method": "EDA", "Where demonstrated": "TasteMate and customer/transaction analysis"},
-        {"Method": "Regression", "Where demonstrated": "TasteMate average spend modelling"},
-        {"Method": "Classification", "Where demonstrated": "TasteMate predictive analysis"},
-        {"Method": "Clustering", "Where demonstrated": "TasteMate customer segmentation"},
-        {"Method": "Association Rules", "Where demonstrated": "Meal combination insights"},
-        {"Method": "KPI Tracking", "Where demonstrated": "Turfo utilisation/revenue, BYJU’S engagement"},
-        {"Method": "Financial Modelling", "Where demonstrated": "GSK, LM Instruments, Bunk Station"},
-        {"Method": "Research Modelling", "Where demonstrated": "AI Adoption Research using TPB, Trust Mediation and SmartPLS"},
-    ]
-
-    st.markdown('<div class="section-title">Analytics Evidence Map</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">Portfolio Fit</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">A grounded view of where each analytics method was applied across projects.</div>',
-        unsafe_allow_html=True,
-    )
-    st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
-
-
-def render_leadership_impact_matrix():
-    st.markdown('<div class="section-title">Leadership Impact Map</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">Leadership evidence mapped by ownership, stakeholder exposure and outcome.</div>',
+        '<div class="section-caption">A structured view of how my experience and project work connect across execution, commercial thinking, analytics, AI and stakeholder management.</div>',
         unsafe_allow_html=True,
     )
 
-    rows = [
-        {
-            "Area": "Student Leadership",
-            "Evidence": "Global Learning & Student Life Committee",
-            "Ownership": "Cross-campus coordination, student engagement and student-faculty-admin communication",
-            "Impact": "Strengthened collaboration and event participation across the cohort",
-        },
-        {
-            "Area": "Industry Engagement",
-            "Evidence": "Industry Connect Event, Dubai",
-            "Ownership": "Supported coordination between students and senior business leaders",
-            "Impact": "Improved exposure to real-world leadership and business decision-making",
-        },
-        {
-            "Area": "Event Execution",
-            "Evidence": "Business Conclave",
-            "Ownership": "Supported presentation coordination, logistics and team communication",
-            "Impact": "Enabled smoother delivery of student-led business presentations",
-        },
-        {
-            "Area": "Healthcare Outreach",
-            "Evidence": "OMFS Awareness Marathon",
-            "Ownership": "Supported public healthcare awareness and registration/event coordination",
-            "Impact": "Contributed to community-level awareness and outreach execution",
-        },
-        {
-            "Area": "Public Health",
-            "Evidence": "Anti-Tobacco Awareness Human Chain",
-            "Ownership": "Participated in preventive health communication initiative",
-            "Impact": "Supported public awareness around tobacco-related health risks",
-        },
-    ]
+    for i in range(0, len(portfolio_fit_areas), 3):
+        cols = st.columns(3)
+        for j, col in enumerate(cols):
+            if i + j < len(portfolio_fit_areas):
+                with col:
+                    item = portfolio_fit_areas[i + j]
+                    render_fit_card(item["area"], item["evidence"])
 
-    st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
-
-def render_home():
+    st.markdown('<div class="section-title">Commercial Proof Map</div>', unsafe_allow_html=True)
     st.markdown(
-        """
-        <div class="hero-shell">
-            <div class="hero-content">
-                <div class="hero-split">
-
-                    <div>
-                        <div class="name-chip">
-                            Shalini Arun Prakash · Professional Portfolio
-                        </div>
-
-                        <div class="hero-title">
-                            I drive <span class="highlight-red">business growth</span><br>
-                            through execution and data.
-                        </div>
-
-                        <div class="hero-subline">
-                            Experience across startup operations, EdTech, analytics,
-                            customer engagement, commercial execution and structured
-                            business problem solving.
-                        </div>
-
-                        <span class="badge badge-red">Revenue Growth</span>
-                        <span class="badge badge-red">Commercial Execution</span>
-                        <span class="badge badge-light-red">Data Analytics</span>
-                        <span class="badge">Partnerships</span>
-                        <span class="badge">Strategy</span>
-                    </div>
-
-                    <div class="hero-profile-wrap">
-                        <div class="hero-profile-stage">
-                            <img src="assets/shalini-profile.png" class="hero-profile-img">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        """,
+        '<div class="section-caption">A proof-led visual showing measurable outcomes across execution, commercial growth, analytics and transformation.</div>',
         unsafe_allow_html=True,
     )
+    st.plotly_chart(make_commercial_proof_bubble_map(), use_container_width=True)
+
+    st.markdown('<div class="section-title">Career Momentum</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-caption">A visual progression from clinical operations to EdTech scale, startup ownership, global business projects and analytics-led commercial execution.</div>',
+        unsafe_allow_html=True,
+    )
+    st.plotly_chart(make_career_momentum_timeline(), use_container_width=True)
+
+
+def render_experience():
+    st.markdown('<div class="section-title">Experience</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-caption">Professional experience with role descriptions and achievement evidence.</div>',
+        unsafe_allow_html=True,
+    )
+
+    for i in range(0, len(experience), 2):
+        cols = st.columns(2)
+        for j, col in enumerate(cols):
+            if i + j < len(experience):
+                with col:
+                    render_experience_card(experience[i + j])
+
 
 def render_education():
     st.markdown('<div class="section-title">Education</div>', unsafe_allow_html=True)
@@ -1156,7 +910,6 @@ def render_education():
                 st.markdown(f"### {item['title']}")
                 st.markdown(f"**{item['period']}**")
                 st.write(item["summary"])
-
                 st.markdown("**Key highlights:**")
                 for point in item["highlights"]:
                     st.write(f"• {point}")
@@ -1166,25 +919,6 @@ def render_projects():
     st.markdown('<div class="section-title">Projects</div>', unsafe_allow_html=True)
     st.markdown(
         '<div class="section-caption">Consulting-style and business project work across fintech, digital transformation, commercial strategy, AI-enabled models, market intelligence and healthcare transformation.</div>',
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        """
-        <div style="background:#111113; border:1px solid rgba(255,255,255,0.12); border-top:4px solid #E53935; padding:1.2rem; margin-bottom:1.2rem;">
-            <div style="font-size:0.78rem; color:#FF6B6B; font-weight:950; letter-spacing:0.08em; text-transform:uppercase;">
-                Project Lens
-            </div>
-            <div style="margin-top:0.8rem;">
-                <span class="badge badge-red">Commercial Strategy</span>
-                <span class="badge badge-light-red">Digital Transformation</span>
-                <span class="badge badge-red">AI & Analytics</span>
-                <span class="badge badge-light-red">Healthcare / Life Sciences</span>
-                <span class="badge">Operations</span>
-                <span class="badge">Market Intelligence</span>
-            </div>
-        </div>
-        """,
         unsafe_allow_html=True,
     )
 
@@ -1207,98 +941,69 @@ def render_projects():
                     render_project_card(filtered[i + j])
 
 
-def render_analytics():
-    st.markdown('<div class="section-title">Data Analytics & Business Intelligence</div>', unsafe_allow_html=True)
+def render_analytics_decision_engine():
+    st.markdown('<div class="section-title">Analytics Decision Engine</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">A dedicated section for dashboarding, KPI ownership, customer analytics, predictive modelling, research analytics and data-driven decision support.</div>',
+        '<div class="section-caption">A process view of how analytics moves from business question to decision.</div>',
         unsafe_allow_html=True,
     )
 
-    render_image_banner(
-        "Analytics as Decision Support",
-        "My analytics work is positioned around business problem framing, dashboard ownership, performance visibility, modelling and recommendations — not just reporting.",
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1800&q=90",
+    engine_steps = [
+        ("01", "Frame the Business Question", "Pricing, utilisation, retention, adoption behaviour and market entry."),
+        ("02", "Build the Data Layer", "Survey data, trackers, transaction data, dashboard inputs and research data."),
+        ("03", "Model the Insight", "EDA, segmentation, regression, classification, clustering and statistical interpretation."),
+        ("04", "Drive the Decision", "Pricing, targeting, utilisation, engagement and roadmap recommendations."),
+    ]
+
+    cols = st.columns(4)
+    for i, (step, title, body) in enumerate(engine_steps):
+        with cols[i]:
+            render_fit_card(f"Step {step}: {title}", body)
+
+
+def render_analytics_evidence_table():
+    rows = [
+        {"Method": "Dashboards", "Where demonstrated": "TasteMate, Turfo trackers, Streamlit portfolio"},
+        {"Method": "EDA", "Where demonstrated": "TasteMate and customer/transaction analysis"},
+        {"Method": "Regression", "Where demonstrated": "TasteMate average spend modelling"},
+        {"Method": "Classification", "Where demonstrated": "TasteMate predictive analysis"},
+        {"Method": "Clustering", "Where demonstrated": "TasteMate customer segmentation"},
+        {"Method": "Association Rules", "Where demonstrated": "Meal combination insights"},
+        {"Method": "KPI Tracking", "Where demonstrated": "Turfo utilisation/revenue, BYJU’S engagement"},
+        {"Method": "Financial Modelling", "Where demonstrated": "GSK, LM Instruments, Bunk Station"},
+        {"Method": "Research Modelling", "Where demonstrated": "AI Adoption Research using TPB, Trust Mediation and SmartPLS"},
+    ]
+
+    st.markdown('<div class="section-title">Analytics Evidence Map</div>', unsafe_allow_html=True)
+    st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+
+
+def render_analytics():
+    st.markdown('<div class="section-title">Data Analytics & Business Intelligence</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-caption">Dashboarding, KPI ownership, customer analytics, predictive modelling, research analytics and decision support.</div>',
+        unsafe_allow_html=True,
     )
 
     analytics_cards = [
-        {
-            "area": "Decision intelligence",
-            "evidence": "Framed analytics projects around business choices: pricing, utilisation, spend behaviour, segmentation, retention and operational performance.",
-        },
-        {
-            "area": "Dashboard ownership",
-            "evidence": "Built trackers and dashboard structures that made performance visible across bookings, utilisation, revenue, engagement and model outputs.",
-        },
-        {
-            "area": "Customer analytics",
-            "evidence": "Used segmentation, behaviour patterns, spend modelling and association rules to move beyond reporting into actionable commercial insight.",
-        },
-        {
-            "area": "Research analytics",
-            "evidence": "Designed and interpreted AI adoption analysis using TPB, trust mediation, SmartPLS outputs and evidence-backed reasoning.",
-        },
+        ("Decision Intelligence", "Framed analytics projects around pricing, utilisation, spend behaviour, segmentation and market entry."),
+        ("Dashboard Ownership", "Built trackers and dashboards for bookings, utilisation, revenue, engagement and model outputs."),
+        ("Customer Analytics", "Used segmentation, behaviour patterns, spend modelling and association rules."),
+        ("Research Analytics", "Designed and interpreted AI adoption analysis using TPB, trust mediation and SmartPLS."),
     ]
 
     for i in range(0, len(analytics_cards), 2):
         cols = st.columns(2)
         for j, col in enumerate(cols):
             if i + j < len(analytics_cards):
-                item = analytics_cards[i + j]
                 with col:
-                    render_fit_card(item["area"], item["evidence"])
+                    render_fit_card(analytics_cards[i + j][0], analytics_cards[i + j][1])
 
-    st.markdown('<div class="section-title">Analytics Decision Funnel</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">A visual funnel showing how analytics moves from business question to actionable decision.</div>',
-        unsafe_allow_html=True,
-    )
-
-    st.markdown('<div class="visual-card">', unsafe_allow_html=True)
     st.plotly_chart(make_analytics_decision_funnel(), use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
-
     render_analytics_decision_engine()
-
-    st.markdown('<div class="section-title">Analytics Business Impact</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">Business outcomes supported through analytics, dashboarding and modelling work.</div>',
-        unsafe_allow_html=True,
-    )
-
-    impact_cards = [
-        {
-            "area": "Revenue & Utilisation Decisions",
-            "evidence": "Used Turfo trackers to monitor bookings, utilisation and revenue trends, supporting pricing and slot optimisation decisions.",
-        },
-        {
-            "area": "Customer Segmentation & Targeting",
-            "evidence": "Applied segmentation and customer behaviour analysis in TasteMate to support retention, pricing and campaign recommendations.",
-        },
-        {
-            "area": "Performance Improvement",
-            "evidence": "Used learner engagement and performance signals at BYJU’S to support improved delivery quality and conversion-oriented outcomes.",
-        },
-        {
-            "area": "Research-Based Decision Support",
-            "evidence": "Interpreted AI adoption research outputs using TPB, trust mediation and SmartPLS to connect behavioural drivers with adoption strategy.",
-        },
-    ]
-
-    for i in range(0, len(impact_cards), 2):
-        cols = st.columns(2)
-        for j, col in enumerate(cols):
-            if i + j < len(impact_cards):
-                item = impact_cards[i + j]
-                with col:
-                    render_fit_card(item["area"], item["evidence"])
-
     render_analytics_evidence_table()
 
     st.markdown('<div class="section-title">Analytics Project Evidence</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">Analytics evidence is separated from the main Projects tab to make dashboarding, modelling and BI ownership visible on its own.</div>',
-        unsafe_allow_html=True,
-    )
 
     for i in range(0, len(analytics_projects), 2):
         cols = st.columns(2)
@@ -1311,7 +1016,7 @@ def render_analytics():
 def render_skills():
     st.markdown('<div class="section-title">Skills</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">A visual capability map showing what I can do, where it was demonstrated, and the tools or methods behind it.</div>',
+        '<div class="section-caption">Capability map showing what I can do, where it was demonstrated, and tools behind it.</div>',
         unsafe_allow_html=True,
     )
 
@@ -1335,65 +1040,62 @@ def render_skills():
         for j, col in enumerate(cols):
             if i + j < len(skill_items):
                 category, items = skill_items[i + j]
-                chips = "".join([f'<span class="skill-item">{item}</span>' for item in items])
                 evidence = skill_notes.get(category, {}).get("evidence", "")
                 methods = skill_notes.get(category, {}).get("methods", "")
-                image = skills_visuals.get(category, {}).get(
-                    "image",
-                    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
-                )
+                image = skills_visuals.get(category, {}).get("image", None)
                 headline = skills_visuals.get(category, {}).get("headline", "")
 
                 with col:
-                    st.markdown(
-                        f"""
-                        <div class="skill-visual-card">
-                            <img src="{image}" class="skill-visual-img">
-                            <div class="skill-visual-body">
-                                <div class="skill-visual-title">{category}</div>
-                                <div class="project-summary">{headline}</div>
-                                <div>{chips}</div>
-                                <div class="skill-visual-evidence"><b>Evidence:</b> {evidence}</div>
-                                <div class="skill-visual-methods"><b>Methods / Tools:</b> {methods}</div>
-                            </div>
-                        </div>
-                        """,
-                        unsafe_allow_html=True,
-                    )
+                    render_content_card(category, headline, evidence, image)
+                    render_badges(items, "skill-item")
+                    st.caption(methods)
 
-    st.markdown('<div class="section-title">Project-to-Capability Map</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">A visual map connecting project evidence to capability areas across healthcare, digital transformation, commercial strategy, AI, market intelligence and operations.</div>',
-        unsafe_allow_html=True,
-    )
-
-    st.markdown('<div class="visual-card">', unsafe_allow_html=True)
     st.plotly_chart(make_project_capability_heatmap(), use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
 
-    mapping_data = []
-    for p in projects:
-        mapping_data.append(
-            {
-                "Project": p["title"],
-                "Capability": p["capability"],
-                "Frameworks": ", ".join(p["frameworks"]),
-                "Tools": ", ".join(p["tools"]),
-                "Relevance": p["strategic_relevance"],
-            }
-        )
 
-    st.dataframe(pd.DataFrame(mapping_data), use_container_width=True, hide_index=True)
+def render_leadership_impact_matrix():
+    rows = [
+        {
+            "Area": "Student Leadership",
+            "Evidence": "Global Learning & Student Life Committee",
+            "Ownership": "Cross-campus coordination and student-faculty-admin communication",
+            "Impact": "Strengthened collaboration and engagement",
+        },
+        {
+            "Area": "Industry Engagement",
+            "Evidence": "Industry Connect Event, Dubai",
+            "Ownership": "Supported coordination between students and senior business leaders",
+            "Impact": "Improved exposure to real-world leadership",
+        },
+        {
+            "Area": "Event Execution",
+            "Evidence": "Business Conclave",
+            "Ownership": "Presentation coordination, logistics and team communication",
+            "Impact": "Enabled smoother delivery of student-led presentations",
+        },
+        {
+            "Area": "Healthcare Outreach",
+            "Evidence": "OMFS Awareness Marathon",
+            "Ownership": "Public healthcare awareness and registration coordination",
+            "Impact": "Contributed to community outreach",
+        },
+        {
+            "Area": "Public Health",
+            "Evidence": "Anti-Tobacco Awareness Human Chain",
+            "Ownership": "Preventive health communication initiative",
+            "Impact": "Supported public health awareness",
+        },
+    ]
+
+    st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
 
 def render_leadership():
     st.markdown('<div class="section-title">Leadership & Community</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">Leadership, public health outreach, student engagement, professional events and extra-curricular strengths presented as evidence of initiative and presence.</div>',
+        '<div class="section-caption">Leadership, public health outreach, student engagement and extra-curricular strengths.</div>',
         unsafe_allow_html=True,
     )
-
-    st.markdown('<div class="section-title">Leadership & Volunteer Work</div>', unsafe_allow_html=True)
 
     for i in range(0, len(leadership_items), 2):
         cols = st.columns(2)
@@ -1417,14 +1119,8 @@ def render_leadership():
 def render_proof_points():
     st.markdown('<div class="section-title">Proof Points</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">Numbers and evidence that support execution discipline, analytics capability, business ownership and project impact.</div>',
+        '<div class="section-caption">Numbers and evidence supporting execution discipline, analytics capability, ownership and project impact.</div>',
         unsafe_allow_html=True,
-    )
-
-    render_image_banner(
-        "Evidence of Ownership and Impact",
-        "The proof points below bring together measurable outcomes across revenue growth, live delivery, conversion contribution, research, analytics and transformation work.",
-        "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1800&q=90",
     )
 
     proof_points = [
@@ -1487,13 +1183,12 @@ def render_contact():
         )
 
 
+# ---------------- APP HEADER ----------------
 st.markdown(
     """
-    <div style="padding: 0.9rem 0 1.4rem 0; border-bottom:1px solid rgba(255,255,255,0.10); margin-bottom:1rem;">
-        <div style="font-size: 1.75rem; font-weight: 950; color: #ffffff; text-transform: uppercase; letter-spacing:-0.03em;">
-            Shalini Arun Prakash
-        </div>
-        <div style="color:#a1a1aa; margin-top:0.35rem; font-size:0.95rem;">
+    <div class="top-header">
+        <div class="top-name">Shalini Arun Prakash</div>
+        <div class="top-subtitle">
             Digital Transformation · Data Analytics · AI-Enabled Business Models · Commercial Execution · Strategy
         </div>
     </div>
@@ -1501,6 +1196,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+
+# ---------------- TABS ----------------
 tab_home, tab_experience, tab_education, tab_projects, tab_analytics, tab_skills, tab_leadership, tab_proof, tab_contact = st.tabs(
     ["Home", "Experience", "Education", "Projects", "Analytics", "Skills", "Leadership", "Proof Points", "Contact"]
 )
