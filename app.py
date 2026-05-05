@@ -642,7 +642,7 @@ def render_image_banner(title, text, image_url):
         """,
         unsafe_allow_html=True,
     )
-    def render_project_card(project):
+ def render_project_card(project):
     st.markdown(
         f"""
         <div class="project-card">
