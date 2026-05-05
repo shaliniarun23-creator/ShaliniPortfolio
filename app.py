@@ -27,6 +27,11 @@ st.set_page_config(
 # ---------------- CSS ----------------
 st.markdown(
     """
+.profile-panel img {
+    max-height: 540px;
+    object-fit: contain;
+    margin-top: -10px;
+}
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
@@ -109,11 +114,11 @@ p, li, span, div {
 }
 
 .hero-title {
-    font-size: clamp(3rem, 5.7vw, 5.8rem);
-    line-height: 0.94;
+    font-size: clamp(2.6rem, 4.4vw, 4.6rem);
+    line-height: 0.98;
     font-weight: 950;
     color: #ffffff;
-    margin-bottom: 1.35rem;
+    margin-bottom: 1.25rem;
     text-shadow: 0 14px 45px rgba(0,0,0,0.55);
     text-transform: uppercase;
 }
@@ -137,10 +142,10 @@ p, li, span, div {
         linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
     border: 1px solid rgba(255,255,255,0.12);
     box-shadow: 0 35px 90px rgba(0,0,0,0.55);
-    padding: 1.2rem;
-    min-height: 620px;
+    padding: 0.5rem 1.2rem 0 1.2rem;
+    min-height: 540px;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
 }
 
@@ -416,14 +421,17 @@ hr {
 }
 
 @media (max-width: 900px) {
-    .hero-box { padding: 2rem; min-height: auto; }
-    .hero-title { font-size: 3rem; }
-    .profile-panel { min-height: auto; }
+.hero-box {
+    min-height: 540px;
+    background:
+        radial-gradient(circle at 85% 20%, rgba(229,57,53,0.20), transparent 30%),
+        radial-gradient(circle at 0% 0%, rgba(229,57,53,0.14), transparent 35%),
+        linear-gradient(135deg, #050505 0%, #0b0b0d 58%, #121212 100%);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 35px 100px rgba(0,0,0,0.65);
+    padding: 4.2rem 4rem;
+    margin-bottom: 1.2rem;
 }
-</style>
-""",
-    unsafe_allow_html=True,
-)
 
 
 # ---------------- HELPERS ----------------
