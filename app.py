@@ -133,17 +133,19 @@ p, li, span, div {
         linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
     border: 1px solid rgba(255,255,255,0.12);
     box-shadow: 0 35px 90px rgba(0,0,0,0.55);
-    padding: 0.5rem 1.2rem 0 1.2rem;
+    padding: 0;
     min-height: 540px;
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: center;
+    overflow: hidden;
 }
 
 .profile-panel img {
-    max-height: 540px;
+    max-height: 520px;
+    width: auto;
     object-fit: contain;
-    margin-top: -10px;
+    margin-top: 0;
 }
 
 .badge {
