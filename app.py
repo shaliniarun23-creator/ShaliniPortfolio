@@ -66,20 +66,19 @@ p, li, span, div {
 .hero-shell {
     position: relative;
     overflow: hidden;
-    min-height: 660px;
+    min-height: 640px;
     background:
-        linear-gradient(90deg, rgba(0,0,0,0.98), rgba(0,0,0,0.88), rgba(0,0,0,0.46)),
-        url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1800&q=90');
-    background-size: cover;
-    background-position: center;
+        radial-gradient(circle at 72% 35%, rgba(229,57,53,0.22), transparent 24%),
+        radial-gradient(circle at 15% 5%, rgba(255,107,107,0.12), transparent 26%),
+        linear-gradient(135deg, #050505 0%, #0b0b0d 48%, #111111 100%);
     border: 1px solid rgba(255,255,255,0.12);
     box-shadow: 0 35px 100px rgba(0,0,0,0.65);
     margin-bottom: 1.2rem;
 }
 
 .hero-content {
-    max-width: 1120px;
-    padding: 4.4rem 4rem 3.2rem 4rem;
+    max-width: 1240px;
+    padding: 4.2rem 4rem 3.2rem 4rem;
 }
 
 .name-chip {
@@ -550,67 +549,115 @@ hr {
 }
 
 
-.hero-profile-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 340px;
-}
-
-.hero-profile-card {
-    width: 360px;
-    height: 460px;
-    border-radius: 28px;
-    background:
-        radial-gradient(circle at 50% 30%, rgba(229,57,53,0.35), transparent 50%),
-        radial-gradient(circle at 50% 80%, rgba(255,255,255,0.05), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
-    border: 1px solid rgba(255,255,255,0.14);
-    box-shadow: 0 40px 100px rgba(0,0,0,0.65);
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-}
-
-.hero-profile-card:before {
-    content: "";
-    position: absolute;
-    inset: 18px;
-    border-radius: 24px;
-    border: 1px solid rgba(255,255,255,0.08);
-    pointer-events: none;
-}
-
-.hero-profile-img {
-    width: 95%;
-    height: auto;
-    object-fit: contain;
-    filter:
-        drop-shadow(0 25px 40px rgba(0,0,0,0.7))
-        brightness(1.02)
-        contrast(1.05);
-}
 
 .hero-content-split {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2.4rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+    align-items: end;
+    gap: 3rem;
 }
 
 .hero-text-block {
-    flex: 1;
     min-width: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-profile-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 480px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-profile-stage {
+    position: relative;
+    width: 350px;
+    height: 510px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.hero-profile-stage::before {
+    content: "";
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    right: 0;
+    bottom: 96px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(229,57,53,0.30) 0%, rgba(229,57,53,0.12) 35%, transparent 68%);
+    filter: blur(8px);
+    z-index: 0;
+}
+
+.hero-profile-stage::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 18px;
+    bottom: 4px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.55);
+    filter: blur(16px);
+    z-index: 0;
+}
+
+.hero-profile-img {
+    position: relative;
+    width: 335px;
+    height: auto;
+    z-index: 1;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 34px 42px rgba(0,0,0,0.72))
+        brightness(1.03)
+        contrast(1.04);
+}
+
+.hero-proof-strip {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.4rem;
+}
+
+.hero-proof-pill {
+    padding: 0.72rem 0.9rem;
+    background: rgba(255,255,255,0.045);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-left: 3px solid #E53935;
+    min-width: 150px;
+}
+
+.hero-proof-value {
+    font-size: 1.12rem;
+    font-weight: 950;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.hero-proof-label {
+    font-size: 0.72rem;
+    color: #a1a1aa;
+    margin-top: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1.25;
 }
 
 @media (max-width: 900px) {
     .hero-content { padding: 2.2rem; }
-    .hero-title { font-size: 3.2rem; }
-    .hero-content-split { flex-direction: column; align-items: flex-start; }
-    .hero-profile-wrap { width: 100%; min-width: 0; justify-content: flex-start; }
-    .hero-profile-card { width: 300px; height: 390px; }
+    .hero-title { font-size: 3.05rem; }
+    .hero-content-split { grid-template-columns: 1fr; gap: 1.5rem; }
+    .hero-profile-wrap { min-height: 360px; justify-content: center; }
+    .hero-profile-stage { width: 285px; height: 380px; }
+    .hero-profile-img { width: 260px; }
+    .hero-profile-stage::before { width: 250px; height: 250px; bottom: 70px; }
+    .hero-proof-pill { min-width: 130px; }
 }
 </style>
 """,
@@ -618,14 +665,14 @@ hr {
 )
 
 
-
 def image_to_base64(image_paths):
-    """Return base64 string for the first available local image path."""
+    """Return a base64 string for the first available profile image."""
     for image_path in image_paths:
         path = Path(image_path)
         if path.exists():
             return base64.b64encode(path.read_bytes()).decode()
     return ""
+
 
 def render_badges(items, style="badge"):
     st.markdown("".join([f'<span class="{style}">{item}</span>' for item in items]), unsafe_allow_html=True)
@@ -1109,13 +1156,13 @@ def render_home():
 
     profile_html = ""
     if profile_b64:
-        profile_html = f"""
-        <div class="hero-profile-wrap">
-            <div class="hero-profile-card">
-                <img src="data:image/png;base64,{profile_b64}" class="hero-profile-img">
-            </div>
-        </div>
-        """
+        profile_html = (
+            f'<div class="hero-profile-wrap">'
+            f'<div class="hero-profile-stage">'
+            f'<img src="data:image/png;base64,{profile_b64}" class="hero-profile-img" alt="Shalini Arun Prakash profile photo">'
+            f'</div>'
+            f'</div>'
+        )
 
     st.markdown(
         f"""
@@ -1136,6 +1183,21 @@ def render_home():
                     <span class="badge badge-light-red">Data Analytics</span>
                     <span class="badge">Partnerships</span>
                     <span class="badge">Strategy</span>
+
+                    <div class="hero-proof-strip">
+                        <div class="hero-proof-pill">
+                            <div class="hero-proof-value">3×</div>
+                            <div class="hero-proof-label">Revenue growth</div>
+                        </div>
+                        <div class="hero-proof-pill">
+                            <div class="hero-proof-value">150+</div>
+                            <div class="hero-proof-label">Monthly conversions</div>
+                        </div>
+                        <div class="hero-proof-pill">
+                            <div class="hero-proof-value">2,000+</div>
+                            <div class="hero-proof-label">Live sessions</div>
+                        </div>
+                    </div>
                 </div>
                 {profile_html}
             </div>
@@ -1143,7 +1205,6 @@ def render_home():
         """,
         unsafe_allow_html=True,
     )
-
 
     c1, c2, c3 = st.columns(3)
 
