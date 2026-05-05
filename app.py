@@ -777,118 +777,6 @@ def make_project_business_value_chart():
     return fig
 
 
-def make_analytics_methods_chart():
-    methods = pd.DataFrame(
-        {
-            "Method": [
-                "Dashboards",
-                "EDA",
-                "Regression",
-                "Classification",
-                "Clustering",
-                "Association Rules",
-                "KPI Tracking",
-                "Financial Modelling",
-            ],
-            "Coverage Level": [9, 8, 7, 7, 7, 6, 9, 8],
-        }
-    )
-
-    fig = px.bar(
-        methods,
-        x="Method",
-        y="Coverage Level",
-        text="Coverage Level",
-        title="Analytics Methods Applied Across Projects",
-    )
-    fig.update_layout(
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
-        font_color="#d4d4d8",
-        title_font_color="#ffffff",
-        xaxis_tickangle=-25,
-        height=420,
-        showlegend=False,
-    )
-    fig.update_traces(textposition="outside", marker_color="#E53935")
-    return fig
-
-
-def make_analytics_decision_cycle_chart():
-    cycle = pd.DataFrame(
-        {
-            "Stage": [
-                "Business Problem",
-                "Data Preparation",
-                "Exploratory Analysis",
-                "Modelling",
-                "Dashboarding",
-                "Decision Support",
-                "Business Recommendation",
-            ],
-            "Ownership Level": [9, 8, 8, 7, 9, 9, 9],
-        }
-    )
-
-    fig = px.bar(
-        cycle,
-        x="Stage",
-        y="Ownership Level",
-        text="Ownership Level",
-        title="Analytics Workflow: From Problem Framing to Business Recommendation",
-    )
-
-    fig.update_layout(
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
-        font_color="#d4d4d8",
-        title_font_color="#ffffff",
-        xaxis_tickangle=-25,
-        height=430,
-        showlegend=False,
-        margin=dict(l=20, r=20, t=60, b=100),
-    )
-    fig.update_traces(textposition="outside", marker_color="#FF6B6B")
-    return fig
-
-
-def make_analytics_business_impact_chart():
-    impact = pd.DataFrame(
-        {
-            "Business Impact Area": [
-                "Decision Support",
-                "Dashboard Ownership",
-                "Customer Insight",
-                "Revenue / Utilisation Tracking",
-                "Research Interpretation",
-                "Predictive Modelling",
-            ],
-            "Evidence Level": [9, 9, 8, 9, 8, 7],
-        }
-    )
-
-    fig = px.bar(
-        impact,
-        x="Evidence Level",
-        y="Business Impact Area",
-        orientation="h",
-        text="Evidence Level",
-        title="Analytics Business Impact Areas",
-    )
-
-    fig.update_layout(
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
-        font_color="#d4d4d8",
-        title_font_color="#ffffff",
-        height=430,
-        showlegend=False,
-        margin=dict(l=20, r=20, t=60, b=40),
-    )
-    fig.update_traces(textposition="outside", marker_color="#FF6B6B")
-    return fig
-
-
 def make_capability_radar():
     categories = [
         "Execution",
@@ -978,6 +866,79 @@ def make_project_capability_heatmap():
     return fig
 
 
+def render_analytics_decision_engine():
+    st.markdown('<div class="section-title">Analytics Decision Engine</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-caption">A process view of how I use analytics: not as isolated charts, but as a decision system from business question to action.</div>',
+        unsafe_allow_html=True,
+    )
+
+    engine_steps = [
+        {
+            "step": "01",
+            "title": "Frame the Business Question",
+            "body": "Defined the decision problem before analysis: pricing, utilisation, customer retention, adoption behaviour, performance improvement or market entry.",
+            "proof": "TasteMate · Turfo · BYJU’S · GSK · AI Adoption Research",
+        },
+        {
+            "step": "02",
+            "title": "Build the Data Layer",
+            "body": "Worked with transaction data, survey responses, dashboard inputs, operational trackers, performance signals and research model data.",
+            "proof": "Excel trackers · Streamlit dashboards · SmartPLS outputs · Survey datasets",
+        },
+        {
+            "step": "03",
+            "title": "Model the Insight",
+            "body": "Applied EDA, segmentation, regression, classification, clustering, association rules and statistical interpretation to convert data into insight.",
+            "proof": "Customer analytics · Spend modelling · Behavioural segmentation · Trust mediation model",
+        },
+        {
+            "step": "04",
+            "title": "Drive the Business Decision",
+            "body": "Translated insights into pricing recommendations, utilisation planning, targeting logic, engagement improvement and operating model decisions.",
+            "proof": "Revenue growth · Conversion support · Retention recommendations · Strategic roadmap",
+        },
+    ]
+
+    cols = st.columns(4)
+    for i, item in enumerate(engine_steps):
+        with cols[i]:
+            st.markdown(
+                f"""
+                <div class="fit-card" style="min-height: 330px;">
+                    <div style="font-size:0.8rem; color:#FF6B6B; font-weight:950; letter-spacing:0.08em;">STEP {item["step"]}</div>
+                    <h3>{item["title"]}</h3>
+                    <p>{item["body"]}</p>
+                    <div style="margin-top:1rem; padding-top:0.8rem; border-top:1px solid rgba(255,255,255,0.10); color:#a1a1aa; font-size:0.82rem;">
+                        <b style="color:#ffffff;">Proof:</b><br>{item["proof"]}
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+
+def render_analytics_evidence_table():
+    rows = [
+        {"Method": "Dashboards", "Where demonstrated": "TasteMate, Turfo trackers, Streamlit portfolio"},
+        {"Method": "EDA", "Where demonstrated": "TasteMate and customer/transaction analysis"},
+        {"Method": "Regression", "Where demonstrated": "TasteMate average spend modelling"},
+        {"Method": "Classification", "Where demonstrated": "TasteMate predictive analysis"},
+        {"Method": "Clustering", "Where demonstrated": "TasteMate customer segmentation"},
+        {"Method": "Association Rules", "Where demonstrated": "Meal combination insights"},
+        {"Method": "KPI Tracking", "Where demonstrated": "Turfo utilisation/revenue, BYJU’S engagement"},
+        {"Method": "Financial Modelling", "Where demonstrated": "GSK, LM Instruments, Bunk Station"},
+        {"Method": "Research Modelling", "Where demonstrated": "AI Adoption Research using TPB, Trust Mediation and SmartPLS"},
+    ]
+
+    st.markdown('<div class="section-title">Analytics Evidence Map</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-caption">A grounded view of where each analytics method was applied across projects.</div>',
+        unsafe_allow_html=True,
+    )
+    st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+
+
 def render_leadership_impact_matrix():
     st.markdown('<div class="section-title">Leadership Impact Map</div>', unsafe_allow_html=True)
     st.markdown(
@@ -1018,26 +979,6 @@ def render_leadership_impact_matrix():
         },
     ]
 
-    st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
-
-
-def render_analytics_evidence_table():
-    rows = [
-        {"Method": "Dashboards", "Where demonstrated": "TasteMate, Turfo trackers, Streamlit portfolio"},
-        {"Method": "EDA", "Where demonstrated": "TasteMate and customer/transaction analysis"},
-        {"Method": "Regression", "Where demonstrated": "TasteMate average spend modelling"},
-        {"Method": "Classification", "Where demonstrated": "TasteMate predictive analysis"},
-        {"Method": "Clustering", "Where demonstrated": "TasteMate customer segmentation"},
-        {"Method": "Association Rules", "Where demonstrated": "Meal combination insights"},
-        {"Method": "KPI Tracking", "Where demonstrated": "Turfo utilisation/revenue, BYJU’S engagement"},
-        {"Method": "Financial Modelling", "Where demonstrated": "GSK, LM Instruments, Bunk Station"},
-    ]
-
-    st.markdown('<div class="section-title">Analytics Evidence Map</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">This table grounds the analytics visuals in actual project evidence.</div>',
-        unsafe_allow_html=True,
-    )
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
 
@@ -1251,23 +1192,40 @@ def render_analytics():
                 with col:
                     render_fit_card(item["area"], item["evidence"])
 
-    st.markdown('<div class="section-title">Analytics Visuals</div>', unsafe_allow_html=True)
+    render_analytics_decision_engine()
 
-    c1, c2 = st.columns(2)
+    st.markdown('<div class="section-title">Analytics Business Impact</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-caption">Business outcomes supported through analytics, dashboarding and modelling work.</div>',
+        unsafe_allow_html=True,
+    )
 
-    with c1:
-        st.markdown('<div class="visual-card">', unsafe_allow_html=True)
-        st.plotly_chart(make_analytics_methods_chart(), use_container_width=True)
-        st.markdown("</div>", unsafe_allow_html=True)
+    impact_cards = [
+        {
+            "area": "Revenue & Utilisation Decisions",
+            "evidence": "Used Turfo trackers to monitor bookings, utilisation and revenue trends, supporting pricing and slot optimisation decisions.",
+        },
+        {
+            "area": "Customer Segmentation & Targeting",
+            "evidence": "Applied segmentation and customer behaviour analysis in TasteMate to support retention, pricing and campaign recommendations.",
+        },
+        {
+            "area": "Performance Improvement",
+            "evidence": "Used learner engagement and performance signals at BYJU’S to support improved delivery quality and conversion-oriented outcomes.",
+        },
+        {
+            "area": "Research-Based Decision Support",
+            "evidence": "Interpreted AI adoption research outputs using TPB, trust mediation and SmartPLS to connect behavioural drivers with adoption strategy.",
+        },
+    ]
 
-    with c2:
-        st.markdown('<div class="visual-card">', unsafe_allow_html=True)
-        st.plotly_chart(make_analytics_decision_cycle_chart(), use_container_width=True)
-        st.markdown("</div>", unsafe_allow_html=True)
-
-    st.markdown('<div class="visual-card">', unsafe_allow_html=True)
-    st.plotly_chart(make_analytics_business_impact_chart(), use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    for i in range(0, len(impact_cards), 2):
+        cols = st.columns(2)
+        for j, col in enumerate(cols):
+            if i + j < len(impact_cards):
+                item = impact_cards[i + j]
+                with col:
+                    render_fit_card(item["area"], item["evidence"])
 
     render_analytics_evidence_table()
 
