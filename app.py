@@ -66,122 +66,17 @@ p, li, span, div {
     overflow: hidden;
     min-height: 660px;
     background:
-        radial-gradient(circle at 82% 22%, rgba(229, 57, 53, 0.18), transparent 28%),
-        radial-gradient(circle at 10% 0%, rgba(255, 107, 107, 0.10), transparent 24%),
-        linear-gradient(135deg, #050505 0%, #0b0b0d 48%, #111111 100%);
+        radial-gradient(circle at 78% 30%, rgba(229,57,53,0.18), transparent 28%),
+        radial-gradient(circle at 0% 0%, rgba(229, 57, 53, 0.16), transparent 30%),
+        linear-gradient(135deg, #050505 0%, #0b0b0d 50%, #111111 100%);
     border: 1px solid rgba(255,255,255,0.12);
     box-shadow: 0 35px 100px rgba(0,0,0,0.65);
     margin-bottom: 1.2rem;
 }
 
-.hero-shell:after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(90deg, rgba(0,0,0,0.08), rgba(229,57,53,0.04)),
-        radial-gradient(circle at 78% 72%, rgba(255,255,255,0.04), transparent 34%);
-    pointer-events: none;
-}
-
 .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 1240px;
+    max-width: 1120px;
     padding: 4.4rem 4rem 3.2rem 4rem;
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-    gap: 3rem;
-    align-items: end;
-}
-
-.hero-copy {
-    min-width: 0;
-}
-
-.hero-profile-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    min-height: 500px;
-}
-
-.hero-profile-stage {
-    position: relative;
-    width: min(360px, 100%);
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.hero-profile-stage:before {
-    content: "";
-    position: absolute;
-    inset: 22px 10px -8px 10px;
-    border-radius: 36px;
-    background:
-        radial-gradient(circle at 50% 24%, rgba(229,57,53,0.34), transparent 54%),
-        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.018));
-    border: 1px solid rgba(255,255,255,0.13);
-    box-shadow: 0 32px 90px rgba(0,0,0,0.55);
-    z-index: 0;
-}
-
-.hero-profile-stage:after {
-    content: "";
-    position: absolute;
-    width: 86%;
-    height: 24px;
-    bottom: -10px;
-    background: rgba(0,0,0,0.55);
-    filter: blur(18px);
-    border-radius: 999px;
-    z-index: 0;
-}
-
-.hero-profile-img {
-    position: relative;
-    z-index: 2;
-    width: 92%;
-    max-height: 500px;
-    object-fit: contain;
-    filter:
-        drop-shadow(0 28px 42px rgba(0,0,0,0.78))
-        brightness(1.02)
-        contrast(1.04);
-}
-
-.hero-proof-strip {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: 1.5rem;
-}
-
-.hero-proof-pill {
-    min-width: 130px;
-    padding: 0.85rem 1rem;
-    background: rgba(255,255,255,0.055);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-left: 4px solid #E53935;
-}
-
-.hero-proof-value {
-    font-size: 1.35rem;
-    font-weight: 950;
-    color: #ffffff;
-    line-height: 1;
-}
-
-.hero-proof-label {
-    color: #a1a1aa;
-    font-size: 0.76rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-top: 0.35rem;
 }
 
 .name-chip {
@@ -651,12 +546,74 @@ hr {
     margin: 2rem 0;
 }
 
+
+.hero-split {
+    display: grid;
+    grid-template-columns: 1.45fr 0.8fr;
+    gap: 2.5rem;
+    align-items: end;
+}
+
+.hero-profile-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hero-profile-stage {
+    position: relative;
+    width: 330px;
+    min-height: 470px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.hero-profile-stage:before {
+    content: "";
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(229,57,53,0.32), transparent 65%);
+    filter: blur(24px);
+    bottom: 80px;
+    z-index: 0;
+}
+
+.hero-profile-stage:after {
+    content: "";
+    position: absolute;
+    width: 330px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+    bottom: 18px;
+    z-index: 0;
+}
+
+.hero-profile-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    filter: drop-shadow(0 30px 50px rgba(0,0,0,0.85));
+}
+
+@media (max-width: 900px) {
+    .hero-split {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-profile-stage {
+        width: 260px;
+        min-height: 360px;
+        margin: 0 auto;
+    }
+}
+
 @media (max-width: 900px) {
     .hero-content { padding: 2.2rem; }
     .hero-title { font-size: 3.2rem; }
-    .hero-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    .hero-profile-wrap { min-height: auto; margin-top: 1.5rem; }
-    .hero-profile-stage { width: min(300px, 100%); }
 }
 </style>
 """,
@@ -1141,8 +1098,8 @@ def render_home():
         """
         <div class="hero-shell">
             <div class="hero-content">
-                <div class="hero-grid">
-                    <div class="hero-copy">
+                <div class="hero-split">
+                    <div>
                         <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
                         <div class="hero-title">
                             I drive <span class="highlight-red">business growth</span><br>
@@ -1157,21 +1114,6 @@ def render_home():
                         <span class="badge badge-light-red">Data Analytics</span>
                         <span class="badge">Partnerships</span>
                         <span class="badge">Strategy</span>
-
-                        <div class="hero-proof-strip">
-                            <div class="hero-proof-pill">
-                                <div class="hero-proof-value">3×</div>
-                                <div class="hero-proof-label">Revenue Growth</div>
-                            </div>
-                            <div class="hero-proof-pill">
-                                <div class="hero-proof-value">150+</div>
-                                <div class="hero-proof-label">Monthly Conversions</div>
-                            </div>
-                            <div class="hero-proof-pill">
-                                <div class="hero-proof-value">2,000+</div>
-                                <div class="hero-proof-label">Live Sessions</div>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="hero-profile-wrap">
