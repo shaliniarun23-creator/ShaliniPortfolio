@@ -566,6 +566,7 @@ hr {
     unsafe_allow_html=True,
 )
 
+
 def render_badges(items, style="badge"):
     st.markdown(
         "".join([f'<span class="{style}">{item}</span>' for item in items]),
@@ -609,9 +610,7 @@ def render_image_banner(title, text, image_url):
     """,
         unsafe_allow_html=True,
     )
-
-
-def render_project_card(project):
+    def render_project_card(project):
     st.markdown(
         f"""
     <div class="project-card">
@@ -827,67 +826,6 @@ def make_career_momentum_timeline():
     return fig
 
 
-def make_project_positioning_map():
-    data = pd.DataFrame({
-        "Project": [
-            "LM Instruments",
-            "Smart Hospitals",
-            "GSK",
-            "Royal Dutch Clinic",
-            "FinWise",
-            "DP World",
-            "Bunk Station",
-            "TrueLayer",
-            "Clinical Operations",
-        ],
-        "Business Complexity": [9, 9, 8, 7, 7, 8, 6, 8, 6],
-        "Strategic / Commercial Impact": [9, 9, 9, 8, 8, 8, 8, 7, 7],
-        "Evidence Depth": [80, 82, 78, 74, 72, 70, 68, 66, 62],
-        "Domain": [
-            "Enterprise Transformation",
-            "Digital Health",
-            "Market Intelligence",
-            "Healthcare Growth",
-            "AI Product Strategy",
-            "Digital Trade",
-            "Commercial Turnaround",
-            "Fintech Ecosystem",
-            "Healthcare Operations",
-        ],
-    })
-
-    fig = px.scatter(
-        data,
-        x="Business Complexity",
-        y="Strategic / Commercial Impact",
-        size="Evidence Depth",
-        color="Domain",
-        text="Project",
-        title="Project Portfolio Positioning Map",
-        size_max=48,
-    )
-
-    fig.update_traces(
-        textposition="top center",
-        textfont=dict(color="#ffffff", size=10),
-        marker=dict(line=dict(width=1.5, color="rgba(255,255,255,0.25)")),
-    )
-
-    fig.update_layout(
-        height=560,
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
-        font_color="#d4d4d8",
-        title_font_color="#ffffff",
-        xaxis=dict(range=[5, 10], gridcolor="rgba(255,255,255,0.08)"),
-        yaxis=dict(range=[6, 10], gridcolor="rgba(255,255,255,0.08)"),
-        legend=dict(orientation="h", y=-0.22),
-        margin=dict(l=20, r=20, t=70, b=140),
-    )
-
-    return fig
-
-
 def make_analytics_decision_funnel():
     stages = pd.DataFrame({
         "Stage": [
@@ -968,12 +906,18 @@ def make_project_capability_heatmap():
             z=z,
             x=capability_groups,
             y=y_labels,
-            colorscale=[[0, "#111113"], [0.3, "#4A0F0F"], [0.6, "#B71C1C"], [1, "#FF6B6B"]],
+            colorscale=[
+                [0, "#111113"],
+                [0.3, "#4A0F0F"],
+                [0.6, "#B71C1C"],
+                [1, "#FF6B6B"],
+            ],
             colorbar=dict(title="Coverage"),
             zmin=0,
             zmax=9,
         )
     )
+
     fig.update_layout(
         title="Project-to-Capability Heatmap",
         paper_bgcolor="rgba(0,0,0,0)",
@@ -983,6 +927,7 @@ def make_project_capability_heatmap():
         height=560,
         margin=dict(l=20, r=20, t=60, b=80),
     )
+
     return fig
 
 
@@ -1100,9 +1045,7 @@ def render_leadership_impact_matrix():
     ]
 
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
-
-
-def render_home():
+    def render_home():
     st.markdown(
         """
     <div class="hero-shell">
@@ -1257,18 +1200,33 @@ def render_projects():
         unsafe_allow_html=True,
     )
 
-    st.markdown('<div class="section-title">Project Portfolio Positioning</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">A strategic view of project breadth by business complexity, commercial impact and evidence depth.</div>',
+        """
+        <div style="background:#111113; border:1px solid rgba(255,255,255,0.12); border-top:4px solid #E53935; padding:1.2rem; margin-bottom:1.2rem;">
+            <div style="font-size:0.78rem; color:#FF6B6B; font-weight:950; letter-spacing:0.08em; text-transform:uppercase;">
+                Project Lens
+            </div>
+            <div style="margin-top:0.8rem;">
+                <span class="badge badge-red">Commercial Strategy</span>
+                <span class="badge badge-light-red">Digital Transformation</span>
+                <span class="badge badge-red">AI & Analytics</span>
+                <span class="badge badge-light-red">Healthcare / Life Sciences</span>
+                <span class="badge">Operations</span>
+                <span class="badge">Market Intelligence</span>
+            </div>
+        </div>
+        """,
         unsafe_allow_html=True,
     )
 
-    st.markdown('<div class="visual-card">', unsafe_allow_html=True)
-    st.plotly_chart(make_project_positioning_map(), use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    capability_filter = st.selectbox(
+        "Filter by capability",
+        ["All"] + sorted(set([p["capability"] for p in projects])),
+    )
 
-    capability_filter = st.selectbox("Filter by capability", ["All"] + sorted(set([p["capability"] for p in projects])))
-    filtered = projects if capability_filter == "All" else [p for p in projects if p["capability"] == capability_filter]
+    filtered = projects if capability_filter == "All" else [
+        p for p in projects if p["capability"] == capability_filter
+    ]
 
     st.write(f"Showing {len(filtered)} project(s).")
 
@@ -1379,9 +1337,7 @@ def render_analytics():
             if i + j < len(analytics_projects):
                 with col:
                     render_project_card(analytics_projects[i + j])
-
-
-def render_skills():
+    def render_skills():
     st.markdown('<div class="section-title">Skills</div>', unsafe_allow_html=True)
     st.markdown(
         '<div class="section-caption">A visual capability map showing what I can do, where it was demonstrated, and the tools or methods behind it.</div>',
@@ -1559,6 +1515,10 @@ def render_contact():
             unsafe_allow_html=True,
         )
 
+
+# ------------------------------------------------------------
+# NAVIGATION
+# ------------------------------------------------------------
 
 st.markdown(
     """
