@@ -67,8 +67,8 @@ p, li, span, div {
 }
 
 .top-name {
-    font-size: 1.75rem;
-    font-weight: 950;
+    font-size: 1.50rem;
+    font-weight: 900;
     color: #ffffff;
     text-transform: uppercase;
 }
