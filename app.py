@@ -19,7 +19,7 @@ from content import (
 
 st.set_page_config(
     page_title="Shalini Arun Prakash | Portfolio",
-    page_icon="✦",
+    page_icon="*",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -27,21 +27,6 @@ st.set_page_config(
 st.markdown(
     """
 <style>
-.hero-image-wrap {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    height: 100%;
-}
-
-.hero-image-wrap img {
-    max-height: 480px;
-    width: auto;
-    object-fit: contain;
-}
-.hero-title {
-    font-size: clamp(3rem, 5vw, 4.8rem);
-}
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 html, body, [class*="css"] {
@@ -95,14 +80,14 @@ p, li, span, div {
 }
 
 .hero-box {
-    min-height: 540px;
+    min-height: 500px;
     background:
         radial-gradient(circle at 85% 20%, rgba(229,57,53,0.20), transparent 30%),
         radial-gradient(circle at 0% 0%, rgba(229,57,53,0.14), transparent 35%),
         linear-gradient(135deg, #050505 0%, #0b0b0d 58%, #121212 100%);
     border: 1px solid rgba(255,255,255,0.12);
     box-shadow: 0 35px 100px rgba(0,0,0,0.65);
-    padding: 4.2rem 4rem;
+    padding: 3.6rem 3.6rem;
     margin-bottom: 1.2rem;
 }
 
@@ -112,19 +97,19 @@ p, li, span, div {
     border-radius: 999px;
     background: #E53935;
     color: #ffffff;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 950;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.35rem;
 }
 
 .hero-title {
-    font-size: clamp(2.6rem, 4.4vw, 4.6rem);
+    font-size: clamp(2.4rem, 4vw, 4.2rem);
     line-height: 0.98;
     font-weight: 950;
     color: #ffffff;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.2rem;
     text-shadow: 0 14px 45px rgba(0,0,0,0.55);
     text-transform: uppercase;
 }
@@ -135,32 +120,19 @@ p, li, span, div {
 }
 
 .hero-subline {
-    font-size: 1.06rem;
-    line-height: 1.75;
+    font-size: 1rem;
+    line-height: 1.7;
     max-width: 760px;
     color: #d4d4d8;
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.4rem;
 }
 
-.profile-panel {
-    background:
-        radial-gradient(circle at 50% 35%, rgba(229,57,53,0.26), transparent 55%),
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
-    border: 1px solid rgba(255,255,255,0.12);
-    box-shadow: 0 35px 90px rgba(0,0,0,0.55);
-    padding: 0;
-    min-height: 540px;
+.hero-photo-box {
+    min-height: 500px;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
-    overflow: hidden;
-}
-
-.profile-panel img {
-    max-height: 520px;
-    width: auto;
-    object-fit: contain;
-    margin-top: 0;
+    padding-top: 1.5rem;
 }
 
 .badge {
@@ -444,8 +416,10 @@ def render_fit_card(area, evidence):
 
 def render_content_card(title, meta, summary, image_url=None):
     st.markdown('<div class="content-card">', unsafe_allow_html=True)
+
     if image_url:
         st.image(image_url, use_container_width=True)
+
     st.markdown(
         f"""
         <div class="card-body">
@@ -456,6 +430,7 @@ def render_content_card(title, meta, summary, image_url=None):
         """,
         unsafe_allow_html=True,
     )
+
     st.markdown("</div>", unsafe_allow_html=True)
 
 
@@ -466,26 +441,34 @@ def render_project_card(project):
         project["summary"],
         project.get("image"),
     )
+
     render_badges(project["frameworks"][:4], "badge-light-red")
 
     with st.expander("Explore case study"):
         c1, c2 = st.columns([1, 1])
+
         with c1:
             st.markdown("#### Context")
             st.write(project["context"])
+
             st.markdown("#### Problem")
             st.write(project["problem"])
+
             st.markdown("#### My Role")
             st.write(project["role"])
+
             st.markdown("#### Approach")
             for item in project["approach"]:
                 st.write(f"- {item}")
+
         with c2:
             st.markdown("#### Key Outputs")
             for item in project["outputs"]:
                 st.write(f"- {item}")
+
             st.markdown("#### Tools")
             render_badges(project["tools"][:4], "badge-red")
+
             st.markdown("#### Relevance")
             st.markdown(
                 f'<div class="relevance-box">{project["strategic_relevance"]}</div>',
@@ -500,6 +483,7 @@ def render_experience_card(item):
         item["description"],
         item.get("image"),
     )
+
     st.markdown("**Achievements:**")
     for achievement in item["achievements"]:
         st.write(f"- {achievement}")
@@ -552,7 +536,12 @@ def make_commercial_proof_bubble_map():
         title="Commercial Proof Bubble Map",
         size_max=58,
     )
-    fig.update_traces(textposition="middle center", textfont=dict(size=11, color="white"))
+
+    fig.update_traces(
+        textposition="middle center",
+        textfont=dict(size=11, color="white"),
+    )
+
     fig.update_layout(
         height=520,
         paper_bgcolor="rgba(0,0,0,0)",
@@ -564,6 +553,7 @@ def make_commercial_proof_bubble_map():
         legend=dict(orientation="h", y=-0.1),
         margin=dict(l=20, r=20, t=70, b=80),
     )
+
     return fig
 
 
@@ -580,13 +570,22 @@ def make_career_momentum_timeline():
         "Momentum": [1, 2, 3.2, 4.1, 4.8],
     })
 
-    fig = px.line(data, x="Year", y="Momentum", markers=True, text="Stage", title="Career Momentum Timeline")
+    fig = px.line(
+        data,
+        x="Year",
+        y="Momentum",
+        markers=True,
+        text="Stage",
+        title="Career Momentum Timeline",
+    )
+
     fig.update_traces(
         line=dict(color="#E53935", width=4),
         marker=dict(size=14, color="#FF6B6B", line=dict(width=2, color="#ffffff")),
         textposition="top center",
         textfont=dict(color="#ffffff", size=11),
     )
+
     fig.update_layout(
         height=440,
         paper_bgcolor="rgba(0,0,0,0)",
@@ -597,12 +596,19 @@ def make_career_momentum_timeline():
         yaxis=dict(visible=False),
         margin=dict(l=20, r=20, t=70, b=40),
     )
+
     return fig
 
 
 def make_analytics_decision_funnel():
     stages = pd.DataFrame({
-        "Stage": ["Business Question", "Data Layer", "Analysis / Modelling", "Insight", "Business Decision"],
+        "Stage": [
+            "Business Question",
+            "Data Layer",
+            "Analysis / Modelling",
+            "Insight",
+            "Business Decision",
+        ],
         "Value": [100, 86, 72, 58, 44],
     })
 
@@ -616,6 +622,7 @@ def make_analytics_decision_funnel():
             ),
         )
     )
+
     fig.update_layout(
         title="Analytics Decision Funnel",
         height=520,
@@ -624,11 +631,20 @@ def make_analytics_decision_funnel():
         font_color="#ffffff",
         title_font_color="#ffffff",
     )
+
     return fig
 
 
 def make_project_capability_heatmap():
-    capability_groups = ["Healthcare", "Digital Transformation", "Commercial Strategy", "AI / Product", "Market Intelligence", "Operations"]
+    capability_groups = [
+        "Healthcare",
+        "Digital Transformation",
+        "Commercial Strategy",
+        "AI / Product",
+        "Market Intelligence",
+        "Operations",
+    ]
+
     mapping = {
         "Bunk Station": [0, 0, 9, 0, 7, 8],
         "TrueLayer": [0, 8, 7, 5, 8, 6],
@@ -641,7 +657,9 @@ def make_project_capability_heatmap():
         "Clinical Operations": [9, 2, 3, 0, 3, 9],
     }
 
-    y_labels, z = [], []
+    y_labels = []
+    z = []
+
     for p in projects:
         short_name = p["title"].split("-")[0].strip()
         y_labels.append(short_name)
@@ -652,11 +670,17 @@ def make_project_capability_heatmap():
             z=z,
             x=capability_groups,
             y=y_labels,
-            colorscale=[[0, "#111113"], [0.3, "#4A0F0F"], [0.6, "#B71C1C"], [1, "#FF6B6B"]],
+            colorscale=[
+                [0, "#111113"],
+                [0.3, "#4A0F0F"],
+                [0.6, "#B71C1C"],
+                [1, "#FF6B6B"],
+            ],
             zmin=0,
             zmax=9,
         )
     )
+
     fig.update_layout(
         title="Project-to-Capability Heatmap",
         paper_bgcolor="rgba(0,0,0,0)",
@@ -665,50 +689,95 @@ def make_project_capability_heatmap():
         title_font_color="#ffffff",
         height=560,
     )
+
     return fig
 
 
 def render_home():
-    col1, col2 = st.columns([1.3, 1])
+    left, right = st.columns([1.28, 0.72])
 
-    with col1:
+    with left:
         st.markdown(
             """
             <div class="hero-box">
-                <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
+                <div class="name-chip">Shalini Arun Prakash - Professional Portfolio</div>
                 <div class="hero-title">
-                    I DRIVE <span class="highlight-red">BUSINESS GROWTH</span><br>
-                    THROUGH EXECUTION AND DATA.
+                    I drive <span class="highlight-red">business growth</span><br>
+                    through execution and data.
                 </div>
                 <div class="hero-subline">
-                    Experience across startup operations, EdTech, analytics,
-                    customer engagement, commercial execution and structured
-                    business problem solving.
+                    Experience across startup operations, EdTech, analytics, customer engagement,
+                    commercial execution and structured business problem solving.
                 </div>
-                <div style="margin-top:1rem;">
-                    <span class="badge badge-red">Revenue Growth</span>
-                    <span class="badge badge-red">Commercial Execution</span>
-                    <span class="badge badge-light-red">Data Analytics</span>
-                    <span class="badge">Partnerships</span>
-                    <span class="badge">Strategy</span>
-                </div>
+                <span class="badge badge-red">Revenue Growth</span>
+                <span class="badge badge-red">Commercial Execution</span>
+                <span class="badge badge-light-red">Data Analytics</span>
+                <span class="badge">Partnerships</span>
+                <span class="badge">Strategy</span>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-    with col2:
+    with right:
+        st.markdown('<div class="hero-photo-box">', unsafe_allow_html=True)
+        st.image("assets/shalini-profile.png", width=330)
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
         st.markdown(
-            """
-            <div class="hero-image-wrap">
-                <img src="assets/shalini-profile.png">
-            </div>
-            """,
+            '<div class="hero-mini-card"><b>Execution Operator</b><p>Startup operations, EdTech delivery and clinical coordination show ground-level ownership.</p></div>',
             unsafe_allow_html=True,
         )
+
+    with c2:
+        st.markdown(
+            '<div class="hero-mini-card"><b>Business Problem Solver</b><p>Consulting-style projects across healthcare, fintech, transformation and market strategy.</p></div>',
+            unsafe_allow_html=True,
+        )
+
+    with c3:
+        st.markdown(
+            '<div class="hero-mini-card"><b>Analytics + AI Builder</b><p>Dashboards, modelling, research analytics and AI-enabled product/system thinking.</p></div>',
+            unsafe_allow_html=True,
+        )
+
+    cols = st.columns(4)
+    for i, (value, label) in enumerate(metrics[:4]):
+        with cols[i]:
+            render_metric_card(value, label)
+
+    cols = st.columns(4)
+    for i, (value, label) in enumerate(metrics[4:]):
+        with cols[i]:
+            render_metric_card(value, label)
+
+    st.markdown('<div class="section-title">Portfolio Fit</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-caption">A structured view of how my experience and project work connect across execution, commercial thinking, analytics, AI and stakeholder management.</div>',
+        unsafe_allow_html=True,
+    )
+
+    for i in range(0, len(portfolio_fit_areas), 3):
+        cols = st.columns(3)
+        for j, col in enumerate(cols):
+            if i + j < len(portfolio_fit_areas):
+                with col:
+                    item = portfolio_fit_areas[i + j]
+                    render_fit_card(item["area"], item["evidence"])
+
+    st.markdown('<div class="section-title">Commercial Proof Map</div>', unsafe_allow_html=True)
+    st.plotly_chart(make_commercial_proof_bubble_map(), use_container_width=True)
+
+    st.markdown('<div class="section-title">Career Momentum</div>', unsafe_allow_html=True)
+    st.plotly_chart(make_career_momentum_timeline(), use_container_width=True)
+
 
 def render_experience():
     st.markdown('<div class="section-title">Experience</div>', unsafe_allow_html=True)
+
     for i in range(0, len(experience), 2):
         cols = st.columns(2)
         for j, col in enumerate(cols):
@@ -719,11 +788,17 @@ def render_experience():
 
 def render_education():
     st.markdown('<div class="section-title">Education</div>', unsafe_allow_html=True)
+
     for item in education:
-        with st.expander(f'{item["timeline"]} - {item["title"]}', expanded=item["title"].startswith("Global MBA")):
+        with st.expander(
+            f'{item["timeline"]} - {item["title"]}',
+            expanded=item["title"].startswith("Global MBA"),
+        ):
             c1, c2 = st.columns([0.9, 1.4])
+
             with c1:
                 st.image(item["image"], use_container_width=True)
+
             with c2:
                 st.markdown(f"### {item['title']}")
                 st.markdown(f"**{item['period']}**")
@@ -735,8 +810,16 @@ def render_education():
 
 def render_projects():
     st.markdown('<div class="section-title">Projects</div>', unsafe_allow_html=True)
-    capability_filter = st.selectbox("Filter by capability", ["All"] + sorted(set([p["capability"] for p in projects])))
-    filtered = projects if capability_filter == "All" else [p for p in projects if p["capability"] == capability_filter]
+
+    capability_filter = st.selectbox(
+        "Filter by capability",
+        ["All"] + sorted(set([p["capability"] for p in projects])),
+    )
+
+    filtered = projects if capability_filter == "All" else [
+        p for p in projects if p["capability"] == capability_filter
+    ]
+
     st.write(f"Showing {len(filtered)} project(s).")
 
     for i in range(0, len(filtered), 2):
@@ -749,12 +832,14 @@ def render_projects():
 
 def render_analytics_decision_engine():
     st.markdown('<div class="section-title">Analytics Decision Engine</div>', unsafe_allow_html=True)
+
     engine_steps = [
         ("01", "Frame the Business Question", "Pricing, utilisation, retention, adoption behaviour and market entry."),
         ("02", "Build the Data Layer", "Survey data, trackers, transaction data, dashboard inputs and research data."),
         ("03", "Model the Insight", "EDA, segmentation, regression, classification, clustering and statistical interpretation."),
         ("04", "Drive the Decision", "Pricing, targeting, utilisation, engagement and roadmap recommendations."),
     ]
+
     cols = st.columns(4)
     for i, (step, title, body) in enumerate(engine_steps):
         with cols[i]:
@@ -773,12 +858,14 @@ def render_analytics_evidence_table():
         {"Method": "Financial Modelling", "Where demonstrated": "GSK, LM Instruments, Bunk Station"},
         {"Method": "Research Modelling", "Where demonstrated": "AI Adoption Research using TPB, Trust Mediation and SmartPLS"},
     ]
+
     st.markdown('<div class="section-title">Analytics Evidence Map</div>', unsafe_allow_html=True)
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
 
 def render_analytics():
     st.markdown('<div class="section-title">Data Analytics & Business Intelligence</div>', unsafe_allow_html=True)
+
     analytics_cards = [
         ("Decision Intelligence", "Framed analytics projects around pricing, utilisation, spend behaviour, segmentation and market entry."),
         ("Dashboard Ownership", "Built trackers and dashboards for bookings, utilisation, revenue, engagement and model outputs."),
@@ -798,6 +885,7 @@ def render_analytics():
     render_analytics_evidence_table()
 
     st.markdown('<div class="section-title">Analytics Project Evidence</div>', unsafe_allow_html=True)
+
     for i in range(0, len(analytics_projects), 2):
         cols = st.columns(2)
         for j, col in enumerate(cols):
@@ -808,6 +896,7 @@ def render_analytics():
 
 def render_skills():
     st.markdown('<div class="section-title">Skills</div>', unsafe_allow_html=True)
+
     st.markdown(
         """
         <div class="skill-strip">
@@ -822,6 +911,7 @@ def render_skills():
     )
 
     skill_items = list(skills.items())
+
     for i in range(0, len(skill_items), 2):
         cols = st.columns(2)
         for j, col in enumerate(cols):
@@ -831,6 +921,7 @@ def render_skills():
                 methods = skill_notes.get(category, {}).get("methods", "")
                 image = skills_visuals.get(category, {}).get("image", None)
                 headline = skills_visuals.get(category, {}).get("headline", "")
+
                 with col:
                     render_content_card(category, headline, evidence, image)
                     render_badges(items, "skill-item")
@@ -841,17 +932,44 @@ def render_skills():
 
 def render_leadership_impact_matrix():
     rows = [
-        {"Area": "Student Leadership", "Evidence": "Global Learning & Student Life Committee", "Ownership": "Cross-campus coordination", "Impact": "Strengthened collaboration and engagement"},
-        {"Area": "Industry Engagement", "Evidence": "Industry Connect Event, Dubai", "Ownership": "Student and leader coordination", "Impact": "Improved exposure to business leaders"},
-        {"Area": "Event Execution", "Evidence": "Business Conclave", "Ownership": "Presentation coordination and logistics", "Impact": "Enabled smoother delivery"},
-        {"Area": "Healthcare Outreach", "Evidence": "OMFS Awareness Marathon", "Ownership": "Healthcare awareness coordination", "Impact": "Community outreach"},
-        {"Area": "Public Health", "Evidence": "Anti-Tobacco Awareness Human Chain", "Ownership": "Preventive health communication", "Impact": "Public awareness support"},
+        {
+            "Area": "Student Leadership",
+            "Evidence": "Global Learning & Student Life Committee",
+            "Ownership": "Cross-campus coordination",
+            "Impact": "Strengthened collaboration and engagement",
+        },
+        {
+            "Area": "Industry Engagement",
+            "Evidence": "Industry Connect Event, Dubai",
+            "Ownership": "Student and leader coordination",
+            "Impact": "Improved exposure to business leaders",
+        },
+        {
+            "Area": "Event Execution",
+            "Evidence": "Business Conclave",
+            "Ownership": "Presentation coordination and logistics",
+            "Impact": "Enabled smoother delivery",
+        },
+        {
+            "Area": "Healthcare Outreach",
+            "Evidence": "OMFS Awareness Marathon",
+            "Ownership": "Healthcare awareness coordination",
+            "Impact": "Community outreach",
+        },
+        {
+            "Area": "Public Health",
+            "Evidence": "Anti-Tobacco Awareness Human Chain",
+            "Ownership": "Preventive health communication",
+            "Impact": "Public awareness support",
+        },
     ]
+
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
 
 def render_leadership():
     st.markdown('<div class="section-title">Leadership & Community</div>', unsafe_allow_html=True)
+
     for i in range(0, len(leadership_items), 2):
         cols = st.columns(2)
         for j, col in enumerate(cols):
@@ -862,6 +980,7 @@ def render_leadership():
     render_leadership_impact_matrix()
 
     st.markdown('<div class="section-title">Extra-Curricular Strengths</div>', unsafe_allow_html=True)
+
     for i in range(0, len(extra_curricular_items), 2):
         cols = st.columns(2)
         for j, col in enumerate(cols):
@@ -872,6 +991,7 @@ def render_leadership():
 
 def render_proof_points():
     st.markdown('<div class="section-title">Proof Points</div>', unsafe_allow_html=True)
+
     proof_points = [
         ("3x", "Revenue growth at Turfo in 8 months"),
         ("35+", "Weekly engagements managed through operating execution"),
@@ -897,7 +1017,9 @@ def render_proof_points():
 
 def render_contact():
     st.markdown('<div class="section-title">Contact</div>', unsafe_allow_html=True)
+
     c1, c2 = st.columns([1.2, 1])
+
     with c1:
         st.markdown(
             """
@@ -911,6 +1033,7 @@ def render_contact():
             """,
             unsafe_allow_html=True,
         )
+
     with c2:
         st.markdown(
             """
