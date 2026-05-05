@@ -102,7 +102,7 @@ p, li, span, div {
 .name-chip {
     display: inline-flex;
     padding: 0.65rem 1.05rem;
-    border-radius: 2px;
+    border-radius: 999px;
     background: #E53935;
     color: #ffffff;
     font-size: 0.82rem;
@@ -164,30 +164,35 @@ p, li, span, div {
     line-height: 1.45;
 }
 
+/* ---------- CLEAN BADGES ---------- */
+
 .badge {
-    display: inline-block;
-    padding: 0.48rem 0.85rem;
-    margin: 0.24rem 0.28rem 0.24rem 0;
-    border-radius: 0px;
-    background: rgba(255,255,255,0.06);
+    display: inline-flex;
+    align-items: center;
+    padding: 0.42rem 0.72rem;
+    margin: 0.28rem 0.42rem 0.28rem 0;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.045);
     color: #f5f5f5;
-    border: 1px solid rgba(255,255,255,0.14);
-    font-size: 0.78rem;
-    font-weight: 800;
+    border: 1px solid rgba(255,255,255,0.12);
+    font-size: 0.68rem;
+    font-weight: 750;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.045em;
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 .badge-red {
-    background: rgba(229,57,53,0.12);
+    background: rgba(229,57,53,0.10);
     color: #ffffff;
-    border: 1px solid rgba(229,57,53,0.55);
+    border: 1px solid rgba(229,57,53,0.32);
 }
 
 .badge-light-red {
-    background: rgba(255,107,107,0.10);
+    background: rgba(255,107,107,0.08);
     color: #ffffff;
-    border: 1px solid rgba(255,107,107,0.55);
+    border: 1px solid rgba(255,107,107,0.30);
 }
 
 .section-title {
@@ -510,46 +515,6 @@ p, li, span, div {
     color: #ffffff;
 }
 
-/* ---------- EDUCATION TIMELINE NATIVE CARDS ---------- */
-
-.edu-timeline-wrap {
-    border-left: 3px solid rgba(255,107,107,0.75);
-    padding-left: 1.5rem;
-    margin: 1.5rem 0 2rem 0;
-}
-
-.edu-timeline-card {
-    position: relative;
-    background: rgba(17,17,19,0.96);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-left: 4px solid #E53935;
-    padding: 1rem 1.15rem;
-    margin-bottom: 1.1rem;
-}
-
-.edu-timeline-year {
-    color: #FF6B6B;
-    font-weight: 950;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-}
-
-.edu-timeline-title {
-    color: #ffffff;
-    font-weight: 950;
-    font-size: 1.05rem;
-    margin-top: 0.25rem;
-    text-transform: uppercase;
-}
-
-.edu-timeline-text {
-    color: #d4d4d8;
-    font-size: 0.9rem;
-    line-height: 1.55;
-    margin-top: 0.35rem;
-}
-
 .contact-card {
     background: #111113;
     border: 1px solid rgba(255,255,255,0.12);
@@ -685,7 +650,7 @@ def render_project_card(project):
         unsafe_allow_html=True,
     )
 
-    render_badges(project["frameworks"][:5], "badge-light-red")
+    render_badges(project["frameworks"][:4], "badge-light-red")
 
     with st.expander("Explore case study"):
         c1, c2 = st.columns([1, 1])
@@ -710,7 +675,7 @@ def render_project_card(project):
                 st.write(f"• {item}")
 
             st.markdown("#### Tools")
-            render_badges(project["tools"], "badge-red")
+            render_badges(project["tools"][:4], "badge-red")
 
             st.markdown("#### Relevance")
             st.markdown(
@@ -746,29 +711,6 @@ def render_experience_card(item):
     )
 
 
-def render_education_card(item):
-    highlights_html = "".join([f"<li>{point}</li>" for point in item["highlights"]])
-    st.markdown(
-        f"""
-    <div class="project-card">
-        <img src="{item["image"]}" class="experience-img">
-        <div class="experience-body">
-            <div class="timeline-title">{item["title"]}</div>
-            <div class="timeline-meta">{item["period"]}</div>
-            <div class="timeline-detail">{item["summary"]}</div>
-            <div class="achievement-list">
-                <b>Key Highlights:</b>
-                <ul>
-                    {highlights_html}
-                </ul>
-            </div>
-        </div>
-    </div>
-    """,
-        unsafe_allow_html=True,
-    )
-
-
 def render_simple_visual_card(item):
     chips = "".join([f'<span class="skill-item">{skill}</span>' for skill in item["skills"]])
     st.markdown(
@@ -787,56 +729,31 @@ def render_simple_visual_card(item):
     )
 
 
-def render_education_timeline():
-    st.markdown('<div class="section-title">Education Timeline</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">A chronological view of the academic path from clinical healthcare to medical cosmetology and global business education.</div>',
-        unsafe_allow_html=True,
-    )
-
-    def start_year(item):
-        return int(item["timeline"].split("–")[0].strip())
-
-    st.markdown('<div class="edu-timeline-wrap">', unsafe_allow_html=True)
-
-    for item in sorted(education, key=start_year):
-        st.markdown(
-            f"""
-            <div class="edu-timeline-card">
-                <div class="edu-timeline-year">{item["timeline"]}</div>
-                <div class="edu-timeline-title">{item["title"]}</div>
-                <div class="edu-timeline-text">{item["summary"]}</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    st.markdown("</div>", unsafe_allow_html=True)
-
-
 # ------------------------------------------------------------
 # CHARTS
 # ------------------------------------------------------------
 
 def make_project_theme_chart():
-    theme_map = {
-        "Commercial Strategy & Unit Economics": "Commercial & Market Strategy",
-        "Market Intelligence": "Commercial & Market Strategy",
-        "Healthcare Growth Strategy": "Healthcare & Life Sciences",
-        "Healthcare Digital Transformation": "Healthcare & Life Sciences",
-        "Healthcare Operations": "Healthcare & Life Sciences",
-        "Digital Transformation": "Digital & Enterprise Transformation",
-        "Enterprise Transformation": "Digital & Enterprise Transformation",
-        "Ecosystem Development": "Digital & Enterprise Transformation",
-        "AI-Powered Business Models": "AI & Product Innovation",
-    }
+    counts = pd.DataFrame(
+        {
+            "Theme": [
+                "Digital & Enterprise Transformation",
+                "Healthcare & Life Sciences",
+                "Commercial & Market Strategy",
+                "AI & Product Innovation",
+            ],
+            "Projects": [3, 3, 2, 3],
+        }
+    )
 
-    df = pd.DataFrame(projects)
-    df["Theme"] = df["capability"].map(theme_map).fillna("Other")
-    counts = df["Theme"].value_counts().reset_index()
-    counts.columns = ["Theme", "Projects"]
+    fig = px.bar(
+        counts,
+        x="Theme",
+        y="Projects",
+        text="Projects",
+        title="Portfolio Coverage by Strategic Theme",
+    )
 
-    fig = px.bar(counts, x="Theme", y="Projects", text="Projects", title="Project Portfolio by Strategic Theme")
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
@@ -874,6 +791,7 @@ def make_project_business_value_chart():
         text="Evidence Strength",
         title="Business Value Demonstrated Across Projects",
     )
+
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
@@ -941,6 +859,7 @@ def make_analytics_decision_cycle_chart():
         text="Ownership Strength",
         title="Analytics Ownership Across the Decision Cycle",
     )
+
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
@@ -978,6 +897,7 @@ def make_analytics_business_impact_chart():
         text="Strength",
         title="Analytics Business Impact Areas",
     )
+
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
@@ -992,7 +912,14 @@ def make_analytics_business_impact_chart():
 
 
 def make_capability_radar():
-    categories = ["Execution", "Commercial Thinking", "Analytics", "AI / Digital", "Healthcare", "Stakeholder Management"]
+    categories = [
+        "Execution",
+        "Commercial Thinking",
+        "Analytics",
+        "AI / Digital",
+        "Healthcare",
+        "Stakeholder Management",
+    ]
     scores = [9, 8, 9, 8, 8, 9]
 
     fig = go.Figure()
@@ -1021,7 +948,14 @@ def make_capability_radar():
 
 
 def make_project_capability_heatmap():
-    capability_groups = ["Healthcare", "Digital Transformation", "Commercial Strategy", "AI / Product", "Market Intelligence", "Operations"]
+    capability_groups = [
+        "Healthcare",
+        "Digital Transformation",
+        "Commercial Strategy",
+        "AI / Product",
+        "Market Intelligence",
+        "Operations",
+    ]
 
     mapping = {
         "Bunk Station": [0, 0, 9, 0, 7, 8],
@@ -1116,15 +1050,15 @@ def render_home():
                 into structured business outcomes.
             </div>
             <div class="hero-subline">
-                A portfolio across healthcare, digital transformation, startup operations,
+                A portfolio across digital transformation, startup operations,
                 data analytics, AI-enabled business models, commercial execution and
                 evidence-backed problem solving.
             </div>
-            <span class="badge badge-red">Healthcare</span>
             <span class="badge badge-red">Digital Transformation</span>
-            <span class="badge badge-light-red">Data Analytics</span>
-            <span class="badge">Commercial Execution</span>
+            <span class="badge badge-red">Data Analytics</span>
+            <span class="badge badge-light-red">Commercial Execution</span>
             <span class="badge">AI-Enabled Business Models</span>
+            <span class="badge">Strategy</span>
         </div>
     </div>
     """,
@@ -1178,7 +1112,7 @@ def render_home():
 
     st.markdown('<div class="section-title">Portfolio Fit</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">A structured view of how my experience and project work connect across execution, commercial thinking, analytics, healthcare, AI and stakeholder management.</div>',
+        '<div class="section-caption">A structured view of how my experience and project work connect across execution, commercial thinking, analytics, AI and stakeholder management.</div>',
         unsafe_allow_html=True,
     )
 
@@ -1192,7 +1126,7 @@ def render_home():
 
     st.markdown('<div class="section-title">Portfolio Visuals</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">Visuals designed to show portfolio breadth, business value and capability strength — not arbitrary project counts.</div>',
+        '<div class="section-caption">Visuals designed to show portfolio breadth, business value and capability strength.</div>',
         unsafe_allow_html=True,
     )
 
@@ -1231,24 +1165,34 @@ def render_experience():
 def render_education():
     st.markdown('<div class="section-title">Education</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">Academic foundation across clinical healthcare, medical cosmetology and global business.</div>',
+        '<div class="section-caption">Reverse-chronology view of academic foundation across global business, medical cosmetology and clinical healthcare.</div>',
         unsafe_allow_html=True,
     )
 
-    render_education_timeline()
+    for item in education:
+        with st.expander(
+            f'{item["timeline"]} · {item["title"]}',
+            expanded=item["title"].startswith("Global MBA"),
+        ):
+            c1, c2 = st.columns([0.9, 1.4])
 
-    for i in range(0, len(education), 2):
-        cols = st.columns(2)
-        for j, col in enumerate(cols):
-            if i + j < len(education):
-                with col:
-                    render_education_card(education[i + j])
+            with c1:
+                st.image(item["image"], use_container_width=True)
+
+            with c2:
+                st.markdown(f"### {item['title']}")
+                st.markdown(f"**{item['period']}**")
+                st.write(item["summary"])
+
+                st.markdown("**Key highlights:**")
+                for point in item["highlights"]:
+                    st.write(f"• {point}")
 
 
 def render_projects():
     st.markdown('<div class="section-title">Projects</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">Consulting-style and business project work across healthcare, fintech, digital transformation, commercial strategy, AI-enabled models and market intelligence. Work experience such as Turfo is intentionally kept in Experience.</div>',
+        '<div class="section-caption">Consulting-style and business project work across fintech, digital transformation, commercial strategy, AI-enabled models, market intelligence and healthcare transformation.</div>',
         unsafe_allow_html=True,
     )
 
@@ -1348,7 +1292,7 @@ def render_skills():
         """
     <div class="skill-strip">
         <div class="skill-strip-item">Business Ownership</div>
-        <div class="skill-strip-item">Healthcare Strategy</div>
+        <div class="skill-strip-item">Strategy</div>
         <div class="skill-strip-item">Data Analytics</div>
         <div class="skill-strip-item">AI-Enabled Workflows</div>
         <div class="skill-strip-item">Commercial Execution</div>
@@ -1493,12 +1437,12 @@ def render_contact():
             """
         <div class="contact-card">
             <h3>Shalini Arun Prakash</h3>
-            <p><b>Portfolio Focus:</b> Digital Transformation · Data Analytics · AI-Enabled Business Models · Commercial Execution · Strategy</p>
+            <p><b>Portfolio Focus:</b> Digital Transformation · Data Analytics · Business Projects · AI-Enabled Business Models · Commercial Execution</p>
             <p><b>Location:</b> India</p>
             <p><b>Email:</b> shaliniarun23@gmail.com</p>
             <p><b>LinkedIn:</b> linkedin.com/in/shaliniarun</p>
             <br>
-            <p><b>Professional narrative:</b> Healthcare-rooted business professional with EdTech, startup operations, analytics, AI-enabled project work and global MBA exposure.</p>
+            <p><b>Professional narrative:</b> Business professional with EdTech, startup operations, analytics, AI-enabled project work, healthcare exposure and global MBA experience.</p>
         </div>
         """,
             unsafe_allow_html=True,
