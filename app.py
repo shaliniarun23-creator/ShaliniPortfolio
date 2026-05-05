@@ -1094,119 +1094,40 @@ def render_leadership_impact_matrix():
 
 
 def render_home():
-    st.markdown(
-        """
-        <div class="hero-shell">
-            <div class="hero-content">
-                <div class="hero-split">
-                    <div>
-                        <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
-                        <div class="hero-title">
-                            I drive <span class="highlight-red">business growth</span><br>
-                            through execution and data.
-                        </div>
-                        <div class="hero-subline">
-                            Experience across startup operations, EdTech, analytics, customer engagement,
-                            commercial execution and structured business problem solving.
-                        </div>
-                        <span class="badge badge-red">Revenue Growth</span>
-                        <span class="badge badge-red">Commercial Execution</span>
-                        <span class="badge badge-light-red">Data Analytics</span>
-                        <span class="badge">Partnerships</span>
-                        <span class="badge">Strategy</span>
+   def render_home():
+
+    col1, col2 = st.columns([1.6, 1])
+
+    with col1:
+        st.markdown(
+            """
+            <div class="hero-shell">
+                <div class="hero-content">
+                    <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
+
+                    <div class="hero-title">
+                        I drive <span class="highlight-red">business growth</span><br>
+                        through execution and data.
                     </div>
 
-                    <div class="hero-profile-wrap">
-                        <div class="hero-profile-stage">
-                            <img src="assets/shalini-profile.png" class="hero-profile-img">
-                        </div>
+                    <div class="hero-subline">
+                        Experience across startup operations, EdTech, analytics, customer engagement,
+                        commercial execution and structured business problem solving.
                     </div>
+
+                    <span class="badge badge-red">Revenue Growth</span>
+                    <span class="badge badge-red">Commercial Execution</span>
+                    <span class="badge badge-light-red">Data Analytics</span>
+                    <span class="badge">Partnerships</span>
+                    <span class="badge">Strategy</span>
                 </div>
             </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    c1, c2, c3 = st.columns(3)
-
-    with c1:
-        st.markdown(
-            """
-            <div class="hero-mini-card">
-                <b>Execution Operator</b>
-                <p>Startup operations, EdTech delivery and clinical coordination show ground-level ownership.</p>
-            </div>
             """,
             unsafe_allow_html=True,
         )
 
-    with c2:
-        st.markdown(
-            """
-            <div class="hero-mini-card">
-                <b>Business Problem Solver</b>
-                <p>Consulting-style projects across healthcare, fintech, transformation and market strategy.</p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    with c3:
-        st.markdown(
-            """
-            <div class="hero-mini-card">
-                <b>Analytics + AI Builder</b>
-                <p>Dashboards, modelling, research analytics and AI-enabled product/system thinking.</p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    cols = st.columns(4)
-    for i, (value, label) in enumerate(metrics[:4]):
-        with cols[i]:
-            render_metric_card(value, label)
-
-    cols = st.columns(4)
-    for i, (value, label) in enumerate(metrics[4:]):
-        with cols[i]:
-            render_metric_card(value, label)
-
-    st.markdown('<div class="section-title">Portfolio Fit</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">A structured view of how my experience and project work connect across execution, commercial thinking, analytics, AI and stakeholder management.</div>',
-        unsafe_allow_html=True,
-    )
-
-    for i in range(0, len(portfolio_fit_areas), 3):
-        cols = st.columns(3)
-        for j, col in enumerate(cols):
-            if i + j < len(portfolio_fit_areas):
-                with col:
-                    item = portfolio_fit_areas[i + j]
-                    render_fit_card(item["area"], item["evidence"])
-
-    st.markdown('<div class="section-title">Commercial Proof Map</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">A proof-led visual showing measurable outcomes across execution, commercial growth, analytics and transformation.</div>',
-        unsafe_allow_html=True,
-    )
-
-    st.markdown('<div class="visual-card">', unsafe_allow_html=True)
-    st.plotly_chart(make_commercial_proof_bubble_map(), use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    st.markdown('<div class="section-title">Career Momentum</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">A visual progression from clinical operations to EdTech scale, startup ownership, global business projects and analytics-led commercial execution.</div>',
-        unsafe_allow_html=True,
-    )
-
-    st.markdown('<div class="visual-card">', unsafe_allow_html=True)
-    st.plotly_chart(make_career_momentum_timeline(), use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
-
+    with col2:
+        st.image("assets/shalini-profile.png", use_container_width=True)
 
 def render_experience():
     st.markdown('<div class="section-title">Experience</div>', unsafe_allow_html=True)
