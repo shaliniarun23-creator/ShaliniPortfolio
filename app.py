@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 # ------------------------------------------------------------
-# CSS — PREMIUM BLACK / RED PORTFOLIO STYLE
+# CSS
 # ------------------------------------------------------------
 
 st.markdown("""
@@ -69,7 +69,7 @@ p, li, span, div {
     background-position: center;
     border: 1px solid rgba(255,255,255,0.12);
     box-shadow: 0 35px 100px rgba(0,0,0,0.65);
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
 }
 
 .hero-content {
@@ -117,20 +117,14 @@ p, li, span, div {
     margin-bottom: 1.6rem;
 }
 
-.hero-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    margin-top: 2rem;
-    max-width: 1080px;
-}
-
 .hero-mini-card {
     padding: 1rem;
     border-radius: 0px;
     background: rgba(17,17,19,0.88);
     border: 1px solid rgba(255,255,255,0.10);
     border-left: 4px solid #E53935;
+    min-height: 135px;
+    margin-bottom: 1rem;
 }
 
 .hero-mini-card b {
@@ -280,7 +274,17 @@ p, li, span, div {
     filter: grayscale(30%) contrast(1.08);
 }
 
-.project-body {
+.experience-img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-bottom: 4px solid #E53935;
+    opacity: 0.88;
+    filter: grayscale(25%) contrast(1.08);
+}
+
+.project-body,
+.experience-body {
     padding: 1.35rem 1.45rem 1.5rem 1.45rem;
 }
 
@@ -317,26 +321,6 @@ p, li, span, div {
     color: #ffffff;
 }
 
-.timeline-card {
-    position: relative;
-    background: #111113;
-    padding: 1.3rem 1.4rem 1.3rem 1.5rem;
-    border-radius: 0px;
-    border: 1px solid rgba(255,255,255,0.12);
-    margin-bottom: 1rem;
-    box-shadow: 0 16px 45px rgba(0,0,0,0.32);
-}
-
-.timeline-card:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 5px;
-    background: #E53935;
-}
-
 .timeline-title {
     font-size: 1.13rem;
     font-weight: 950;
@@ -361,6 +345,44 @@ p, li, span, div {
     color: #d4d4d8;
     line-height: 1.7;
     margin-top: 0.6rem;
+}
+
+.skill-card {
+    background: #111113;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-top: 4px solid #E53935;
+    padding: 1.25rem;
+    min-height: 230px;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+    margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+    color: #ffffff;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.7rem;
+}
+
+.skill-item {
+    display: inline-block;
+    padding: 0.42rem 0.65rem;
+    margin: 0.22rem;
+    border: 1px solid rgba(229,57,53,0.45);
+    background: rgba(229,57,53,0.10);
+    color: #ffffff;
+    font-size: 0.74rem;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.skill-note {
+    color: #a1a1aa;
+    font-size: 0.86rem;
+    line-height: 1.55;
+    margin-top: 0.85rem;
 }
 
 .contact-card {
@@ -425,7 +447,6 @@ hr {
 @media (max-width: 900px) {
     .hero-content { padding: 2.2rem; }
     .hero-title { font-size: 3.2rem; }
-    .hero-grid { grid-template-columns: 1fr; }
 }
 </style>
 """, unsafe_allow_html=True)
@@ -471,7 +492,6 @@ portfolio_fit_areas = [
         "evidence": "GSK oncology market assessment, TrueLayer open banking analysis, DP World ecosystem strategy and healthcare growth research."
     },
 ]
-
 projects = [
     {
         "title": "Bunk Station – Strategic Turnaround & Investment Roadmap",
@@ -599,8 +619,6 @@ projects = [
         ],
         "strategic_relevance": "Relevant for global ecosystem thinking, emerging technology, operational visibility and cross-border commercial environments."
     },
-]
-projects.extend([
     {
         "title": "Royal Dutch Clinic – Growth Strategy & Operating Model Analysis",
         "capability": "Healthcare Growth Strategy",
@@ -701,7 +719,7 @@ projects.extend([
         ],
         "strategic_relevance": "Relevant to lifecycle discipline: structured follow-ups, service coordination, operational clarity and stakeholder communication."
     },
-])
+]
 
 analytics_projects = [
     {
@@ -817,6 +835,7 @@ experience = [
     {
         "title": "Co-Founder & Operations Lead – Turfo",
         "period": "Jan 2024 – Jan 2025 | India",
+        "image": "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1400&q=85",
         "description": "Built and operated a multi-sport play area business, managing daily operations, pricing, vendor coordination, partnerships, customer engagement, booking visibility and revenue tracking.",
         "achievements": [
             "Achieved 3× revenue growth in 8 months through pricing, utilisation and engagement improvements.",
@@ -829,6 +848,7 @@ experience = [
     {
         "title": "Academic Specialist – Biology – BYJU’S",
         "period": "Nov 2021 – Apr 2024 | India",
+        "image": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1400&q=85",
         "description": "Delivered live Biology sessions in a high-volume EdTech environment, combining teaching, learner engagement, performance feedback and conversion-supporting academic communication.",
         "achievements": [
             "Delivered 2,000+ live sessions across Biology learning modules.",
@@ -841,6 +861,7 @@ experience = [
     {
         "title": "Associate Dentist – Happy Smile Dental Clinic",
         "period": "Oct 2019 – Oct 2021 | India",
+        "image": "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1400&q=85",
         "description": "Managed patient care, treatment explanation, clinical documentation, consultation flow, follow-ups, staff coordination and external lab communication.",
         "achievements": [
             "Handled patient-facing consultation workflows and treatment plan communication.",
@@ -852,6 +873,7 @@ experience = [
     {
         "title": "Global MBA – SP Jain School of Global Management",
         "period": "Feb 2025 – Feb 2026 | Singapore · Dubai · India",
+        "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=85",
         "description": "Completed global business projects across healthcare, fintech, enterprise transformation, life sciences, AI-enabled product strategy, data analytics and commercial modelling.",
         "achievements": [
             "Worked on consulting-style projects across Dubai, Singapore, UAE and India.",
@@ -861,7 +883,6 @@ experience = [
         ]
     },
 ]
-
 skills = {
     "Business & Commercial Execution": [
         "Business ownership",
@@ -907,8 +928,17 @@ skills = {
         "AI tools"
     ],
 }
+
+skill_notes = {
+    "Business & Commercial Execution": "Built through Turfo operating ownership, revenue tracking, pricing decisions, stakeholder handling and high-volume EdTech performance delivery.",
+    "Strategy & Transformation": "Developed through consulting-style MBA projects across fintech, healthcare, enterprise systems, life sciences and digital trade.",
+    "Data Analytics & BI": "Demonstrated through dashboards, KPI tracking, customer analytics, modelling workflows and business decision-support projects.",
+    "Healthcare & Life Sciences": "Grounded in BDS clinical experience, healthcare operations, digital health strategy, patient journey work and life sciences market intelligence.",
+    "Tools": "Practical toolset used across dashboards, analysis, modelling, reporting, presentations and portfolio development."
+}
+
 # ------------------------------------------------------------
-# HELPER FUNCTIONS
+# HELPERS
 # ------------------------------------------------------------
 
 def render_badges(items, style="badge"):
@@ -979,15 +1009,18 @@ def render_project_card(project):
 def render_experience_card(item):
     achievement_html = "".join([f"<li>{achievement}</li>" for achievement in item["achievements"]])
     st.markdown(f"""
-    <div class="timeline-card">
-        <div class="timeline-title">{item["title"]}</div>
-        <div class="timeline-meta">{item["period"]}</div>
-        <div class="timeline-detail">{item["description"]}</div>
-        <div class="achievement-list">
-            <b>Achievements:</b>
-            <ul>
-                {achievement_html}
-            </ul>
+    <div class="project-card">
+        <img src="{item["image"]}" class="experience-img">
+        <div class="experience-body">
+            <div class="timeline-title">{item["title"]}</div>
+            <div class="timeline-meta">{item["period"]}</div>
+            <div class="timeline-detail">{item["description"]}</div>
+            <div class="achievement-list">
+                <b>Achievements:</b>
+                <ul>
+                    {achievement_html}
+                </ul>
+            </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -1095,7 +1128,6 @@ def make_analytics_project_chart():
     )
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
         font_color="#d4d4d8",
         title_font_color="#ffffff",
         height=430
@@ -1108,7 +1140,7 @@ def make_capability_radar():
         "Commercial Thinking",
         "Analytics",
         "AI / Digital",
-        "Healthcare Strategy",
+        "Healthcare",
         "Stakeholder Management",
     ]
     scores = [9, 8, 8, 8, 8, 9]
@@ -1118,7 +1150,6 @@ def make_capability_radar():
         r=scores,
         theta=categories,
         fill="toself",
-        name="Capability Strength",
         line=dict(color="#E53935", width=3),
         fillcolor="rgba(229,57,53,0.25)"
     ))
@@ -1137,7 +1168,7 @@ def make_capability_radar():
     return fig
 
 # ------------------------------------------------------------
-# RENDER FUNCTIONS
+# RENDER SECTIONS
 # ------------------------------------------------------------
 
 def render_home():
@@ -1159,24 +1190,32 @@ def render_home():
             <span class="badge badge-red">Data Analytics</span>
             <span class="badge">Commercial Execution</span>
             <span class="badge">AI-Enabled Business Models</span>
-
-            <div class="hero-grid">
-                <div class="hero-mini-card">
-                    <b>Execution Operator</b>
-                    <p>Startup operations, EdTech delivery and clinical coordination show ground-level ownership.</p>
-                </div>
-                <div class="hero-mini-card">
-                    <b>Business Problem Solver</b>
-                    <p>Consulting-style projects across healthcare, fintech, transformation and market strategy.</p>
-                </div>
-                <div class="hero-mini-card">
-                    <b>Analytics + AI Builder</b>
-                    <p>Dashboards, modelling, research analytics and AI-enabled product/system thinking.</p>
-                </div>
-            </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
+
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.markdown("""
+        <div class="hero-mini-card">
+            <b>Execution Operator</b>
+            <p>Startup operations, EdTech delivery and clinical coordination show ground-level ownership.</p>
+        </div>
+        """, unsafe_allow_html=True)
+    with c2:
+        st.markdown("""
+        <div class="hero-mini-card">
+            <b>Business Problem Solver</b>
+            <p>Consulting-style projects across healthcare, fintech, transformation and market strategy.</p>
+        </div>
+        """, unsafe_allow_html=True)
+    with c3:
+        st.markdown("""
+        <div class="hero-mini-card">
+            <b>Analytics + AI Builder</b>
+            <p>Dashboards, modelling, research analytics and AI-enabled product/system thinking.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     cols = st.columns(4)
     for i, (value, label) in enumerate(metrics[:4]):
@@ -1203,8 +1242,8 @@ def render_home():
                     render_fit_card(item["area"], item["evidence"])
 
     st.markdown('<div class="section-title">Portfolio Visuals</div>', unsafe_allow_html=True)
-    c1, c2 = st.columns(2)
 
+    c1, c2 = st.columns(2)
     with c1:
         st.markdown('<div class="visual-card">', unsafe_allow_html=True)
         st.plotly_chart(make_project_capability_chart(), use_container_width=True)
@@ -1222,7 +1261,7 @@ def render_home():
 def render_portfolio_fit():
     st.markdown('<div class="section-title">Portfolio Fit Map</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">This section maps the portfolio across business ownership, commercial thinking, analytics, AI-enabled systems, stakeholder activation and market intelligence.</div>',
+        '<div class="section-caption">This section maps the portfolio across execution, commercial thinking, analytics, AI-enabled systems, stakeholder activation and market intelligence.</div>',
         unsafe_allow_html=True
     )
 
@@ -1237,7 +1276,7 @@ def render_portfolio_fit():
 def render_projects():
     st.markdown('<div class="section-title">Projects</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">Consulting-style and business project work across healthcare, fintech, digital transformation, commercial strategy, AI-enabled models and market intelligence. Work experience such as Turfo is intentionally kept in the Experience section, not here.</div>',
+        '<div class="section-caption">Consulting-style and business project work across healthcare, fintech, digital transformation, commercial strategy, AI-enabled models and market intelligence. Work experience such as Turfo is intentionally kept in Experience.</div>',
         unsafe_allow_html=True
     )
 
@@ -1246,9 +1285,7 @@ def render_projects():
         ["All"] + sorted(set([p["capability"] for p in projects]))
     )
 
-    filtered = projects
-    if capability_filter != "All":
-        filtered = [p for p in projects if p["capability"] == capability_filter]
+    filtered = projects if capability_filter == "All" else [p for p in projects if p["capability"] == capability_filter]
 
     st.write(f"Showing {len(filtered)} project(s).")
 
@@ -1294,13 +1331,12 @@ def render_analytics():
                     render_fit_card(item["title"], item["text"])
 
     st.markdown('<div class="section-title">Analytics Visuals</div>', unsafe_allow_html=True)
-    c1, c2 = st.columns(2)
 
+    c1, c2 = st.columns(2)
     with c1:
         st.markdown('<div class="visual-card">', unsafe_allow_html=True)
         st.plotly_chart(make_analytics_methods_chart(), use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
-
     with c2:
         st.markdown('<div class="visual-card">', unsafe_allow_html=True)
         st.plotly_chart(make_analytics_workflow_chart(), use_container_width=True)
@@ -1326,24 +1362,41 @@ def render_analytics():
 def render_experience():
     st.markdown('<div class="section-title">Experience</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">Professional experience with role descriptions and achievement evidence under each experience.</div>',
+        '<div class="section-caption">Professional experience with role descriptions, visual context and achievement evidence under each experience.</div>',
         unsafe_allow_html=True
     )
 
-    for item in experience:
-        render_experience_card(item)
+    for i in range(0, len(experience), 2):
+        cols = st.columns(2)
+        for j, col in enumerate(cols):
+            if i + j < len(experience):
+                with col:
+                    render_experience_card(experience[i + j])
 
 def render_skills():
     st.markdown('<div class="section-title">Skills</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">Skills grouped across commercial execution, strategy, analytics, healthcare and tools.</div>',
+        '<div class="section-caption">A structured capability map across commercial execution, strategy, analytics, healthcare and technical tools.</div>',
         unsafe_allow_html=True
     )
 
-    for category, items in skills.items():
-        st.markdown(f"### {category}")
-        render_badges(items, "badge-red")
-        st.markdown("<br>", unsafe_allow_html=True)
+    skill_items = list(skills.items())
+
+    for i in range(0, len(skill_items), 2):
+        cols = st.columns(2)
+        for j, col in enumerate(cols):
+            if i + j < len(skill_items):
+                category, items = skill_items[i + j]
+                chips = "".join([f'<span class="skill-item">{item}</span>' for item in items])
+                note = skill_notes.get(category, "")
+                with col:
+                    st.markdown(f"""
+                    <div class="skill-card">
+                        <h3>{category}</h3>
+                        <div>{chips}</div>
+                        <div class="skill-note">{note}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
 
     st.markdown('<div class="section-title">Project-to-Capability Map</div>', unsafe_allow_html=True)
 
@@ -1419,7 +1472,7 @@ def render_contact():
         """, unsafe_allow_html=True)
 
 # ------------------------------------------------------------
-# TOP NAVIGATION
+# NAVIGATION
 # ------------------------------------------------------------
 
 st.markdown("""
