@@ -705,111 +705,231 @@ def render_simple_visual_card(item):
     )
 
 
-def make_project_theme_chart():
-    counts = pd.DataFrame(
-        {
-            "Theme": [
-                "Digital & Enterprise Transformation",
-                "Healthcare & Life Sciences",
-                "Commercial & Market Strategy",
-                "AI & Product Innovation",
-            ],
-            "Projects": [3, 3, 2, 3],
-        }
+def make_commercial_proof_bubble_map():
+    data = pd.DataFrame({
+        "Proof Point": [
+            "3× Revenue Growth",
+            "2,000+ Live Sessions",
+            "150+ Monthly Conversions",
+            "$3.5M Proposal",
+            "100+ Survey Responses",
+            "10+ Expert Interviews",
+            "60% Utilisation",
+            "14+ Workstreams",
+        ],
+        "Category": [
+            "Commercial Execution",
+            "High-Volume Delivery",
+            "Conversion Support",
+            "Enterprise Transformation",
+            "Customer Research",
+            "Stakeholder Research",
+            "Operations Analytics",
+            "Portfolio Breadth",
+        ],
+        "Impact Area": [
+            "Revenue",
+            "Execution",
+            "Commercial",
+            "Transformation",
+            "Research",
+            "Research",
+            "Operations",
+            "Breadth",
+        ],
+        "Scale": [90, 82, 76, 84, 72, 68, 70, 74],
+        "x": [1.0, 2.1, 3.0, 4.0, 1.5, 2.7, 3.6, 4.5],
+        "y": [3.0, 3.7, 2.6, 3.4, 1.6, 2.0, 1.4, 2.2],
+    })
+
+    fig = px.scatter(
+        data,
+        x="x",
+        y="y",
+        size="Scale",
+        color="Impact Area",
+        text="Proof Point",
+        hover_name="Category",
+        title="Commercial Proof Bubble Map",
+        size_max=58,
     )
 
-    fig = px.bar(
-        counts,
-        x="Theme",
-        y="Projects",
-        text="Projects",
-        title="Portfolio Coverage by Strategic Theme",
+    fig.update_traces(
+        textposition="middle center",
+        textfont=dict(size=11, color="white"),
+        marker=dict(line=dict(width=1.5, color="rgba(255,255,255,0.25)")),
     )
 
     fig.update_layout(
+        height=520,
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         font_color="#d4d4d8",
         title_font_color="#ffffff",
-        xaxis_tickangle=-15,
-        height=430,
-        showlegend=False,
-        margin=dict(l=20, r=20, t=60, b=80),
+        xaxis=dict(visible=False),
+        yaxis=dict(visible=False),
+        showlegend=True,
+        legend=dict(orientation="h", y=-0.1),
+        margin=dict(l=20, r=20, t=70, b=80),
     )
-    fig.update_traces(textposition="outside", marker_color="#E53935")
+
     return fig
 
 
-def make_project_business_value_chart():
-    value_data = pd.DataFrame(
-        {
-            "Business Value": [
-                "Market Growth",
-                "Operating Model",
-                "Digital Transformation",
-                "Healthcare Strategy",
-                "AI / Product Thinking",
-                "Commercial Modelling",
-            ],
-            "Evidence Level": [8, 9, 9, 8, 8, 8],
-        }
+def make_career_momentum_timeline():
+    data = pd.DataFrame({
+        "Year": [2019, 2021, 2024, 2025, 2026],
+        "Stage": [
+            "Clinical Operations",
+            "EdTech Scale",
+            "Startup Ownership",
+            "Global Business Projects",
+            "Analytics + Commercial Portfolio",
+        ],
+        "Narrative": [
+            "Patient care, documentation and clinic coordination",
+            "2,000+ sessions and performance-led delivery",
+            "Turfo operations, revenue growth and stakeholder ownership",
+            "Consulting projects across healthcare, transformation, AI and strategy",
+            "Portfolio connecting analytics, growth, partnerships and execution",
+        ],
+        "Momentum": [1, 2, 3.2, 4.1, 4.8],
+    })
+
+    fig = px.line(
+        data,
+        x="Year",
+        y="Momentum",
+        markers=True,
+        text="Stage",
+        title="Career Momentum Timeline",
+        hover_data=["Narrative"],
     )
 
-    fig = px.bar(
-        value_data,
-        x="Evidence Level",
-        y="Business Value",
-        orientation="h",
-        text="Evidence Level",
-        title="Business Value Demonstrated Across Projects",
+    fig.update_traces(
+        line=dict(color="#E53935", width=4),
+        marker=dict(size=14, color="#FF6B6B", line=dict(width=2, color="#ffffff")),
+        textposition="top center",
+        textfont=dict(color="#ffffff", size=11),
     )
 
     fig.update_layout(
+        height=440,
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         font_color="#d4d4d8",
         title_font_color="#ffffff",
-        height=430,
-        showlegend=False,
-        margin=dict(l=20, r=20, t=60, b=40),
+        xaxis=dict(showgrid=False, title=""),
+        yaxis=dict(visible=False),
+        margin=dict(l=20, r=20, t=70, b=40),
     )
-    fig.update_traces(textposition="outside", marker_color="#FF6B6B")
+
     return fig
 
 
-def make_capability_radar():
-    categories = [
-        "Execution",
-        "Commercial Thinking",
-        "Analytics",
-        "AI / Digital",
-        "Healthcare",
-        "Stakeholder Management",
-    ]
-    scores = [9, 8, 9, 8, 8, 9]
+def make_project_positioning_map():
+    data = pd.DataFrame({
+        "Project": [
+            "LM Instruments",
+            "Smart Hospitals",
+            "GSK",
+            "Royal Dutch Clinic",
+            "FinWise",
+            "DP World",
+            "Bunk Station",
+            "TrueLayer",
+            "Clinical Operations",
+        ],
+        "Business Complexity": [9, 9, 8, 7, 7, 8, 6, 8, 6],
+        "Strategic / Commercial Impact": [9, 9, 9, 8, 8, 8, 8, 7, 7],
+        "Evidence Depth": [80, 82, 78, 74, 72, 70, 68, 66, 62],
+        "Domain": [
+            "Enterprise Transformation",
+            "Digital Health",
+            "Market Intelligence",
+            "Healthcare Growth",
+            "AI Product Strategy",
+            "Digital Trade",
+            "Commercial Turnaround",
+            "Fintech Ecosystem",
+            "Healthcare Operations",
+        ],
+    })
 
-    fig = go.Figure()
-    fig.add_trace(
-        go.Scatterpolar(
-            r=scores,
-            theta=categories,
-            fill="toself",
-            line=dict(color="#E53935", width=3),
-            fillcolor="rgba(229,57,53,0.25)",
+    fig = px.scatter(
+        data,
+        x="Business Complexity",
+        y="Strategic / Commercial Impact",
+        size="Evidence Depth",
+        color="Domain",
+        text="Project",
+        title="Project Portfolio Positioning Map",
+        size_max=48,
+    )
+
+    fig.update_traces(
+        textposition="top center",
+        textfont=dict(color="#ffffff", size=10),
+        marker=dict(line=dict(width=1.5, color="rgba(255,255,255,0.25)")),
+    )
+
+    fig.update_layout(
+        height=560,
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font_color="#d4d4d8",
+        title_font_color="#ffffff",
+        xaxis=dict(range=[5, 10], gridcolor="rgba(255,255,255,0.08)"),
+        yaxis=dict(range=[6, 10], gridcolor="rgba(255,255,255,0.08)"),
+        legend=dict(orientation="h", y=-0.22),
+        margin=dict(l=20, r=20, t=70, b=140),
+    )
+
+    return fig
+
+
+def make_analytics_decision_funnel():
+    stages = pd.DataFrame({
+        "Stage": [
+            "Business Question",
+            "Data Layer",
+            "Analysis / Modelling",
+            "Insight",
+            "Business Decision",
+        ],
+        "Value": [100, 86, 72, 58, 44],
+        "Evidence": [
+            "Pricing, utilisation, customer retention, adoption behaviour",
+            "Trackers, survey data, transaction data, performance signals",
+            "EDA, segmentation, regression, classification, SmartPLS",
+            "Patterns, drivers, segments, risks and opportunities",
+            "Pricing, targeting, utilisation, engagement and roadmap decisions",
+        ],
+    })
+
+    fig = go.Figure(
+        go.Funnel(
+            y=stages["Stage"],
+            x=stages["Value"],
+            text=stages["Evidence"],
+            textinfo="label+text",
+            marker=dict(
+                color=["#E53935", "#D83A3A", "#C94A4A", "#B85A5A", "#FF6B6B"],
+                line=dict(width=1.5, color="rgba(255,255,255,0.25)"),
+            ),
         )
     )
+
     fig.update_layout(
-        polar=dict(
-            bgcolor="rgba(0,0,0,0)",
-            radialaxis=dict(visible=True, range=[0, 10], color="#a1a1aa"),
-            angularaxis=dict(color="#d4d4d8"),
-        ),
+        title="Analytics Decision Funnel",
+        height=520,
         paper_bgcolor="rgba(0,0,0,0)",
-        font_color="#d4d4d8",
-        title=dict(text="Portfolio Capability Radar", font=dict(color="#ffffff")),
-        showlegend=False,
-        height=430,
+        plot_bgcolor="rgba(0,0,0,0)",
+        font_color="#ffffff",
+        title_font_color="#ffffff",
+        margin=dict(l=20, r=20, t=70, b=40),
     )
+
     return fig
 
 
@@ -849,7 +969,7 @@ def make_project_capability_heatmap():
             x=capability_groups,
             y=y_labels,
             colorscale=[[0, "#111113"], [0.3, "#4A0F0F"], [0.6, "#B71C1C"], [1, "#FF6B6B"]],
-            colorbar=dict(title="Level"),
+            colorbar=dict(title="Coverage"),
             zmin=0,
             zmax=9,
         )
@@ -869,7 +989,7 @@ def make_project_capability_heatmap():
 def render_analytics_decision_engine():
     st.markdown('<div class="section-title">Analytics Decision Engine</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">A process view of how I use analytics: not as isolated charts, but as a decision system from business question to action.</div>',
+        '<div class="section-caption">A process view of how I use analytics as a decision system from business question to action.</div>',
         unsafe_allow_html=True,
     )
 
@@ -877,7 +997,7 @@ def render_analytics_decision_engine():
         {
             "step": "01",
             "title": "Frame the Business Question",
-            "body": "Defined the decision problem before analysis: pricing, utilisation, customer retention, adoption behaviour, performance improvement or market entry.",
+            "body": "Defined decision problems around pricing, utilisation, retention, adoption behaviour, performance improvement and market entry.",
             "proof": "TasteMate · Turfo · BYJU’S · GSK · AI Adoption Research",
         },
         {
@@ -889,7 +1009,7 @@ def render_analytics_decision_engine():
         {
             "step": "03",
             "title": "Model the Insight",
-            "body": "Applied EDA, segmentation, regression, classification, clustering, association rules and statistical interpretation to convert data into insight.",
+            "body": "Applied EDA, segmentation, regression, classification, clustering, association rules and statistical interpretation.",
             "proof": "Customer analytics · Spend modelling · Behavioural segmentation · Trust mediation model",
         },
         {
@@ -942,7 +1062,7 @@ def render_analytics_evidence_table():
 def render_leadership_impact_matrix():
     st.markdown('<div class="section-title">Leadership Impact Map</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">Leadership evidence mapped by type of ownership, stakeholder exposure and outcome.</div>',
+        '<div class="section-caption">Leadership evidence mapped by ownership, stakeholder exposure and outcome.</div>',
         unsafe_allow_html=True,
     )
 
@@ -1067,26 +1187,24 @@ def render_home():
                     item = portfolio_fit_areas[i + j]
                     render_fit_card(item["area"], item["evidence"])
 
-    st.markdown('<div class="section-title">Portfolio Visuals</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">Commercial Proof Map</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">Visuals designed to show portfolio breadth, business value and capability coverage.</div>',
+        '<div class="section-caption">A proof-led visual showing measurable outcomes and evidence scale across execution, commercial growth, analytics and transformation.</div>',
         unsafe_allow_html=True,
     )
 
-    c1, c2 = st.columns(2)
+    st.markdown('<div class="visual-card">', unsafe_allow_html=True)
+    st.plotly_chart(make_commercial_proof_bubble_map(), use_container_width=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
-    with c1:
-        st.markdown('<div class="visual-card">', unsafe_allow_html=True)
-        st.plotly_chart(make_project_theme_chart(), use_container_width=True)
-        st.markdown("</div>", unsafe_allow_html=True)
-
-    with c2:
-        st.markdown('<div class="visual-card">', unsafe_allow_html=True)
-        st.plotly_chart(make_project_business_value_chart(), use_container_width=True)
-        st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown('<div class="section-title">Career Momentum</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-caption">A visual progression from clinical operations to EdTech scale, startup ownership, global business projects and analytics-led commercial execution.</div>',
+        unsafe_allow_html=True,
+    )
 
     st.markdown('<div class="visual-card">', unsafe_allow_html=True)
-    st.plotly_chart(make_capability_radar(), use_container_width=True)
+    st.plotly_chart(make_career_momentum_timeline(), use_container_width=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
 
@@ -1138,6 +1256,16 @@ def render_projects():
         '<div class="section-caption">Consulting-style and business project work across fintech, digital transformation, commercial strategy, AI-enabled models, market intelligence and healthcare transformation.</div>',
         unsafe_allow_html=True,
     )
+
+    st.markdown('<div class="section-title">Project Portfolio Positioning</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-caption">A strategic view of project breadth by business complexity, commercial impact and evidence depth.</div>',
+        unsafe_allow_html=True,
+    )
+
+    st.markdown('<div class="visual-card">', unsafe_allow_html=True)
+    st.plotly_chart(make_project_positioning_map(), use_container_width=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
     capability_filter = st.selectbox("Filter by capability", ["All"] + sorted(set([p["capability"] for p in projects])))
     filtered = projects if capability_filter == "All" else [p for p in projects if p["capability"] == capability_filter]
@@ -1191,6 +1319,16 @@ def render_analytics():
                 item = analytics_cards[i + j]
                 with col:
                     render_fit_card(item["area"], item["evidence"])
+
+    st.markdown('<div class="section-title">Analytics Decision Funnel</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-caption">A visual funnel showing how analytics moves from business question to actionable decision.</div>',
+        unsafe_allow_html=True,
+    )
+
+    st.markdown('<div class="visual-card">', unsafe_allow_html=True)
+    st.plotly_chart(make_analytics_decision_funnel(), use_container_width=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
     render_analytics_decision_engine()
 
