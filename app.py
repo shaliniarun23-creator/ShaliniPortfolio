@@ -1493,7 +1493,7 @@ def render_contact():
             """
         <div class="contact-card">
             <h3>Shalini Arun Prakash</h3>
-            <p><b>Portfolio Focus:</b> Healthcare · Digital Transformation · Business Projects · Data Analytics · AI-Enabled Business Models</p>
+            <p><b>Portfolio Focus:</b> Digital Transformation · Data Analytics · AI-Enabled Business Models · Commercial Execution · Strategy</p>
             <p><b>Location:</b> India</p>
             <p><b>Email:</b> shaliniarun23@gmail.com</p>
             <p><b>LinkedIn:</b> linkedin.com/in/shaliniarun</p>
@@ -1530,7 +1530,7 @@ st.markdown(
         Shalini Arun Prakash
     </div>
     <div style="color:#a1a1aa; margin-top:0.35rem; font-size:0.95rem;">
-        Healthcare · Digital Transformation · Data Analytics · AI-Enabled Business Models · Commercial Execution
+        Digital Transformation · Data Analytics · AI-Enabled Business Models · Commercial Execution · Strategy
     </div>
 </div>
 """,
