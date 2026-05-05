@@ -45,7 +45,7 @@ header {visibility: hidden;}
 .block-container {
     padding-top: 1.2rem;
     padding-bottom: 3rem;
-    max-width: 1340px;
+    max-width: 1360px;
 }
 
 h1, h2, h3, h4 {
@@ -63,8 +63,8 @@ p, li, span, div {
     border-radius: 0px;
     min-height: 650px;
     background:
-        linear-gradient(90deg, rgba(0,0,0,0.98), rgba(0,0,0,0.86), rgba(0,0,0,0.42)),
-        url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1800&q=90');
+        linear-gradient(90deg, rgba(0,0,0,0.98), rgba(0,0,0,0.88), rgba(0,0,0,0.46)),
+        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1800&q=90');
     background-size: cover;
     background-position: center;
     border: 1px solid rgba(255,255,255,0.12);
@@ -73,7 +73,7 @@ p, li, span, div {
 }
 
 .hero-content {
-    max-width: 1080px;
+    max-width: 1110px;
     padding: 4.2rem 4rem 3.2rem 4rem;
 }
 
@@ -92,12 +92,12 @@ p, li, span, div {
 }
 
 .hero-title {
-    font-size: clamp(3rem, 5.8vw, 6.1rem);
+    font-size: clamp(3rem, 5.7vw, 6rem);
     line-height: 0.94;
     font-weight: 950;
     color: #ffffff;
     margin-bottom: 1.35rem;
-    max-width: 1150px;
+    max-width: 1180px;
     text-shadow: 0 14px 45px rgba(0,0,0,0.55);
     text-transform: uppercase;
 }
@@ -112,7 +112,7 @@ p, li, span, div {
 .hero-subline {
     font-size: 1.08rem;
     line-height: 1.75;
-    max-width: 890px;
+    max-width: 910px;
     color: #d4d4d8;
     margin-bottom: 1.6rem;
 }
@@ -165,7 +165,7 @@ p, li, span, div {
     font-size: 2.35rem;
     font-weight: 950;
     color: #ffffff;
-    margin-top: 2.7rem;
+    margin-top: 3.2rem;
     margin-bottom: 0.55rem;
     text-transform: uppercase;
 }
@@ -184,7 +184,7 @@ p, li, span, div {
     font-size: 1rem;
     margin-bottom: 1.35rem;
     line-height: 1.65;
-    max-width: 980px;
+    max-width: 990px;
 }
 
 .metric-card {
@@ -197,6 +197,7 @@ p, li, span, div {
     min-height: 150px;
     box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
     margin-bottom: 1rem;
+    transition: all 0.22s ease-in-out;
 }
 
 .metric-card:before {
@@ -207,6 +208,24 @@ p, li, span, div {
     left: 0;
     top: 0;
     background: #E53935;
+}
+
+.metric-card:hover,
+.fit-card:hover,
+.project-card:hover,
+.visual-card:hover,
+.skill-card:hover {
+    transform: translateY(-3px);
+    transition: all 0.22s ease-in-out;
+    border-color: rgba(229,57,53,0.42);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.48);
+}
+
+.project-card,
+.fit-card,
+.visual-card,
+.skill-card {
+    transition: all 0.22s ease-in-out;
 }
 
 .metric-value {
@@ -270,17 +289,17 @@ p, li, span, div {
     height: 250px;
     object-fit: cover;
     border-bottom: 4px solid #E53935;
-    opacity: 0.88;
-    filter: grayscale(30%) contrast(1.08);
+    opacity: 0.90;
+    filter: grayscale(22%) contrast(1.08);
 }
 
 .experience-img {
     width: 100%;
-    height: 210px;
+    height: 220px;
     object-fit: cover;
     border-bottom: 4px solid #E53935;
-    opacity: 0.88;
-    filter: grayscale(25%) contrast(1.08);
+    opacity: 0.90;
+    filter: grayscale(20%) contrast(1.08);
 }
 
 .project-body,
@@ -352,7 +371,7 @@ p, li, span, div {
     border: 1px solid rgba(255,255,255,0.12);
     border-top: 4px solid #E53935;
     padding: 1.25rem;
-    min-height: 230px;
+    min-height: 270px;
     box-shadow: 0 18px 50px rgba(0,0,0,0.35);
     margin-bottom: 1rem;
 }
@@ -415,6 +434,9 @@ div[data-testid="stExpander"] summary {
     padding: 10px;
     border-radius: 0px;
     border: 1px solid rgba(255,255,255,0.12);
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .stTabs [data-baseweb="tab"] {
@@ -452,7 +474,7 @@ hr {
 """, unsafe_allow_html=True)
 
 # ------------------------------------------------------------
-# DATA
+# CORE DATA
 # ------------------------------------------------------------
 
 metrics = [
@@ -549,7 +571,7 @@ projects = [
         "capability": "AI-Powered Business Models",
         "location": "UAE",
         "context": "AI-enabled B2B2C education/product strategy",
-        "image": "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1400&q=85",
+        "image": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1400&q=85",
         "summary": "Designed a scalable AI-enabled financial literacy model for students, parents, schools and CSR partners with structured learning journeys and implementation logic.",
         "problem": "Financial literacy gaps among school-aged learners are driven by curriculum gaps, behavioural gaps, parental engagement gaps and system constraints.",
         "role": "Structured the product concept, stakeholder model, MVP logic, journey maps, service blueprint and scale roadmap.",
@@ -574,7 +596,7 @@ projects = [
         "capability": "Enterprise Transformation",
         "location": "Dubai",
         "context": "SAP transformation RFP and commercial model",
-        "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=85",
+        "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85",
         "summary": "Structured AS-IS / TO-BE workflows, SAP-aligned operating blueprints, data migration logic and commercial proposal for enterprise transformation.",
         "problem": "Enterprise transformation requires clear process design, data readiness, governance, cost logic and implementation sequencing across functions.",
         "role": "Mapped business requirements, process dependencies, data entities and commercial proposal logic.",
@@ -599,7 +621,7 @@ projects = [
         "capability": "Digital Transformation",
         "location": "Dubai",
         "context": "Emerging technology strategy project",
-        "image": "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1400&q=85",
+        "image": "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1400&q=85",
         "summary": "Assessed how AI, blockchain, AR/VR and drones can improve trade visibility, logistics efficiency, documentation speed and operational resilience.",
         "problem": "Trade and logistics ecosystems face inefficiencies across documentation, customs, visibility, yard planning and asset monitoring.",
         "role": "Conducted use-case analysis, operating model assessment and technology-to-business-impact mapping.",
@@ -624,7 +646,7 @@ projects = [
         "capability": "Healthcare Growth Strategy",
         "location": "UAE",
         "context": "Healthcare growth and operating model project",
-        "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1400&q=85",
+        "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=85",
         "summary": "Assessed growth potential, patient journey, referral pathways, pricing sensitivity and operational bottlenecks for a premium healthcare services context.",
         "problem": "Healthcare service growth can be constrained by unclear patient acquisition pathways, pricing friction, operational bottlenecks and inconsistent service conversion.",
         "role": "Supported market and operational analysis using primary research, benchmarking and patient journey assessment.",
@@ -649,7 +671,7 @@ projects = [
         "capability": "Market Intelligence",
         "location": "Dubai",
         "context": "Global strategy project",
-        "image": "https://images.unsplash.com/photo-1579154341098-e4e158cc7f55?auto=format&fit=crop&w=1400&q=85",
+        "image": "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=1400&q=85",
         "summary": "Analysed U.S. oncology market opportunity, competitive landscape, commercial positioning and investment logic for a new prostate cancer drug context.",
         "problem": "Pharma market entry requires clarity on market attractiveness, competitive differentiation, pricing logic, stakeholder access and investment feasibility.",
         "role": "Worked on market intelligence, competitive benchmarking, financial modelling and commercial strategy framing.",
@@ -674,7 +696,7 @@ projects = [
         "capability": "Healthcare Digital Transformation",
         "location": "Singapore",
         "context": "SingHealth-focused academic consulting project",
-        "image": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1400&q=85",
+        "image": "https://images.unsplash.com/photo-1581091870622-7c80116a9d48?auto=format&fit=crop&w=1400&q=85",
         "summary": "Designed a healthcare digital transformation roadmap focused on interoperability, workflow standardisation, KPI governance, digital adoption and patient journey improvement.",
         "problem": "Hospitals often face fragmented workflows, uneven digital adoption, interoperability gaps and weak KPI visibility across patient-facing and back-office processes.",
         "role": "Conducted research, synthesised expert and patient inputs, assessed workflow adoption gaps and structured the SMART-DX transformation framework.",
@@ -723,19 +745,20 @@ projects = [
 
 analytics_projects = [
     {
-        "title": "TasteMate Cloud Kitchen – End-to-End Data Analytics Dashboard",
-        "capability": "Data Analytics & Business Intelligence",
+        "title": "TasteMate Cloud Kitchen – End-to-End Analytics Dashboard",
+        "capability": "Customer Analytics & Decision Intelligence",
         "location": "Academic / Business Analytics Project",
         "context": "Cloud kitchen analytics project using customer and transaction data",
         "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
-        "summary": "Built a data-driven cloud kitchen analytics framework covering data cleaning, feature engineering, customer segmentation, regression-based spend modelling, classification, association rule mining and interactive dashboard visualisation.",
-        "problem": "Cloud kitchens need to understand customer behaviour, spend drivers, loyalty patterns, meal combinations and retention risk to improve pricing, packaging and campaign decisions.",
-        "role": "Structured the analytics problem, designed the dashboard logic, mapped business objectives to analytical techniques and translated model outputs into business insights.",
+        "summary": "Designed an end-to-end analytics dashboard framework connecting customer behaviour, revenue drivers, segmentation, predictive modelling and recommendation logic to business decisions.",
+        "problem": "Cloud kitchens need more than sales reports. They need visibility into customer behaviour, spend drivers, loyalty patterns, retention risk, meal combinations and pricing opportunities.",
+        "role": "Owned the analytics storyline from business problem framing to dashboard logic, modelling choices, insight generation and business recommendations.",
         "approach": [
             "Cleaned and transformed customer and transaction-level data for analysis.",
+            "Used EDA to understand demand, spend behaviour and operational patterns.",
             "Used clustering to segment customers into behavioural personas.",
-            "Used regression to model average spend and guide pricing and packaging decisions.",
-            "Applied classification models to support prediction-oriented customer and business decisions.",
+            "Used regression to model average spend and support pricing and packaging decisions.",
+            "Applied classification models for prediction-oriented customer and business decisions.",
             "Used association rule mining to identify revenue-driving meal combinations.",
             "Designed Streamlit dashboard tabs for visualisation, model comparison and business insights."
         ],
@@ -749,17 +772,17 @@ analytics_projects = [
             "Association rules for meal combination insights.",
             "Business recommendations for pricing, campaigns and retention."
         ],
-        "strategic_relevance": "Shows ability to convert raw customer touchpoints into business intelligence, link analytics to growth decisions and build decision-support dashboards."
+        "strategic_relevance": "Shows ownership of analytics as a decision system: from raw data to insight, model logic, dashboarding and commercial recommendations."
     },
     {
         "title": "Turfo Revenue & Utilization Analytics",
-        "capability": "Operational Analytics & KPI Tracking",
+        "capability": "Operational Analytics & KPI Ownership",
         "location": "India",
         "context": "Startup operations analytics and dashboard-led decision-making",
         "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
-        "summary": "Built Excel-based trackers and dashboards to monitor bookings, pricing performance, utilisation and revenue trends, supporting operating decisions and revenue growth.",
-        "problem": "A growing sports facility needed better visibility into slot demand, pricing efficiency, utilisation, customer engagement and revenue performance.",
-        "role": "Created operational trackers, analysed demand patterns and used performance data to support pricing, scheduling and utilisation decisions.",
+        "summary": "Built operating trackers and dashboard logic to monitor bookings, pricing performance, utilisation and revenue trends, directly supporting business ownership and growth decisions.",
+        "problem": "A growing sports facility needed visibility into slot demand, pricing efficiency, utilisation, customer engagement and revenue performance.",
+        "role": "Owned the operating analytics layer by creating trackers, reviewing demand patterns and using performance data to support pricing, scheduling and utilisation decisions.",
         "approach": [
             "Built Excel dashboards for bookings, utilisation and revenue trends.",
             "Analysed customer demand patterns and peak-hour usage.",
@@ -783,9 +806,9 @@ analytics_projects = [
         "location": "India",
         "context": "High-volume EdTech performance and engagement analytics",
         "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85",
-        "summary": "Used learner engagement and performance data to identify learning gaps, improve delivery strategies and support conversion-oriented outcomes in a high-volume EdTech environment.",
+        "summary": "Used learner engagement and performance signals to identify learning gaps, refine delivery strategies and support conversion-oriented outcomes in a high-volume EdTech environment.",
         "problem": "Large-scale online learning delivery requires continuous visibility into engagement, learner gaps, feedback, session quality and conversion outcomes.",
-        "role": "Analysed learner performance and engagement signals to improve session delivery, communication and student outcomes.",
+        "role": "Used performance signals and learner feedback to improve session delivery, communication and student outcomes.",
         "approach": [
             "Reviewed learner engagement and performance dashboards.",
             "Identified learning gaps and adjusted session delivery strategies.",
@@ -930,11 +953,26 @@ skills = {
 }
 
 skill_notes = {
-    "Business & Commercial Execution": "Built through Turfo operating ownership, revenue tracking, pricing decisions, stakeholder handling and high-volume EdTech performance delivery.",
-    "Strategy & Transformation": "Developed through consulting-style MBA projects across fintech, healthcare, enterprise systems, life sciences and digital trade.",
-    "Data Analytics & BI": "Demonstrated through dashboards, KPI tracking, customer analytics, modelling workflows and business decision-support projects.",
-    "Healthcare & Life Sciences": "Grounded in BDS clinical experience, healthcare operations, digital health strategy, patient journey work and life sciences market intelligence.",
-    "Tools": "Practical toolset used across dashboards, analysis, modelling, reporting, presentations and portfolio development."
+    "Business & Commercial Execution": {
+        "evidence": "Turfo operating ownership, revenue tracking, pricing decisions, stakeholder handling and high-volume EdTech performance delivery.",
+        "methods": "Revenue tracking · Pricing thinking · Stakeholder coordination · Execution discipline"
+    },
+    "Strategy & Transformation": {
+        "evidence": "Consulting-style MBA projects across fintech, healthcare, enterprise systems, life sciences and digital trade.",
+        "methods": "Market entry · Operating model design · TOWS/SWOT · Scenario analysis"
+    },
+    "Data Analytics & BI": {
+        "evidence": "TasteMate dashboard, Turfo revenue/utilisation trackers, BYJU’S engagement analytics and AI adoption modelling.",
+        "methods": "EDA · Regression · Classification · Clustering · KPI dashboards"
+    },
+    "Healthcare & Life Sciences": {
+        "evidence": "BDS clinical experience, healthcare operations, digital health strategy, patient journey work and life sciences market intelligence.",
+        "methods": "Patient journey mapping · Clinical workflow · Research synthesis · Healthcare strategy"
+    },
+    "Tools": {
+        "evidence": "Used across dashboards, analysis, modelling, reporting, presentations and portfolio development.",
+        "methods": "Excel · PowerPoint · Power BI · Tableau · Python · Streamlit · SmartPLS · AI tools"
+    }
 }
 
 # ------------------------------------------------------------
@@ -1143,7 +1181,7 @@ def make_capability_radar():
         "Healthcare",
         "Stakeholder Management",
     ]
-    scores = [9, 8, 8, 8, 8, 9]
+    scores = [9, 8, 9, 8, 8, 9]
 
     fig = go.Figure()
     fig.add_trace(go.Scatterpolar(
@@ -1177,13 +1215,13 @@ def render_home():
         <div class="hero-content">
             <div class="name-chip">Shalini Arun Prakash · Professional Portfolio</div>
             <div class="hero-title">
-                Building <span class="highlight-red">business impact</span><br>
-                with execution, data and strategy.
+                I turn <span class="highlight-red">complex problems</span><br>
+                into structured business outcomes.
             </div>
             <div class="hero-subline">
-                A professional portfolio spanning healthcare, digital transformation,
-                startup operations, data analytics, AI-enabled business models, commercial execution,
-                market intelligence and evidence-backed problem solving.
+                A portfolio across healthcare, digital transformation, startup operations,
+                data analytics, AI-enabled business models, commercial execution and
+                evidence-backed problem solving.
             </div>
             <span class="badge badge-red">Healthcare</span>
             <span class="badge badge-red">Digital Transformation</span>
@@ -1258,20 +1296,19 @@ def render_home():
     st.plotly_chart(make_capability_radar(), use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-def render_portfolio_fit():
-    st.markdown('<div class="section-title">Portfolio Fit Map</div>', unsafe_allow_html=True)
+def render_experience():
+    st.markdown('<div class="section-title">Experience</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">This section maps the portfolio across execution, commercial thinking, analytics, AI-enabled systems, stakeholder activation and market intelligence.</div>',
+        '<div class="section-caption">Professional experience with role descriptions, visual context and achievement evidence under each experience.</div>',
         unsafe_allow_html=True
     )
 
-    for i in range(0, len(portfolio_fit_areas), 2):
+    for i in range(0, len(experience), 2):
         cols = st.columns(2)
         for j, col in enumerate(cols):
-            if i + j < len(portfolio_fit_areas):
+            if i + j < len(experience):
                 with col:
-                    item = portfolio_fit_areas[i + j]
-                    render_fit_card(item["area"], item["evidence"])
+                    render_experience_card(experience[i + j])
 
 def render_projects():
     st.markdown('<div class="section-title">Projects</div>', unsafe_allow_html=True)
@@ -1299,27 +1336,27 @@ def render_projects():
 def render_analytics():
     st.markdown('<div class="section-title">Data Analytics & Business Intelligence</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">A dedicated section for dashboarding, KPI tracking, customer analytics, predictive modelling, research analytics and data-driven decision support.</div>',
+        '<div class="section-caption">A dedicated section for dashboarding, KPI ownership, customer analytics, predictive modelling, research analytics and data-driven decision support.</div>',
         unsafe_allow_html=True
     )
 
     analytics_cards = [
         {
-            "title": "Business Intelligence & Dashboards",
-            "text": "Excel and Streamlit-based dashboards for bookings, utilisation, pricing performance, revenue trends and operational performance."
+            "area": "Decision intelligence",
+            "evidence": "Framed analytics projects around business choices: pricing, utilisation, spend behaviour, segmentation, retention and operational performance."
         },
         {
-            "title": "Customer & Market Analytics",
-            "text": "Customer segmentation, demand pattern analysis, pricing sensitivity, customer insight generation and market research."
+            "area": "Dashboard ownership",
+            "evidence": "Built trackers and dashboard structures that made performance visible across bookings, utilisation, revenue, engagement and model outputs."
         },
         {
-            "title": "Predictive & Diagnostic Analytics",
-            "text": "Regression, classification, trend analysis, variance thinking and bottleneck diagnosis to support business decisions."
+            "area": "Customer analytics",
+            "evidence": "Used segmentation, behaviour patterns, spend modelling and association rules to move beyond reporting into actionable commercial insight."
         },
         {
-            "title": "Machine Learning Workflows",
-            "text": "Classification, clustering, regression and association rule mining applied to business problems and recommendations."
-        }
+            "area": "Research analytics",
+            "evidence": "Designed and interpreted AI adoption analysis using TPB, trust mediation, SmartPLS outputs and evidence-backed reasoning."
+        },
     ]
 
     for i in range(0, len(analytics_cards), 2):
@@ -1328,7 +1365,7 @@ def render_analytics():
             if i + j < len(analytics_cards):
                 item = analytics_cards[i + j]
                 with col:
-                    render_fit_card(item["title"], item["text"])
+                    render_fit_card(item["area"], item["evidence"])
 
     st.markdown('<div class="section-title">Analytics Visuals</div>', unsafe_allow_html=True)
 
@@ -1348,7 +1385,7 @@ def render_analytics():
 
     st.markdown('<div class="section-title">Analytics Project Evidence</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">Analytics evidence is separated from the main Projects tab to keep dashboarding, modelling and BI work visible on its own.</div>',
+        '<div class="section-caption">Analytics evidence is separated from the main Projects tab to make dashboarding, modelling and BI ownership visible on its own.</div>',
         unsafe_allow_html=True
     )
 
@@ -1359,24 +1396,10 @@ def render_analytics():
                 with col:
                     render_project_card(analytics_projects[i + j])
 
-def render_experience():
-    st.markdown('<div class="section-title">Experience</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">Professional experience with role descriptions, visual context and achievement evidence under each experience.</div>',
-        unsafe_allow_html=True
-    )
-
-    for i in range(0, len(experience), 2):
-        cols = st.columns(2)
-        for j, col in enumerate(cols):
-            if i + j < len(experience):
-                with col:
-                    render_experience_card(experience[i + j])
-
 def render_skills():
     st.markdown('<div class="section-title">Skills</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="section-caption">A structured capability map across commercial execution, strategy, analytics, healthcare and technical tools.</div>',
+        '<div class="section-caption">A capability map showing what I can do, where it was demonstrated, and the tools or methods behind it.</div>',
         unsafe_allow_html=True
     )
 
@@ -1388,13 +1411,16 @@ def render_skills():
             if i + j < len(skill_items):
                 category, items = skill_items[i + j]
                 chips = "".join([f'<span class="skill-item">{item}</span>' for item in items])
-                note = skill_notes.get(category, "")
+                evidence = skill_notes.get(category, {}).get("evidence", "")
+                methods = skill_notes.get(category, {}).get("methods", "")
+
                 with col:
                     st.markdown(f"""
                     <div class="skill-card">
                         <h3>{category}</h3>
                         <div>{chips}</div>
-                        <div class="skill-note">{note}</div>
+                        <div class="skill-note"><b>Evidence:</b> {evidence}</div>
+                        <div class="skill-note"><b>Methods / Tools:</b> {methods}</div>
                     </div>
                     """, unsafe_allow_html=True)
 
@@ -1476,30 +1502,31 @@ def render_contact():
 # ------------------------------------------------------------
 
 st.markdown("""
-<div style="padding: 0.9rem 0 1.2rem 0;">
-    <div style="font-size: 1.65rem; font-weight: 950; color: #ffffff; text-transform: uppercase;">Shalini Arun Prakash</div>
-    <div style="color:#a1a1aa; margin-top:0.25rem;">Healthcare · Digital Transformation · Data Analytics · AI-Enabled Business Models · Commercial Execution</div>
+<div style="padding: 0.9rem 0 1.4rem 0; border-bottom:1px solid rgba(255,255,255,0.10); margin-bottom:1rem;">
+    <div style="font-size: 1.75rem; font-weight: 950; color: #ffffff; text-transform: uppercase; letter-spacing:-0.03em;">
+        Shalini Arun Prakash
+    </div>
+    <div style="color:#a1a1aa; margin-top:0.35rem; font-size:0.95rem;">
+        Healthcare · Digital Transformation · Data Analytics · AI-Enabled Business Models · Commercial Execution
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
-tab_home, tab_fit, tab_projects, tab_analytics, tab_experience, tab_skills, tab_proof, tab_contact = st.tabs(
-    ["Home", "Portfolio Fit", "Projects", "Analytics", "Experience", "Skills", "Proof Points", "Contact"]
+tab_home, tab_experience, tab_projects, tab_analytics, tab_skills, tab_proof, tab_contact = st.tabs(
+    ["Home", "Experience", "Projects", "Analytics", "Skills", "Proof Points", "Contact"]
 )
 
 with tab_home:
     render_home()
 
-with tab_fit:
-    render_portfolio_fit()
+with tab_experience:
+    render_experience()
 
 with tab_projects:
     render_projects()
 
 with tab_analytics:
     render_analytics()
-
-with tab_experience:
-    render_experience()
 
 with tab_skills:
     render_skills()
