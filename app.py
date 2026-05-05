@@ -1092,61 +1092,49 @@ def render_leadership_impact_matrix():
 
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
+    def render_home():
 
-def render_home():
+    st.markdown(
+        """
+        <div class="hero-shell">
+            <div class="hero-content">
+                <div class="hero-split">
 
-    col1, col2 = st.columns([1.6, 1])
+                    <div>
+                        <div class="name-chip">
+                            Shalini Arun Prakash · Professional Portfolio
+                        </div>
 
-    with col1:
-        st.markdown(
-            """
-            <div class="hero-shell">
-                <div class="hero-content">
+                        <div class="hero-title">
+                            I drive <span class="highlight-red">business growth</span><br>
+                            through execution and data.
+                        </div>
 
-                    <div class="name-chip">
-                        Shalini Arun Prakash · Professional Portfolio
+                        <div class="hero-subline">
+                            Experience across startup operations, EdTech, analytics,
+                            customer engagement, commercial execution and structured
+                            business problem solving.
+                        </div>
+
+                        <span class="badge badge-red">Revenue Growth</span>
+                        <span class="badge badge-red">Commercial Execution</span>
+                        <span class="badge badge-light-red">Data Analytics</span>
+                        <span class="badge">Partnerships</span>
+                        <span class="badge">Strategy</span>
                     </div>
 
-                    <div class="hero-title">
-                        I drive <span class="highlight-red">business growth</span><br>
-                        through execution and data.
+                    <div class="hero-profile-wrap">
+                        <div class="hero-profile-stage">
+                            <img src="assets/shalini-profile.png" class="hero-profile-img">
+                        </div>
                     </div>
-
-                    <div class="hero-subline">
-                        Experience across startup operations, EdTech, analytics,
-                        customer engagement, commercial execution and structured
-                        business problem solving.
-                    </div>
-
-                    <span class="badge badge-red">Revenue Growth</span>
-                    <span class="badge badge-red">Commercial Execution</span>
-                    <span class="badge badge-light-red">Data Analytics</span>
-                    <span class="badge">Partnerships</span>
-                    <span class="badge">Strategy</span>
 
                 </div>
             </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    with col2:
-        st.image("assets/shalini-profile.png", use_container_width=True)
-
-def render_experience():
-    st.markdown('<div class="section-title">Experience</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="section-caption">Professional experience with role descriptions, visual context and achievement evidence under each experience.</div>',
+        </div>
+        """,
         unsafe_allow_html=True,
     )
-
-    for i in range(0, len(experience), 2):
-        cols = st.columns(2)
-        for j, col in enumerate(cols):
-            if i + j < len(experience):
-                with col:
-                    render_experience_card(experience[i + j])
-
 
 def render_education():
     st.markdown('<div class="section-title">Education</div>', unsafe_allow_html=True)
